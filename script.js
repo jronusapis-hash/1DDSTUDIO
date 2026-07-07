@@ -1,86 +1,37 @@
 async function loadContent(){
-  const res = await fetch('content.json?cache=' + Date.now());
-  const data = await res.json();
-  const brand = data.brand;
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('heroBadge').textContent = data.hero.badge;
-  document.getElementById('heroTitle').textContent = data.hero.titleTH;
-  document.getElementById('heroSub').textContent = data.hero.subtitleTH;
-  document.getElementById('heroSubEn').textContent = data.hero.subtitleEN;
-  document.getElementById('heroBg').style.backgroundImage = `url('${data.hero.image}')`;
-  const bookLinks = ['bookingBtn','navBooking','contactBooking'];
-  bookLinks.forEach(id=>document.getElementById(id).href=brand.bookingUrl);
-  document.getElementById('whatsappBtn').href = `https://wa.me/${brand.whatsapp}`;
-  document.getElementById('lineBtn').href = `https://line.me/R/ti/p/~${brand.lineId}`;
-  document.getElementById('floatingLine').href = `https://line.me/R/ti/p/~${brand.lineId}`;
-  document.getElementById('callBtn').href = `tel:${brand.phone}`;
-  document.getElementById('contactInfo').innerHTML = `${brand.location}<br>เปิดบริการ ${brand.hours}<br>โทร ${brand.phone} • LINE: ${brand.lineId}`;
-  document.getElementById('mapFrame').src = brand.mapUrl;
-
-  let baIndex = 0;
-
-function renderBASlider(items){
-  const el = document.getElementById('baGrid');
-  const item = items[baIndex];
-
-  el.innerHTML = `
-    <div class="ba-slider">
-      <button class="ba-arrow" id="baPrev">‹</button>
-
-      <article class="ba-slide-card">
-        <div class="ba-slide-images">
-          <div class="ba-slide-img" style="background-image:url('${item.before}')">
-            <span>ก่อนติดตั้ง</span>
-          </div>
-          <div class="ba-slide-img" style="background-image:url('${item.after}')">
-            <span>หลังติดตั้ง</span>
-          </div>
-        </div>
-        <div class="ba-info">
-          <h3>${item.title}</h3>
-          <p>${item.note}</p>
-        </div>
-      </article>
-
-      <button class="ba-arrow" id="baNext">›</button>
-    </div>
-
-    <div class="ba-dots">
-      ${items.map((_, i)=>`<button class="${i===baIndex?'active':''}" data-i="${i}"></button>`).join('')}
-    </div>
-  `;
-
-  document.getElementById('baPrev').onclick = () => {
-    baIndex = (baIndex - 1 + items.length) % items.length;
-    renderBASlider(items);
-  };
-
-  document.getElementById('baNext').onclick = () => {
-    baIndex = (baIndex + 1) % items.length;
-    renderBASlider(items);
-  };
-
-  document.querySelectorAll('.ba-dots button').forEach(btn=>{
-    btn.onclick = () => {
-      baIndex = Number(btn.dataset.i);
-      renderBASlider(items);
-    };
-  });
+  const res = await fetch('content.json?v=' + Date.now());
+  return res.json();
 }
-
-renderBASlider(data.beforeAfter);
-
-  document.getElementById('proofStrip').innerHTML = data.proof.map(p=>`<div class="proof-item"><b>${p.value}</b><span>${p.label}</span></div>`).join('');
-
-  document.getElementById('productGrid').innerHTML = data.products.map(p=>`
-    <article class="product-card reveal">
-      <div class="product-image" style="background-image:url('${p.image}')"></div>
-      <div class="product-card-content"><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.price}</div><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul></div>
-    </article>`).join('');
-
-  document.getElementById('serviceGrid').innerHTML = data.services.map((s,i)=>`<div class="service-item"><b>0${i+1}</b><p>${s}</p></div>`).join('');
-  document.getElementById('reviewGrid').innerHTML = data.reviews.map(r=>`<article class="review-card"><p>“${r.text}”</p><b>${r.name}</b></article>`).join('');
-  document.getElementById('faqList').innerHTML = data.faq.map((f,i)=>`<div class="faq-item ${i===0?'open':''}"><div class="faq-q">${f.q}<span>+</span></div><div class="faq-a">${f.a}</div></div>`).join('');
-  document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+let reviewIndex = 0;
+let reviewImages = [];
+function renderReview(){
+  const img = document.getElementById('reviewImage');
+  const dots = document.getElementById('reviewDots');
+  if(!img || !dots || !reviewImages.length) return;
+  img.src = reviewImages[reviewIndex];
+  dots.innerHTML = reviewImages.map((_,i)=>`<button class="${i===reviewIndex?'active':''}" onclick="goReview(${i})"></button>`).join('');
 }
-loadContent();
+function moveReview(step){ reviewIndex=(reviewIndex+step+reviewImages.length)%reviewImages.length; renderReview(); }
+function goReview(i){ reviewIndex=i; renderReview(); }
+loadContent().then(data=>{
+  const b=data.brand,h=data.hero;
+  document.getElementById('heroBadge').textContent=h.badge;
+  document.getElementById('heroTitle').textContent=h.title;
+  document.getElementById('heroSubtitle').textContent=h.subtitle;
+  document.getElementById('heroImage').src=h.image;
+  document.getElementById('bookingTop').href=b.bookingUrl;
+  document.getElementById('bookingHero').href=b.bookingUrl;
+  document.getElementById('whatsappHero').href=`https://wa.me/${b.whatsapp}`;
+  document.getElementById('lineBtn').href=`https://line.me/ti/p/~${b.lineId}`;
+  document.getElementById('floatingLine').href=`https://line.me/ti/p/~${b.lineId}`;
+  document.getElementById('mapBtn').href=b.mapUrl;
+  document.getElementById('contactInfo').textContent=`LINE: ${b.lineId} • โทร ${b.phone} • เวลา ${b.hours} • ${b.location}`;
+  reviewImages=data.reviewImages;
+  renderReview();
+  document.getElementById('prevReview').onclick=()=>moveReview(-1);
+  document.getElementById('nextReview').onclick=()=>moveReview(1);
+  document.getElementById('productGrid').innerHTML=data.products.map(p=>`
+    <article class="product"><img src="${p.image}" alt="${p.name}"><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.price}</div><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul></article>
+  `).join('');
+  document.getElementById('faqList').innerHTML=data.faq.map(f=>`<article class="faqItem"><h3>${f.q}</h3><p>${f.a}</p></article>`).join('');
+});

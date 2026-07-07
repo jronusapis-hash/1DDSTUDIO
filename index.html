@@ -1,122 +1,89 @@
 <!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>1DD STUDIO | Men's Hair System Surat Thani</title>
-  <meta name="description" content="1DD STUDIO สุราษฎร์ธานี บริการวิกผมผู้ชาย Hair System ติดตั้ง ดูแลหลังการติดตั้ง และจองคิวออนไลน์" />
-  <meta property="og:title" content="1DD STUDIO | Men's Hair System Surat Thani" />
-  <meta property="og:description" content="เปลี่ยนผมบาง ให้กลับมามั่นใจอีกครั้ง" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="1DD STUDIO วิกผมผู้ชาย Hair System สุราษฎร์ธานี ดูเป็นธรรมชาติ จองคิวปรึกษาฟรี" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="site-shell">
-    <header class="topbar">
-      <a class="logo" href="#home"><span>1DD</span> STUDIO<small>PREMIUM MEN'S HAIR SYSTEM</small></a>
-      <nav>
-        <a href="#work">ผลงาน</a>
-        <a href="#products">ราคา/รุ่น</a>
-        <a href="#reviews">รีวิว</a>
-        <a href="#services">บริการ</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">ติดต่อ</a>
-      </nav>
-      <a class="nav-cta" id="navBooking" target="_blank">จองคิวปรึกษาฟรี</a>
-    </header>
+  <header class="topbar">
+    <a class="logo" href="#top"><b>1DD</b><span>STUDIO</span></a>
+    <nav>
+      <a href="#reviews">ผลงาน</a>
+      <a href="#products">ราคา/รุ่น</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+    <a class="btn small" id="bookingTop" href="#" target="_blank">จองคิวปรึกษาฟรี</a>
+  </header>
 
-    <main id="home">
-      <section class="hero">
-        <div class="hero-bg" id="heroBg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <p class="eyebrow" id="heroBadge"></p>
-            <h1 id="heroTitle"></h1>
-            <p class="hero-sub" id="heroSub"></p>
-            <p class="hero-sub-en" id="heroSubEn"></p>
-            <div class="trust-row">
-              <span>ติดแน่น อยู่ได้นาน</span><span>ดูเป็นธรรมชาติ</span><span>ตัดแต่งได้</span><span>ดูแลง่าย</span>
-            </div>
-            <div class="hero-actions">
-              <a class="btn primary" id="bookingBtn" target="_blank">จองคิวปรึกษาฟรี</a>
-              <a class="btn ghost" id="whatsappBtn" target="_blank">ทักแชท WhatsApp</a>
-            </div>
-          </div>
-          <div class="hero-card reveal delay">
-            <div class="studio-badge"><b>1DD STUDIO</b><span>SURAT THANI</span><small>Men's Hair System Specialist</small></div>
-            <div class="mini-video"><span>▶</span><p>ดูรีวิว<br>เปลี่ยนแปลงไปกับเรา</p></div>
-          </div>
+  <main id="top">
+    <section class="hero">
+      <div class="heroText">
+        <p class="eyebrow" id="heroBadge"></p>
+        <h1 id="heroTitle"></h1>
+        <p class="lead" id="heroSubtitle"></p>
+        <div class="heroActions">
+          <a class="btn" id="bookingHero" href="#" target="_blank">จองคิวปรึกษาฟรี</a>
+          <a class="btn outline" id="whatsappHero" href="#" target="_blank">ทัก WhatsApp</a>
         </div>
-      </section>
-
-      <section class="ba-section" id="work">
-        <div class="section-head reveal">
-          <p class="eyebrow">BEFORE / AFTER</p>
-          <h2>เห็นความเปลี่ยนแปลงตั้งแต่ครั้งแรก</h2>
-          <p>ผลงานติดตั้ง Hair System ให้ลูกค้าดูเป็นธรรมชาติและกลับมามั่นใจ</p>
+        <div class="trust">
+          <span>ติดแน่น</span><span>ดูเป็นธรรมชาติ</span><span>เซ็ตทรงได้</span><span>ดูแลหลังติดตั้ง</span>
         </div>
-        <div class="ba-grid" id="baGrid"></div>
-      </section>
+      </div>
+      <div class="heroImageWrap">
+        <img id="heroImage" src="review-5.jpg" alt="1DD Studio Hair System" />
+      </div>
+    </section>
 
-      <section class="proof-strip" id="proofStrip"></section>
-
-      <section class="products" id="products">
-        <div class="section-head dark-text reveal">
-          <p class="eyebrow">OUR PRODUCTS</p>
-          <h2>เลือกวิกที่ใช่สำหรับคุณ</h2>
-          <p>3 ระดับคุณภาพ เลือกตามไลฟ์สไตล์ งบประมาณ และความต้องการความเนียน</p>
+    <section class="section dark" id="reviews">
+      <div class="sectionHead">
+        <p class="eyebrow">REAL RESULTS</p>
+        <h2>ดูรีวิวเปลี่ยนแปลงกับเรา</h2>
+        <p>รวมรูปผลงานจริง ปรับเป็นสไลด์ให้ขนาดบาลานซ์ ดูสะอาดและพรีเมียม</p>
+      </div>
+      <div class="reviewSlider">
+        <button class="arrow" id="prevReview" aria-label="previous">‹</button>
+        <div class="reviewFrame">
+          <img id="reviewImage" src="review-1.jpg" alt="1DD STUDIO review" />
         </div>
-        <div class="product-grid" id="productGrid"></div>
-      </section>
+        <button class="arrow" id="nextReview" aria-label="next">›</button>
+      </div>
+      <div class="dots" id="reviewDots"></div>
+    </section>
 
-      <section class="services" id="services">
-        <div class="section-head reveal">
-          <p class="eyebrow">SERVICE FLOW</p>
-          <h2>บริการครบตั้งแต่ปรึกษาถึงดูแลหลังติดตั้ง</h2>
-        </div>
-        <div class="service-grid" id="serviceGrid"></div>
-      </section>
+    <section class="section" id="products">
+      <div class="sectionHead left">
+        <p class="eyebrow">OUR PRODUCTS</p>
+        <h2>เลือกรุ่นที่เหมาะกับคุณ</h2>
+      </div>
+      <div class="productGrid" id="productGrid"></div>
+    </section>
 
-      <section class="reviews" id="reviews">
-        <div class="section-head dark-text reveal">
-          <p class="eyebrow">CUSTOMER VOICES</p>
-          <h2>ลูกค้าเลือก 1DD STUDIO เพราะความเป็นธรรมชาติ</h2>
-        </div>
-        <div class="review-grid" id="reviewGrid"></div>
-      </section>
+    <section class="section dark" id="faq">
+      <div class="sectionHead">
+        <p class="eyebrow">FAQ</p>
+        <h2>คำถามที่ลูกค้าถามบ่อย</h2>
+      </div>
+      <div class="faqList" id="faqList"></div>
+    </section>
 
-      <section class="faq" id="faq">
-        <div class="section-head reveal">
-          <p class="eyebrow">FAQ</p>
-          <h2>คำถามที่ลูกค้าถามบ่อย</h2>
-        </div>
-        <div class="faq-list" id="faqList"></div>
-      </section>
+    <section class="contact" id="contact">
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h2>พร้อมให้คำปรึกษาก่อนตัดสินใจ</h2>
+        <p id="contactInfo"></p>
+      </div>
+      <div class="contactActions">
+        <a class="btn" id="lineBtn" href="#" target="_blank">LINE</a>
+        <a class="btn outline" id="mapBtn" href="#" target="_blank">Google Map</a>
+      </div>
+    </section>
+  </main>
 
-      <section class="contact" id="contact">
-        <div class="contact-card reveal">
-          <div>
-            <p class="eyebrow">CONTACT & BOOKING</p>
-            <h2>พร้อมเริ่มต้นความมั่นใจใหม่?</h2>
-            <p id="contactInfo"></p>
-            <div class="contact-actions">
-              <a class="btn primary" id="contactBooking" target="_blank">จองคิวผ่าน Google Form</a>
-              <a class="btn ghost" id="lineBtn" target="_blank">LINE</a>
-              <a class="btn ghost" id="callBtn">โทร</a>
-            </div>
-          </div>
-          <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </section>
-    </main>
-
-    <a class="floating-line" id="floatingLine" target="_blank">LINE</a>
-    <footer>© <span id="year"></span> 1DD STUDIO. Premium Men’s Hair System Surat Thani.</footer>
-  </div>
+  <a class="floatingLine" id="floatingLine" href="#" target="_blank">LINE</a>
   <script src="script.js"></script>
 </body>
 </html>
