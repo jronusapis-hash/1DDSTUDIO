@@ -2,46 +2,40 @@
 <html lang="th">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>1DD STUDIO | Men's Hair System Surat Thani</title>
   <meta name="description" content="1DD STUDIO วิกผมผู้ชาย Hair System สุราษฎร์ธานี ดูเป็นธรรมชาติ ติดตั้งเนียน พร้อมจองคิวปรึกษาฟรี" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=5.1" />
 </head>
 <body>
   <header class="topbar">
     <a class="logo" href="#top"><b>1DD</b><span>STUDIO</span></a>
     <nav>
       <a href="#reviews">รีวิว</a>
-      <a href="#beforeafter">Before / After</a>
+      <a href="#beforeafter">Before/After</a>
       <a href="#products">ราคา/รุ่น</a>
-      <a href="#faq">FAQ</a>
       <a href="#contact">ติดต่อ</a>
     </nav>
-    <a class="btn small" id="bookingTop" href="#" target="_blank">จองคิวปรึกษาฟรี</a>
+    <a class="btn small" href="https://docs.google.com/forms/d/e/1FAIpQLSd_To--VtE0scQhIIFc2NkcRiBkTA5WimYZrx9qPvPSFtinRg/viewform?usp=header" target="_blank">จองคิว</a>
   </header>
 
   <main id="top">
-    <section class="hero section-slider">
+    <section class="hero">
       <div class="heroText">
         <p class="eyebrow">PREMIUM MEN'S HAIR SYSTEM • SURAT THANI</p>
         <h1>เปลี่ยนผมบาง<br>ให้กลับมามั่นใจอีกครั้ง</h1>
         <p class="lead">วิกผมผู้ชายและ Hair System ดูเป็นธรรมชาติ ติดแน่น เซ็ตทรงได้จริง พร้อมบริการดูแลหลังการติดตั้ง</p>
-        <div class="heroActions">
-          <a class="btn" id="bookingHero" href="#" target="_blank">จองคิวปรึกษาฟรี</a>
-          <a class="btn outline" id="whatsappHero" href="#" target="_blank">ทัก WhatsApp</a>
+        <div class="actions">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_To--VtE0scQhIIFc2NkcRiBkTA5WimYZrx9qPvPSFtinRg/viewform?usp=header" target="_blank">จองคิวปรึกษาฟรี</a>
+          <a class="btn outline" href="https://wa.me/66895490884" target="_blank">WhatsApp</a>
         </div>
-        <div class="trust">
-          <span>Natural Look</span><span>Custom Fit</span><span>After Care</span><span>Surat Thani</span>
-        </div>
+        <div class="trust"><span>Natural Look</span><span>Custom Fit</span><span>After Care</span></div>
       </div>
-
-      <div class="heroSlider">
-        <button class="sliderArrow heroPrev" aria-label="Previous hero">‹</button>
-        <div class="heroFrame">
-          <img id="heroSlideImage" src="hero-1.jpg" alt="1DD STUDIO Hero" />
-        </div>
-        <button class="sliderArrow heroNext" aria-label="Next hero">›</button>
-        <div class="sliderDots" id="heroDots"></div>
+      <div class="heroSlider cardFloat">
+        <button class="arrow" id="heroPrev">‹</button>
+        <div class="heroFrame"><img id="heroImg" src="hero-1.jpg" alt="1DD STUDIO hero"></div>
+        <button class="arrow" id="heroNext">›</button>
+        <div class="dots" id="heroDots"></div>
       </div>
     </section>
 
@@ -49,79 +43,48 @@
       <div class="sectionHead">
         <p class="eyebrow">REAL REVIEWS</p>
         <h2>ดูรีวิวเปลี่ยนแปลงกับเรา</h2>
-        <p>รวมผลงานจริงจากลูกค้า จัดเป็นสไลด์ขนาดบาลานซ์ ดูง่าย ไม่ใหญ่เกินไป</p>
+        <p>รูปรีวิวจริง 1–5 แบบสไลด์ ขนาดบาลานซ์ ไม่ใหญ่เกินไป</p>
       </div>
-
-      <div class="reviewSlider balancedSlider">
-        <button class="sliderArrow" id="prevReview" aria-label="previous review">‹</button>
-        <div class="reviewFrame">
-          <img id="reviewImage" src="review-1.jpg" alt="1DD STUDIO review" />
-        </div>
-        <button class="sliderArrow" id="nextReview" aria-label="next review">›</button>
+      <div class="singleSlider reviewSlider">
+        <button class="arrow" id="reviewPrev">‹</button>
+        <div class="reviewFrame"><img id="reviewImg" src="review-1.jpg" alt="รีวิว 1DD STUDIO"></div>
+        <button class="arrow" id="reviewNext">›</button>
       </div>
-      <div class="sliderDots" id="reviewDots"></div>
+      <div class="dots" id="reviewDots"></div>
     </section>
 
     <section class="section" id="beforeafter">
       <div class="sectionHead">
         <p class="eyebrow">BEFORE / AFTER</p>
         <h2>ผลงานก่อนและหลังติดตั้ง</h2>
-        <p>จัดให้เป็นสไลด์ 1–4 ขนาดบาลานซ์ เห็นชัดทั้งก่อนและหลัง</p>
+        <p>ปรับขนาดเล็กลงประมาณครึ่งหนึ่ง ให้ดูสมดุลกับหน้าเว็บ</p>
       </div>
-
-      <div class="baSlider balancedSlider">
-        <button class="sliderArrow" id="prevBA" aria-label="previous before after">‹</button>
-        <article class="baCard">
-          <div class="baImages">
-            <div class="baImageBox">
-              <span>ก่อนติดตั้ง</span>
-              <img id="baBefore" src="ba-1.jpg" alt="ก่อนติดตั้ง 1DD STUDIO" />
-            </div>
-            <div class="baImageBox">
-              <span>หลังติดตั้ง</span>
-              <img id="baAfter" src="ba-2.jpg" alt="หลังติดตั้ง 1DD STUDIO" />
-            </div>
-          </div>
-          <div class="baText">
-            <h3 id="baTitle">เคสปรับลุคให้ดูมั่นใจขึ้น</h3>
-            <p id="baNote">Hair System ดูเป็นธรรมชาติ เซ็ตทรงได้จริง</p>
-          </div>
+      <div class="singleSlider baSlider">
+        <button class="arrow smallArrow" id="baPrev">‹</button>
+        <article class="baFrame">
+          <img id="baImg" src="ba-1.jpg" alt="Before After 1DD STUDIO">
+          <div class="baCaption"><h3 id="baTitle">Before / After Case 1</h3><p>ผลลัพธ์หลังติดตั้ง Hair System</p></div>
         </article>
-        <button class="sliderArrow" id="nextBA" aria-label="next before after">›</button>
+        <button class="arrow smallArrow" id="baNext">›</button>
       </div>
-      <div class="sliderDots" id="baDots"></div>
+      <div class="dots" id="baDots"></div>
     </section>
 
     <section class="section products" id="products">
-      <div class="sectionHead left">
-        <p class="eyebrow">OUR PRODUCTS</p>
-        <h2>เลือกรุ่นที่เหมาะกับคุณ</h2>
+      <div class="sectionHead"><p class="eyebrow">PRODUCT MENU</p><h2>เลือกรุ่นที่เหมาะกับคุณ</h2></div>
+      <div class="productGrid">
+        <article class="productCard"><img src="essential.jpg" alt="Essential"><h3>Essential</h3><div class="price">8,000.-</div><p>เริ่มต้น คุ้มค่า เหมาะกับพื้นที่ผมขนาดเล็ก</p></article>
+        <article class="productCard featured"><img src="standard.jpg" alt="Standard"><h3>Standard</h3><div class="price">15,000.-</div><p>รุ่นยอดนิยม พื้นหลังสว่างเหมือนรุ่นอื่น ไม่ดำ ไม่บั๊ก</p></article>
+        <article class="productCard"><img src="premium.jpg" alt="Premium"><h3>Premium</h3><div class="price">18,000.-</div><p>บางเบา แนบสนิท เป็นธรรมชาติสูงสุด</p></article>
       </div>
-      <div class="productGrid" id="productGrid"></div>
-    </section>
-
-    <section class="section dark" id="faq">
-      <div class="sectionHead">
-        <p class="eyebrow">FAQ</p>
-        <h2>คำถามที่ลูกค้าถามบ่อย</h2>
-      </div>
-      <div class="faqList" id="faqList"></div>
     </section>
 
     <section class="contact" id="contact">
-      <div>
-        <p class="eyebrow">CONTACT</p>
-        <h2>พร้อมให้คำปรึกษาก่อนตัดสินใจ</h2>
-        <p id="contactInfo">1DD STUDIO Surat Thani</p>
-      </div>
-      <div class="contactActions">
-        <a class="btn" id="lineBtn" href="#" target="_blank">LINE</a>
-        <a class="btn outline" id="mapBtn" href="#" target="_blank">Google Map</a>
-      </div>
+      <div><p class="eyebrow">CONTACT</p><h2>1DD STUDIO</h2><p>โทร 089-549-0884 • LINE: mozzjro • เปิด 10:00–22:00</p></div>
+      <div class="actions"><a class="btn" href="https://line.me/R/ti/p/~mozzjro" target="_blank">LINE</a><a class="btn outline" href="https://www.google.com/maps/search/?api=1&query=9.139404,99.332409" target="_blank">Google Map</a></div>
     </section>
   </main>
-
-  <a class="floatingLine" id="floatingLine" href="#" target="_blank">LINE</a>
-  <script src="script.js"></script>
+  <a class="floatingLine" href="https://line.me/R/ti/p/~mozzjro" target="_blank">LINE</a>
+  <script src="script.js?v=5.1"></script>
 </body>
 </html>

@@ -1,9 +1,10 @@
-# 1DD STUDIO V4 FINAL
+# 1DDSTUDIO V5.1 FIXED
 
-โครงสร้าง V4:
-- Hero Slider: hero-1.jpg, hero-2.jpg, hero-3.jpg
-- Review Slider: review-1.jpg ถึง review-5.jpg
-- Before/After Slider: ba-1.jpg ถึง ba-4.jpg
+แก้ไขจริงในชุดนี้:
+- Hero slider ลอยข้างข้อความ
+- Review slider 1-5
+- Before/After slider ลดขนาดลงและบาลานซ์
+- Standard 15,000 พื้นหลังขาว ไม่ดำ
+- รวมไฟล์รูปที่จำเป็นครบ: hero, review, ba, product
 
-อัปโหลดไฟล์ทั้งหมดทับ GitHub แล้ว Commit changes
-Netlify จะ Deploy อัตโนมัติภายใน 30–60 วินาที
+อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ไป GitHub แล้ว Commit changes
