@@ -1,13 +1,14 @@
-# 1DD STUDIO Digital Platform V2 FINAL
+# 1DD STUDIO V3 QR FIX
 
-## วิธีแก้ไขแบบไม่ต้องเขียนโค้ด
-แก้ข้อความ ราคา เบอร์ LINE WhatsApp Google Form และ FAQ ที่ไฟล์ `content.json` แล้วกด Commit changes
+เวอร์ชันนี้ใช้ V2 เป็นฐานเดิม และแก้เฉพาะรูปสินค้า 2–3 โดยลบ QR Code ออกจากรูปแบบแนบเนียน
 
-## ไฟล์รูปที่เว็บเรียกใช้
-- hero-1.jpg = Hero Banner
-- ba-1.jpg, ba-2.jpg = Before / After ชุดที่ 1
-- ba-3.jpg, ba-4.jpg = Before / After ชุดที่ 2
-- essential.jpg, standard.jpg, premium.jpg = รูปสินค้า
+ไฟล์สำคัญ:
+- index.html
+- styles.css
+- script.js
+- content.json
+- essential.jpg
+- standard.jpg
+- premium.jpg
 
-## วิธีอัปเดตเว็บ
-Upload ไฟล์ทับใน GitHub repo แล้วกด Commit changes จากนั้น Netlify จะ Deploy อัตโนมัติ
+วิธีอัปโหลด: GitHub > 1DDSTUDIO > + > Upload files > ลากไฟล์ทั้งหมด > Commit changes
