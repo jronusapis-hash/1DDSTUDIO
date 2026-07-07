@@ -17,14 +17,58 @@ async function loadContent(){
   document.getElementById('contactInfo').innerHTML = `${brand.location}<br>เปิดบริการ ${brand.hours}<br>โทร ${brand.phone} • LINE: ${brand.lineId}`;
   document.getElementById('mapFrame').src = brand.mapUrl;
 
-  document.getElementById('baGrid').innerHTML = data.beforeAfter.map(item=>`
-    <article class="ba-card reveal">
-      <div class="ba-images">
-        <div class="ba-img" data-label="ก่อนทำ" style="background-image:url('${item.before}')"></div>
-        <div class="ba-img" data-label="หลังทำ" style="background-image:url('${item.after}')"></div>
-      </div>
-      <div class="ba-info"><h3>${item.title}</h3><p>${item.note}</p></div>
-    </article>`).join('');
+  let baIndex = 0;
+
+function renderBASlider(items){
+  const el = document.getElementById('baGrid');
+  const item = items[baIndex];
+
+  el.innerHTML = `
+    <div class="ba-slider">
+      <button class="ba-arrow" id="baPrev">‹</button>
+
+      <article class="ba-slide-card">
+        <div class="ba-slide-images">
+          <div class="ba-slide-img" style="background-image:url('${item.before}')">
+            <span>ก่อนติดตั้ง</span>
+          </div>
+          <div class="ba-slide-img" style="background-image:url('${item.after}')">
+            <span>หลังติดตั้ง</span>
+          </div>
+        </div>
+        <div class="ba-info">
+          <h3>${item.title}</h3>
+          <p>${item.note}</p>
+        </div>
+      </article>
+
+      <button class="ba-arrow" id="baNext">›</button>
+    </div>
+
+    <div class="ba-dots">
+      ${items.map((_, i)=>`<button class="${i===baIndex?'active':''}" data-i="${i}"></button>`).join('')}
+    </div>
+  `;
+
+  document.getElementById('baPrev').onclick = () => {
+    baIndex = (baIndex - 1 + items.length) % items.length;
+    renderBASlider(items);
+  };
+
+  document.getElementById('baNext').onclick = () => {
+    baIndex = (baIndex + 1) % items.length;
+    renderBASlider(items);
+  };
+
+  document.querySelectorAll('.ba-dots button').forEach(btn=>{
+    btn.onclick = () => {
+      baIndex = Number(btn.dataset.i);
+      renderBASlider(items);
+    };
+  });
+}
+
+renderBASlider(data.beforeAfter);
 
   document.getElementById('proofStrip').innerHTML = data.proof.map(p=>`<div class="proof-item"><b>${p.value}</b><span>${p.label}</span></div>`).join('');
 
