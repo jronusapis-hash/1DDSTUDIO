@@ -1,10 +1,11 @@
-# 1DDSTUDIO V5.1 FIXED
+# 1DD STUDIO V1 Restore + Before/After
 
-แก้ไขจริงในชุดนี้:
-- Hero slider ลอยข้างข้อความ
-- Review slider 1-5
-- Before/After slider ลดขนาดลงและบาลานซ์
-- Standard 15,000 พื้นหลังขาว ไม่ดำ
-- รวมไฟล์รูปที่จำเป็นครบ: hero, review, ba, product
+ตัวนี้คืนแพทเทิร์น V1 เดิม และเพิ่มรูป Before/After แบบสไลด์ในส่วนเดิมเท่านั้น
 
-อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ไป GitHub แล้ว Commit changes
+ไฟล์หลัก:
+- index.html
+- styles.css
+- script.js
+- ba-1.jpg ถึง ba-4.jpg
+
+อัปโหลดทับ GitHub แล้ว Commit changes
