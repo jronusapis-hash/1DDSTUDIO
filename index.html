@@ -1,206 +1,122 @@
 <!doctype html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>1DD STUDIO | Men’s Hair System Thailand | Hair Replacement Surat Thani</title>
-  <meta name="description" content="Premium men’s hair system, hair replacement, barber styling, and natural hair transformation service in Thailand. Thai and foreign customers welcome." />
-  <meta name="keywords" content="Men’s Hair System Thailand, Hair Replacement Thailand, Men’s Wig Thailand, Hair Patch Thailand, Toupee Thailand, Hair System Surat Thani, Hair Replacement Surat Thani, วิกผมผู้ชาย, ผมบางผู้ชาย, ศีรษะล้านผู้ชาย" />
-  <meta property="og:title" content="1DD STUDIO | Men's Hair System Thailand" />
-  <meta property="og:description" content="เปลี่ยนลุคใหม่ภายในวันเดียว ด้วยวิกผมผู้ชายที่ดูเป็นธรรมชาติ" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1DD STUDIO | Men's Hair System Surat Thani</title>
+  <meta name="description" content="1DD STUDIO สุราษฎร์ธานี บริการวิกผมผู้ชาย Hair System ติดตั้ง ดูแลหลังการติดตั้ง และจองคิวออนไลน์" />
+  <meta property="og:title" content="1DD STUDIO | Men's Hair System Surat Thani" />
+  <meta property="og:description" content="เปลี่ยนผมบาง ให้กลับมามั่นใจอีกครั้ง" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="top-strip">1DD STUDIO • Men's Hair System & Barber • Call 089-549-0884</div>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="logo" href="#home"><span>1DD</span> STUDIO<small>PREMIUM MEN'S HAIR SYSTEM</small></a>
+      <nav>
+        <a href="#work">ผลงาน</a>
+        <a href="#products">ราคา/รุ่น</a>
+        <a href="#reviews">รีวิว</a>
+        <a href="#services">บริการ</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+      <a class="nav-cta" id="navBooking" target="_blank">จองคิวปรึกษาฟรี</a>
+    </header>
 
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="1DD STUDIO Home">
-      <span class="brand-mark">1DD</span>
-      <span class="brand-text">STUDIO</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open menu">☰</button>
-    <nav class="main-nav">
-      <a href="#services" data-th="บริการ" data-en="Services">บริการ</a>
-      <a href="#products" data-th="เมนูวิก" data-en="Products">เมนูวิก</a>
-      <a href="#before-after" data-th="ก่อน-หลัง" data-en="Before & After">ก่อน-หลัง</a>
-      <a href="#booking" data-th="จองคิว" data-en="Booking">จองคิว</a>
-      <a href="#contact" data-th="ติดต่อ" data-en="Contact">ติดต่อ</a>
-    </nav>
-    <div class="header-actions">
-      <button class="lang-btn active" data-lang="th">TH</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <a class="btn btn-small" href="#booking" data-th="Book Now" data-en="Book Now">Book Now</a>
-    </div>
-  </header>
-
-  <main id="home">
-    <section class="hero section reveal">
-      <div class="hero-content">
-        <p class="eyebrow">Premium Men’s Hair System Thailand</p>
-        <h1 data-th="เปลี่ยนลุคใหม่ภายในวันเดียว ด้วยวิกผมผู้ชายที่ดูเป็นธรรมชาติ" data-en="Look Younger in One Day with a Natural Men’s Hair System">เปลี่ยนลุคใหม่ภายในวันเดียว ด้วยวิกผมผู้ชายที่ดูเป็นธรรมชาติ</h1>
-        <p class="hero-sub" data-th="บริการออกแบบ ติดตั้ง ตัดแต่ง และดูแลวิกผมผู้ชาย สำหรับคนผมบาง ศีรษะล้าน หรืออยากเปลี่ยนลุคอย่างมั่นใจ" data-en="Premium men’s hair replacement, installation, haircut, styling, and maintenance for thinning hair, baldness, and confidence transformation.">บริการออกแบบ ติดตั้ง ตัดแต่ง และดูแลวิกผมผู้ชาย สำหรับคนผมบาง ศีรษะล้าน หรืออยากเปลี่ยนลุคอย่างมั่นใจ</p>
-        <div class="hero-buttons">
-          <a class="btn" href="#booking" data-th="จองคิวตอนนี้" data-en="Book Appointment">จองคิวตอนนี้</a>
-          <a class="btn btn-outline" href="tel:0895490884" data-th="โทร 089-549-0884" data-en="Call 089-549-0884">โทร 089-549-0884</a>
+    <main id="home">
+      <section class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow" id="heroBadge"></p>
+            <h1 id="heroTitle"></h1>
+            <p class="hero-sub" id="heroSub"></p>
+            <p class="hero-sub-en" id="heroSubEn"></p>
+            <div class="trust-row">
+              <span>ติดแน่น อยู่ได้นาน</span><span>ดูเป็นธรรมชาติ</span><span>ตัดแต่งได้</span><span>ดูแลง่าย</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn primary" id="bookingBtn" target="_blank">จองคิวปรึกษาฟรี</a>
+              <a class="btn ghost" id="whatsappBtn" target="_blank">ทักแชท WhatsApp</a>
+            </div>
+          </div>
+          <div class="hero-card reveal delay">
+            <div class="studio-badge"><b>1DD STUDIO</b><span>SURAT THANI</span><small>Men's Hair System Specialist</small></div>
+            <div class="mini-video"><span>▶</span><p>ดูรีวิว<br>เปลี่ยนแปลงไปกับเรา</p></div>
+          </div>
         </div>
-        <div class="mini-proof">
-          <span>★★★★★</span>
-          <span data-th="บริการส่วนตัว • รองรับลูกค้าต่างชาติ • ลูกค้าต่างพื้นที่" data-en="Private service • Foreigner friendly • Out-of-province customers welcome">บริการส่วนตัว • รองรับลูกค้าต่างชาติ • ลูกค้าต่างพื้นที่</span>
+      </section>
+
+      <section class="ba-section" id="work">
+        <div class="section-head reveal">
+          <p class="eyebrow">BEFORE / AFTER</p>
+          <h2>เห็นความเปลี่ยนแปลงตั้งแต่ครั้งแรก</h2>
+          <p>ผลงานติดตั้ง Hair System ให้ลูกค้าดูเป็นธรรมชาติและกลับมามั่นใจ</p>
         </div>
-      </div>
-      <div class="hero-card" aria-label="Hair system preview card">
-        <div class="placeholder-img hero-img"><span>Before / After Image</span></div>
-        <div class="hero-card-footer">
-          <b>Natural Hairline</b>
-          <span>Same Day Transformation</span>
+        <div class="ba-grid" id="baGrid"></div>
+      </section>
+
+      <section class="proof-strip" id="proofStrip"></section>
+
+      <section class="products" id="products">
+        <div class="section-head dark-text reveal">
+          <p class="eyebrow">OUR PRODUCTS</p>
+          <h2>เลือกวิกที่ใช่สำหรับคุณ</h2>
+          <p>3 ระดับคุณภาพ เลือกตามไลฟ์สไตล์ งบประมาณ และความต้องการความเนียน</p>
         </div>
-      </div>
-    </section>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
 
-    <section class="highlights reveal" aria-label="Highlights">
-      <div class="highlight-card">✓ Natural Hairline</div>
-      <div class="highlight-card">✓ Realistic Look</div>
-      <div class="highlight-card">✓ Private Service</div>
-      <div class="highlight-card">✓ Same Day</div>
-      <div class="highlight-card">✓ Thai & Foreigner Friendly</div>
-      <div class="highlight-card">☎ 089-549-0884</div>
-    </section>
-
-    <section class="section two-col reveal">
-      <div>
-        <p class="eyebrow">Problem & Solution</p>
-        <h2 data-th="ผมบางไม่ใช่เรื่องเล็ก ถ้ามันทำให้คุณเสียความมั่นใจ" data-en="Thinning hair is not small when it affects your confidence">ผมบางไม่ใช่เรื่องเล็ก ถ้ามันทำให้คุณเสียความมั่นใจ</h2>
-      </div>
-      <div class="problem-list">
-        <p data-th="หลายคนไม่มั่นใจเวลาเจอผู้คน ถ่ายรูป หรือทำงาน เพราะผมบางและศีรษะล้าน ลองมาหลายวิธีแต่ยังไม่เห็นผลชัดเจน" data-en="Many men lose confidence in photos, work, and social situations because of thinning hair or baldness. Many have tried different solutions without clear results.">หลายคนไม่มั่นใจเวลาเจอผู้คน ถ่ายรูป หรือทำงาน เพราะผมบางและศีรษะล้าน ลองมาหลายวิธีแต่ยังไม่เห็นผลชัดเจน</p>
-        <p data-th="1DD STUDIO ช่วยออกแบบวิกผมผู้ชายให้เข้ากับรูปหน้า ไลฟ์สไตล์ และทรงผมจริง เพื่อให้ดูเป็นธรรมชาติและพร้อมออกไปใช้ชีวิตทันที" data-en="1DD STUDIO designs men’s hair systems to match your face shape, lifestyle, and real haircut style, so you can look natural and confident immediately.">1DD STUDIO ช่วยออกแบบวิกผมผู้ชายให้เข้ากับรูปหน้า ไลฟ์สไตล์ และทรงผมจริง เพื่อให้ดูเป็นธรรมชาติและพร้อมออกไปใช้ชีวิตทันที</p>
-      </div>
-    </section>
-
-    <section id="services" class="section reveal">
-      <p class="eyebrow">Services</p>
-      <h2 data-th="บริการของ 1DD STUDIO" data-en="1DD STUDIO Services">บริการของ 1DD STUDIO</h2>
-      <div class="card-grid" id="servicesGrid"></div>
-    </section>
-
-    <section id="products" class="section reveal">
-      <p class="eyebrow">Product Menu</p>
-      <h2 data-th="เมนูวิกผมผู้ชาย" data-en="Men’s Hair System Menu">เมนูวิกผมผู้ชาย</h2>
-      <p class="section-sub" data-th="ข้อมูลนี้เป็นแพทเทิร์นสำหรับแก้ไขราคา รูป และรายละเอียดสินค้าได้ง่าย" data-en="This section is editable. Replace prices, images, and product details anytime.">ข้อมูลนี้เป็นแพทเทิร์นสำหรับแก้ไขราคา รูป และรายละเอียดสินค้าได้ง่าย</p>
-      <div class="product-grid" id="productGrid"></div>
-    </section>
-
-    <section id="before-after" class="section reveal">
-      <p class="eyebrow">Before & After</p>
-      <h2 data-th="ตัวอย่างผลงาน ก่อนและหลัง" data-en="Before & After Transformations">ตัวอย่างผลงาน ก่อนและหลัง</h2>
-      <div class="slider">
-        <button class="slider-btn" id="prevSlide">‹</button>
-        <div class="slide" id="slideContent"></div>
-        <button class="slider-btn" id="nextSlide">›</button>
-      </div>
-      <div class="slider-dots" id="sliderDots"></div>
-    </section>
-
-    <section class="section reveal">
-      <p class="eyebrow">Compare</p>
-      <h2 data-th="เปรียบเทียบรุ่นวิก" data-en="Compare Hair System Options">เปรียบเทียบรุ่นวิก</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Feature</th><th>Basic</th><th>Premium</th><th>Ultra Natural</th></tr></thead>
-          <tbody>
-            <tr><td>Natural Look</td><td>★★★★</td><td>★★★★★</td><td>★★★★★+</td></tr>
-            <tr><td>Comfort</td><td>★★★★</td><td>★★★★★</td><td>★★★★★</td></tr>
-            <tr><td>Maintenance</td><td>Easy</td><td>Medium</td><td>Premium Care</td></tr>
-            <tr><td>Best For</td><td>First-time</td><td>Daily premium</td><td>Most realistic</td></tr>
-            <tr><td>Price</td><td>ใส่ราคา</td><td>ใส่ราคา</td><td>ใส่ราคา</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <p class="eyebrow">How It Works</p>
-      <h2 data-th="ขั้นตอนการทำ" data-en="How It Works">ขั้นตอนการทำ</h2>
-      <div class="steps" id="stepsGrid"></div>
-    </section>
-
-    <section id="booking" class="section booking reveal">
-      <div>
-        <p class="eyebrow">Booking</p>
-        <h2 data-th="จองคิวปรึกษา / ติดตั้งวิก" data-en="Book a Consultation / Installation">จองคิวปรึกษา / ติดตั้งวิก</h2>
-        <p data-th="กรอกข้อมูลเบื้องต้น แล้วทางร้านจะติดต่อกลับเพื่อยืนยันคิว" data-en="Fill out your details and we will contact you to confirm your appointment.">กรอกข้อมูลเบื้องต้น แล้วทางร้านจะติดต่อกลับเพื่อยืนยันคิว</p>
-        <div class="contact-shortcuts">
-          <a href="tel:0895490884">Call</a>
-          <a href="#">LINE</a>
-          <a href="#">WhatsApp</a>
+      <section class="services" id="services">
+        <div class="section-head reveal">
+          <p class="eyebrow">SERVICE FLOW</p>
+          <h2>บริการครบตั้งแต่ปรึกษาถึงดูแลหลังติดตั้ง</h2>
         </div>
-      </div>
-      <form class="booking-form" id="bookingForm">
-        <input required name="name" placeholder="Name / ชื่อ" />
-        <input name="country" placeholder="Country / ประเทศ" />
-        <input required name="phone" placeholder="Phone / เบอร์โทร" />
-        <input name="line" placeholder="LINE ID" />
-        <input name="whatsapp" placeholder="WhatsApp" />
-        <input name="date" type="date" />
-        <input name="time" type="time" />
-        <select name="service"><option>Hair System Installation</option><option>Consultation</option><option>Maintenance</option><option>Barber Service</option></select>
-        <textarea name="message" placeholder="Message / รายละเอียดเพิ่มเติม"></textarea>
-        <button class="btn" type="submit" data-th="ส่งข้อมูลจองคิว" data-en="Submit Booking">ส่งข้อมูลจองคิว</button>
-        <p class="form-message" id="formMessage"></p>
-      </form>
-    </section>
+        <div class="service-grid" id="serviceGrid"></div>
+      </section>
 
-    <section class="section reveal">
-      <p class="eyebrow">FAQ</p>
-      <h2 data-th="คำถามที่พบบ่อย" data-en="Frequently Asked Questions">คำถามที่พบบ่อย</h2>
-      <div class="faq" id="faqList"></div>
-    </section>
+      <section class="reviews" id="reviews">
+        <div class="section-head dark-text reveal">
+          <p class="eyebrow">CUSTOMER VOICES</p>
+          <h2>ลูกค้าเลือก 1DD STUDIO เพราะความเป็นธรรมชาติ</h2>
+        </div>
+        <div class="review-grid" id="reviewGrid"></div>
+      </section>
 
-    <section class="section reveal">
-      <p class="eyebrow">Reviews</p>
-      <h2 data-th="เสียงจากลูกค้า" data-en="Customer Reviews">เสียงจากลูกค้า</h2>
-      <div class="review-grid">
-        <div class="review-card"><b>★★★★★</b><p data-th="บริการดี เป็นส่วนตัว และทรงผมออกมาดูธรรมชาติมาก" data-en="Great service, private experience, and very natural result.">บริการดี เป็นส่วนตัว และทรงผมออกมาดูธรรมชาติมาก</p></div>
-        <div class="review-card"><b>★★★★★</b><p data-th="ก่อนมาทำไม่มั่นใจเลย หลังทำดูเด็กลงและถ่ายรูปมั่นใจขึ้น" data-en="I felt much more confident after the transformation.">ก่อนมาทำไม่มั่นใจเลย หลังทำดูเด็กลงและถ่ายรูปมั่นใจขึ้น</p></div>
-        <div class="review-card"><b>★★★★★</b><p data-th="เหมาะกับลูกค้าต่างพื้นที่ มีการให้คำแนะนำชัดเจน" data-en="Good for out-of-province customers with clear guidance.">เหมาะกับลูกค้าต่างพื้นที่ มีการให้คำแนะนำชัดเจน</p></div>
-      </div>
-    </section>
+      <section class="faq" id="faq">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>คำถามที่ลูกค้าถามบ่อย</h2>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </section>
 
-    <section id="contact" class="section contact reveal">
-      <div>
-        <p class="eyebrow">Contact</p>
-        <h2>1DD STUDIO</h2>
-        <p><b>Phone:</b> <a href="tel:0895490884">089-549-0884</a></p>
-        <p><b>Location:</b> Surat Thani, Thailand</p>
-        <p><b>Opening Hours:</b> ใส่เวลาทำการ</p>
-      </div>
-      <div class="map-placeholder">Google Maps Embed Placeholder</div>
-    </section>
-  </main>
+      <section class="contact" id="contact">
+        <div class="contact-card reveal">
+          <div>
+            <p class="eyebrow">CONTACT & BOOKING</p>
+            <h2>พร้อมเริ่มต้นความมั่นใจใหม่?</h2>
+            <p id="contactInfo"></p>
+            <div class="contact-actions">
+              <a class="btn primary" id="contactBooking" target="_blank">จองคิวผ่าน Google Form</a>
+              <a class="btn ghost" id="lineBtn" target="_blank">LINE</a>
+              <a class="btn ghost" id="callBtn">โทร</a>
+            </div>
+          </div>
+          <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+    </main>
 
-  <footer class="footer">
-    <b>1DD STUDIO</b>
-    <p>Premium Men’s Hair System & Barber Studio Thailand</p>
-    <p>© <span id="year"></span> 1DD STUDIO. All rights reserved.</p>
-  </footer>
-
-  <div class="floating-buttons">
-    <a href="tel:0895490884">Call</a>
-    <a href="#booking">Book</a>
-    <a href="#">LINE</a>
+    <a class="floating-line" id="floatingLine" target="_blank">LINE</a>
+    <footer>© <span id="year"></span> 1DD STUDIO. Premium Men’s Hair System Surat Thani.</footer>
   </div>
-
-  <div class="mobile-cta">
-    <a href="tel:0895490884">Call</a>
-    <a href="#booking">Book</a>
-    <a href="#">LINE</a>
-    <a href="#">WhatsApp</a>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>
