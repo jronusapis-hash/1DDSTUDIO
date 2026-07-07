@@ -1,27 +1,42 @@
 async function loadContent(){
-  const res=await fetch('content.json',{cache:'no-store'});
-  const data=await res.json();
-  window.SITE=data;
-  fillText(data); fillLinks(data); renderProducts(data); renderPromos(data); renderSteps(data); renderReviews(data); renderFaqs(data); reveal();
+  const res = await fetch('content.json?cache=' + Date.now());
+  const data = await res.json();
+  const brand = data.brand;
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('heroBadge').textContent = data.hero.badge;
+  document.getElementById('heroTitle').textContent = data.hero.titleTH;
+  document.getElementById('heroSub').textContent = data.hero.subtitleTH;
+  document.getElementById('heroSubEn').textContent = data.hero.subtitleEN;
+  document.getElementById('heroBg').style.backgroundImage = `url('${data.hero.image}')`;
+  const bookLinks = ['bookingBtn','navBooking','contactBooking'];
+  bookLinks.forEach(id=>document.getElementById(id).href=brand.bookingUrl);
+  document.getElementById('whatsappBtn').href = `https://wa.me/${brand.whatsapp}`;
+  document.getElementById('lineBtn').href = `https://line.me/R/ti/p/~${brand.lineId}`;
+  document.getElementById('floatingLine').href = `https://line.me/R/ti/p/~${brand.lineId}`;
+  document.getElementById('callBtn').href = `tel:${brand.phone}`;
+  document.getElementById('contactInfo').innerHTML = `${brand.location}<br>เปิดบริการ ${brand.hours}<br>โทร ${brand.phone} • LINE: ${brand.lineId}`;
+  document.getElementById('mapFrame').src = brand.mapUrl;
+
+  document.getElementById('baGrid').innerHTML = data.beforeAfter.map(item=>`
+    <article class="ba-card reveal">
+      <div class="ba-images">
+        <div class="ba-img" data-label="ก่อนทำ" style="background-image:url('${item.before}')"></div>
+        <div class="ba-img" data-label="หลังทำ" style="background-image:url('${item.after}')"></div>
+      </div>
+      <div class="ba-info"><h3>${item.title}</h3><p>${item.note}</p></div>
+    </article>`).join('');
+
+  document.getElementById('proofStrip').innerHTML = data.proof.map(p=>`<div class="proof-item"><b>${p.value}</b><span>${p.label}</span></div>`).join('');
+
+  document.getElementById('productGrid').innerHTML = data.products.map(p=>`
+    <article class="product-card reveal">
+      <div class="product-image" style="background-image:url('${p.image}')"></div>
+      <div class="product-card-content"><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.price}</div><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul></div>
+    </article>`).join('');
+
+  document.getElementById('serviceGrid').innerHTML = data.services.map((s,i)=>`<div class="service-item"><b>0${i+1}</b><p>${s}</p></div>`).join('');
+  document.getElementById('reviewGrid').innerHTML = data.reviews.map(r=>`<article class="review-card"><p>“${r.text}”</p><b>${r.name}</b></article>`).join('');
+  document.getElementById('faqList').innerHTML = data.faq.map((f,i)=>`<div class="faq-item ${i===0?'open':''}"><div class="faq-q">${f.q}<span>+</span></div><div class="faq-a">${f.a}</div></div>`).join('');
+  document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
 }
-function get(obj,path){return path.split('.').reduce((a,k)=>a&&a[k],obj)||''}
-function fillText(data){document.querySelectorAll('[data-text]').forEach(el=>{el.textContent=get(data,el.dataset.text)})}
-function fillLinks(data){
-  const b=data.brand;
-  const links={booking:b.bookingUrl,line:`https://line.me/ti/p/~${b.lineId}`,whatsapp:`https://wa.me/${b.whatsapp}`,phone:`tel:${b.phone}`};
-  document.querySelectorAll('[data-link]').forEach(el=>{const key=el.dataset.link;if(links[key]){el.href=links[key];el.target=key==='phone'?'':'_blank';}});
-  const map=document.getElementById('mapFrame'); if(map) map.src=b.mapUrl;
-}
-function renderProducts(data){
-  const el=document.getElementById('productGrid'); if(!el)return;
-  el.innerHTML=data.products.map(p=>`<article class="product-card reveal"><h3>${p.name}</h3><div class="price">${p.price}</div><p><strong>เหมาะกับ:</strong> ${p.bestFor}</p><ul>${p.features.map(f=>`<li>${f}</li>`).join('')}</ul><p><strong>ข้อควรรู้:</strong> ${p.weakness}</p></article>`).join('');
-}
-function renderPromos(data){
-  const el=document.getElementById('promoGrid'); if(!el)return;
-  el.innerHTML=data.promotions.map(p=>`<article class="promo-card reveal"><h3>${p.name}</h3><p class="old">ปกติ ${p.before} บาท</p><div class="new">${p.after} บาท</div><p>${p.note}</p></article>`).join('');
-}
-function renderSteps(data){const el=document.getElementById('stepsList'); if(el) el.innerHTML=data.steps.map(s=>`<li class="reveal">${s}</li>`).join('')}
-function renderReviews(data){const el=document.getElementById('reviewGrid'); if(el) el.innerHTML=data.reviews.map(r=>`<article class="review-card reveal"><h3>${r.name}</h3><p>“${r.text}”</p></article>`).join('')}
-function renderFaqs(data){const el=document.getElementById('faqList'); if(el) el.innerHTML=data.faqs.map(f=>`<article class="faq-item reveal"><h3>${f.q}</h3><p>${f.a}</p></article>`).join('')}
-function reveal(){const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))}
-loadContent().catch(err=>{document.body.insertAdjacentHTML('afterbegin','<div style="padding:16px;background:#7f1d1d;color:white">โหลดข้อมูลเว็บไซต์ไม่สำเร็จ กรุณาตรวจ content.json</div>');console.error(err)})
+loadContent();
