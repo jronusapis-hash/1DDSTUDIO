@@ -1,10 +1,9 @@
-# 1DD STUDIO Digital Platform V3 FINAL
+# 1DD STUDIO V4 FINAL
 
-ไฟล์หลัก:
-- index.html โครงหน้าเว็บ
-- styles.css ดีไซน์
-- script.js ระบบสไลด์และโหลดข้อมูล
-- content.json แก้ข้อมูลร้าน ราคา FAQ และลิงก์ต่าง ๆ
+โครงสร้าง V4:
+- Hero Slider: hero-1.jpg, hero-2.jpg, hero-3.jpg
+- Review Slider: review-1.jpg ถึง review-5.jpg
+- Before/After Slider: ba-1.jpg ถึง ba-4.jpg
 
-รูปรีวิวสไลด์:
-- review-1.jpg ถึง review-5.jpg
+อัปโหลดไฟล์ทั้งหมดทับ GitHub แล้ว Commit changes
+Netlify จะ Deploy อัตโนมัติภายใน 30–60 วินาที
