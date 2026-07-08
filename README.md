@@ -30,3 +30,8 @@
 10. กด Allow permissions
 
 หมายเหตุ: ถ้าแค่ต้องการให้ข้อมูลเข้า Google Sheets ไม่ต้องใช้ Apps Script เพิ่ม เพราะ Google Form ที่เชื่อมกับ Sheet จะบันทึกให้อัตโนมัติอยู่แล้ว
+
+
+## V4.7 update
+- Updated hero trust badges to 5 new messages: งานเนียนธรรมชาติ, ผมแท้ 100%, มั่นใจใน 2 ชั่วโมง, รองรับลูกค้าต่างจังหวัด, Thai / English.
+- Other sections unchanged from V4.6.
