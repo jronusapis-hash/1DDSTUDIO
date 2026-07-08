@@ -1,23 +1,27 @@
-# 1DD STUDIO Digital Platform — V3 Starter
+# 1DD STUDIO V3 Premium Full
 
-ชุดไฟล์นี้ทำตาม Project Bible และ Master Prompt:
-- GitHub + Netlify workflow
-- HTML/CSS/JS frontend
-- Editable `content.json`
-- Premium black/gold theme
-- Responsive desktop/mobile
-- Hero slider, Reviews slider, Before/After slider
+เว็บไซต์ V3 สำหรับ 1DD STUDIO พร้อมใช้งานกับ GitHub + Cloudflare Pages
 
-## วิธีใช้งาน
-1. อัปโหลดไฟล์ทั้งหมดไปที่ GitHub repository
-2. ใส่รูปจริงทับในโฟลเดอร์ `assets/images/` ตามชื่อไฟล์นี้:
-   - hero-1.jpg, hero-2.jpg, hero-3.jpg
-   - product-hs1.jpg, product-hs1e.jpg, product-standard.jpg
-   - before-1.jpg, after-1.jpg, before-2.jpg, after-2.jpg, before-3.jpg, after-3.jpg
-3. แก้ข้อความ ราคา เบอร์โทร หรือสินค้าใน `content.json`
-4. Commit changes
-5. รอ Netlify deploy
-6. Hard refresh browser
+## โครงสร้างไฟล์
+- `index.html` หน้าเว็บหลัก
+- `styles.css` ธีมพรีเมียมดำ/ทอง Responsive
+- `script.js` ระบบ Slider, Product, Before/After, Reviews, Booking
+- `content.json` ไฟล์แก้ไขข้อความ ราคา รูป และข้อมูลต่าง ๆ
+- `assets/images/` โฟลเดอร์รูปทั้งหมด
 
-## หมายเหตุ
-ระบบจองคิวตอนนี้เป็น Frontend starter ที่ส่งผ่าน SMS link ก่อน สามารถต่อ Google Form, Line OA, หรือระบบ Booking จริงใน V5 ได้
+## จุดที่แก้ตามที่ตกลง
+- HS1 ใช้ `assets/images/premium-clean.jpg` ไม่มีบาร์โค้ด
+- HS1E ใช้ `assets/images/standard-clean.jpg` ไม่มีบาร์โค้ด
+- Before/After เป็นกล่องเดียว มีลูกศรเลื่อนซ้ายขวา และรูปบาลานซ์
+- ใช้ path รูปแบบเดียวกันทั้งหมดผ่าน `assets/images/`
+- รองรับ Cloudflare Pages โดยไม่ต้องมี Build command
+
+## การ Deploy
+1. แตกไฟล์ ZIP
+2. อัปโหลดไฟล์ทั้งหมดขึ้น GitHub repo `1DDSTUDIO`
+3. Commit changes
+4. Cloudflare Pages จะ Deploy อัตโนมัติ
+
+## การแก้ไขง่าย
+แก้ข้อมูลสินค้า ราคา ข้อความ และรูปใน `content.json`
+หากเปลี่ยนรูป ให้ใช้ชื่อไฟล์เดิมใน `assets/images/` เพื่อไม่ต้องแก้โค้ด

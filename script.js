@@ -1,106 +1,85 @@
-let siteData = null;
+let data={};
+const $=(s)=>document.querySelector(s);
+const el=(tag,cls)=>{const n=document.createElement(tag); if(cls)n.className=cls; return n;};
+const img=(src,alt)=>{const i=new Image(); i.src=src; i.alt=alt||''; i.loading='lazy'; return i;};
 
-const getValue = (path) => path.split('.').reduce((obj, key) => obj?.[key], siteData) ?? '';
+async function loadContent(){
+  try{const r=await fetch('content.json',{cache:'no-store'}); data=await r.json();}
+  catch(e){console.error('Cannot load content.json',e); return;}
+  applySeo(); renderHero(); renderBenefits(); renderProducts(); renderBeforeAfter(); renderSteps(); renderReviews(); renderFaq(); setupBooking(); setupNav(); renderSchema();
+}
 
-function setTextContent() {
-  document.querySelectorAll('[data-content]').forEach((el) => {
-    el.textContent = getValue(el.dataset.content);
+function applySeo(){
+  if(data.seo?.title) document.title=data.seo.title;
+  const desc=document.querySelector('meta[name="description"]'); if(desc&&data.seo?.description) desc.content=data.seo.description;
+}
+
+let heroIndex=0, heroTimer;
+function renderHero(){
+  const dots=$('#heroDots'); dots.innerHTML='';
+  data.hero.forEach((_,i)=>{const b=el('button'); b.type='button'; b.addEventListener('click',()=>setHero(i,true)); dots.appendChild(b);});
+  setHero(0); heroTimer=setInterval(()=>setHero((heroIndex+1)%data.hero.length),5200);
+}
+function setHero(i,manual=false){
+  heroIndex=i; const h=data.hero[i];
+  $('#heroBg').style.backgroundImage=`url('${h.image}')`;
+  $('#heroEyebrow').textContent=h.eyebrow; $('#heroTitle').textContent=h.title; $('#heroSubtitle').textContent=h.subtitle;
+  [...$('#heroDots').children].forEach((d,idx)=>d.classList.toggle('active',idx===i));
+  if(manual){clearInterval(heroTimer); heroTimer=setInterval(()=>setHero((heroIndex+1)%data.hero.length),5200);}
+}
+
+function renderBenefits(){
+  $('#benefits').innerHTML=data.benefits.map(b=>`<article class="benefit-card"><h3>${b.title}</h3><p>${b.text}</p></article>`).join('');
+}
+function renderProducts(){
+  $('#productGrid').innerHTML=data.products.map(p=>`<article class="product-card"><div class="product-img-wrap"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="product-body"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p><div class="price"><del>${p.price} บาท</del><strong>${p.discount}</strong><span>บาท</span></div><ul class="features">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul></div></article>`).join('');
+}
+
+let baIndex=0;
+function renderBeforeAfter(){
+  $('#baPrev').addEventListener('click',()=>setBa((baIndex-1+data.beforeAfter.length)%data.beforeAfter.length));
+  $('#baNext').addEventListener('click',()=>setBa((baIndex+1)%data.beforeAfter.length));
+  setBa(0);
+}
+function setBa(i){
+  baIndex=i; const b=data.beforeAfter[i];
+  $('#baBefore').src=b.before; $('#baAfter').src=b.after; $('#baTitle').textContent=b.title; $('#baText').textContent=b.text;
+}
+function renderSteps(){
+  $('#steps').innerHTML=data.process.map(s=>`<div class="step"><strong>${s}</strong></div>`).join('');
+}
+
+let reviewIndex=0, reviewTimer;
+function renderReviews(){
+  $('#reviewPrev').addEventListener('click',()=>setReview((reviewIndex-1+data.reviews.length)%data.reviews.length,true));
+  $('#reviewNext').addEventListener('click',()=>setReview((reviewIndex+1)%data.reviews.length,true));
+  setReview(0); reviewTimer=setInterval(()=>setReview((reviewIndex+1)%data.reviews.length),4500);
+}
+function setReview(i,manual=false){
+  reviewIndex=i; const r=data.reviews[i];
+  $('#reviewCard').innerHTML=`<img src="${r.image}" alt="${r.name}" loading="lazy"><div class="review-copy"><h3>${r.name}</h3><p>“${r.text}”</p></div>`;
+  if(manual){clearInterval(reviewTimer); reviewTimer=setInterval(()=>setReview((reviewIndex+1)%data.reviews.length),4500);}
+}
+function renderFaq(){
+  $('#faqList').innerHTML=data.faq.map((f,i)=>`<details class="faq-item" ${i===0?'open':''}><summary>${f.q}</summary><p>${f.a}</p></details>`).join('');
+}
+function setupBooking(){
+  const line=(data.site.line||'@1ddstudio').replace('@','');
+  $('#lineLink').href=`https://line.me/R/ti/p/${encodeURIComponent(data.site.line)}`;
+  $('#waLink').href=`https://wa.me/${data.site.whatsapp}?text=${encodeURIComponent('สวัสดีครับ สนใจจองคิว/ปรึกษาวิกผมชาย 1DD STUDIO')}`;
+  $('#bookingForm').addEventListener('submit',e=>{
+    e.preventDefault(); const fd=new FormData(e.currentTarget);
+    const body=[`ชื่อ: ${fd.get('name')}`,`ติดต่อ: ${fd.get('contact')}`,`บริการ: ${fd.get('service')}`,`วันที่ต้องการ: ${fd.get('date')||'-'}`,`รายละเอียด: ${fd.get('message')||'-'}`].join('\n');
+    location.href=`mailto:1ddstudio@gmail.com?subject=${encodeURIComponent('จองคิว 1DD STUDIO')}&body=${encodeURIComponent(body)}`;
   });
 }
-
-function placeholderSvg(label) {
-  const safe = encodeURIComponent(label);
-  return `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2324180a'/%3E%3Cstop offset='1' stop-color='%23060606'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='900' height='1100' fill='url(%23g)'/%3E%3Ccircle cx='450' cy='430' r='210' fill='none' stroke='%23d7ad55' stroke-width='5' opacity='.45'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' fill='%23f2d58a' font-size='58' font-family='Arial' font-weight='700'%3E${safe}%3C/text%3E%3Ctext x='50%25' y='62%25' text-anchor='middle' fill='%23b8ad9d' font-size='24' font-family='Arial'%3EReplace image in GitHub%3C/text%3E%3C/svg%3E`;
+function setupNav(){
+  const btn=$('.nav-toggle'), nav=$('.nav');
+  btn.addEventListener('click',()=>{const open=nav.classList.toggle('open'); btn.setAttribute('aria-expanded',String(open));});
+  nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open'); btn.setAttribute('aria-expanded','false');}});
 }
-
-function imageTag(src, alt, label) {
-  const img = document.createElement('img');
-  img.src = src;
-  img.alt = alt || label;
-  img.loading = 'lazy';
-  img.onerror = () => { img.src = placeholderSvg(label); };
-  return img;
+function renderSchema(){
+  const schema={"@context":"https://schema.org","@type":"HairSalon","name":data.site.name,"telephone":data.site.phone,"address":{"@type":"PostalAddress","addressLocality":"Surat Thani","addressCountry":"TH"},"url":location.origin,"image":`${location.origin}/assets/images/hero-1.jpg`,"priceRange":"฿฿"};
+  $('#schemaJson').textContent=JSON.stringify(schema);
 }
-
-function renderHeroSlider() {
-  const slider = document.getElementById('heroSlider');
-  slider.innerHTML = siteData.hero.slides.map((slide, index) => `<div class="slide ${index === 0 ? 'active' : ''}" data-slide="hero"><img src="${slide.image}" alt="${slide.alt}" onerror="this.src='${placeholderSvg(`Hero ${index + 1}`)}'"></div>`).join('');
-  startSlider('[data-slide="hero"]', 3600);
-}
-
-function startSlider(selector, interval) {
-  const slides = [...document.querySelectorAll(selector)];
-  if (slides.length <= 1) return;
-  let current = 0;
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, interval);
-}
-
-function renderTrust() {
-  document.getElementById('trustList').innerHTML = siteData.trust.map(item => `<div class="trust-item">✦ ${item}</div>`).join('');
-}
-
-function renderProducts() {
-  document.getElementById('productGrid').innerHTML = siteData.products.map((product) => `
-    <article class="product-card">
-      <div class="product-image"><img src="${product.image}" alt="${product.name}" onerror="this.src='${placeholderSvg(product.name)}'"></div>
-      <div class="product-top"><h3>${product.name}</h3><span class="badge">${product.label}</span></div>
-      <p class="price">฿${product.price}</p>
-      <p>${product.description}</p>
-      <ul>${product.features.map(feature => `<li>${feature}</li>`).join('')}</ul>
-    </article>`).join('');
-}
-
-function renderBeforeAfter() {
-  const slider = document.getElementById('beforeAfterSlider');
-  slider.innerHTML = siteData.beforeAfter.map((item, index) => `
-    <div class="slide ${index === 0 ? 'active' : ''}" data-slide="ba">
-      <div class="ba-pair">
-        <figure><img src="${item.before}" alt="Before" onerror="this.src='${placeholderSvg('Before')}'"><figcaption>Before</figcaption></figure>
-        <figure><img src="${item.after}" alt="After" onerror="this.src='${placeholderSvg('After')}'"><figcaption>After</figcaption></figure>
-      </div>
-      <p class="ba-caption">${item.caption}</p>
-    </div>`).join('');
-  startSlider('[data-slide="ba"]', 4200);
-}
-
-function renderSteps() {
-  document.getElementById('stepsGrid').innerHTML = siteData.steps.map((step, index) => `
-    <article class="step"><div class="step-number">0${index + 1}</div><h3>${step.title}</h3><p>${step.text}</p></article>`).join('');
-}
-
-function renderReviews() {
-  document.getElementById('reviewSlider').innerHTML = siteData.reviews.map((review, index) => `
-    <article class="review ${index === 0 ? 'active' : ''}" data-slide="review"><blockquote>“${review.text}”</blockquote><cite>${review.name}</cite></article>`).join('');
-  startSlider('[data-slide="review"]', 3800);
-}
-
-function handleBooking(event) {
-  event.preventDefault();
-  const form = event.target;
-  const data = new FormData(form);
-  const message = `สวัสดีครับ 1DD STUDIO%0Aชื่อ: ${data.get('name')}%0Aเบอร์: ${data.get('phone')}%0Aวันที่สนใจ: ${data.get('date') || '-'}%0Aรายละเอียด: ${data.get('detail') || '-'}`;
-  document.getElementById('formStatus').textContent = 'กำลังเปิดข้อความสำหรับส่งจองคิว...';
-  window.location.href = `sms:${siteData.brand.phone}?&body=${message}`;
-  return false;
-}
-
-async function init() {
-  const response = await fetch('content.json');
-  siteData = await response.json();
-  setTextContent();
-  renderHeroSlider();
-  renderTrust();
-  renderProducts();
-  renderBeforeAfter();
-  renderSteps();
-  renderReviews();
-}
-
-init().catch((error) => {
-  console.error(error);
-  document.body.insertAdjacentHTML('afterbegin', '<p style="padding:16px;background:#3b2208;color:#fff">โหลด content.json ไม่สำเร็จ กรุณาตรวจสอบไฟล์</p>');
-});
+loadContent();

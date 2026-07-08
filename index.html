@@ -3,107 +3,163 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>1DD STUDIO | Premium Men’s Hair System</title>
-  <meta name="description" content="1DD STUDIO premium men’s hair system and barber studio in Surat Thani. ดูสินค้า Before/After และจองคิวปรึกษา" />
+  <title>1DD STUDIO | วิกผมชายพรีเมียม สุราษฎร์ธานี</title>
+  <meta name="description" content="1DD STUDIO บริการวิกผมชาย ติดตั้งวิกผม แก้ผมบางและศีรษะล้าน งานเนียนธรรมชาติ รองรับลูกค้าต่างจังหวัดและต่างชาติ" />
+  <meta name="theme-color" content="#080604" />
+  <meta property="og:title" content="1DD STUDIO | Premium Men's Hair System" />
+  <meta property="og:description" content="วิกผมชายพรีเมียม งานเนียนธรรมชาติ พร้อมบริการติดตั้งและให้คำปรึกษา" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero-1.jpg" />
+  <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="1DD STUDIO home">
+  <div class="grain"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="1DD STUDIO Home">
       <span class="brand-mark">1DD</span>
-      <span class="brand-text">STUDIO</span>
+      <span><strong>1DD STUDIO</strong><small>Hair System & Barber</small></span>
     </a>
-    <nav class="nav" aria-label="Main navigation">
+    <button class="nav-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+    <nav class="nav">
       <a href="#products">สินค้า</a>
       <a href="#before-after">Before/After</a>
       <a href="#reviews">รีวิว</a>
       <a href="#booking">จองคิว</a>
+      <a class="nav-cta" href="tel:0895490884">โทร 0895490884</a>
     </nav>
-    <a class="header-cta" href="tel:0895490884">โทร 0895490884</a>
   </header>
 
-  <main id="top">
-    <section class="hero section-shell">
-      <div class="hero-copy">
-        <p class="eyebrow" data-content="hero.eyebrow"></p>
-        <h1 data-content="hero.title"></h1>
-        <p class="hero-subtitle" data-content="hero.subtitle"></p>
+  <main>
+    <section class="hero section-dark" aria-label="Hero slider">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <p class="eyebrow" id="heroEyebrow">Premium Men's Hair System</p>
+        <h1 id="heroTitle">เปลี่ยนผมบาง ให้กลับมาดูมั่นใจอีกครั้ง</h1>
+        <p class="lead" id="heroSubtitle">วิกผมชายเกรดพรีเมียม ติดตั้งเนียนธรรมชาติ ตรวจ QC ก่อนส่ง รองรับลูกค้าทั่วประเทศ</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#booking" data-content="brand.ctaPrimary"></a>
-          <a class="btn btn-ghost" href="#products" data-content="brand.ctaSecondary"></a>
+          <a class="btn btn-gold" href="#booking">จองคิว / ปรึกษาฟรี</a>
+          <a class="btn btn-outline" href="tel:0895490884">โทรทันที</a>
         </div>
-        <div class="trust-list" id="trustList"></div>
+        <div class="hero-dots" id="heroDots" aria-label="Hero navigation"></div>
       </div>
-      <div class="hero-media card-glow">
-        <div class="slider" id="heroSlider" aria-label="Hero image slider"></div>
+      <div class="trust-bar container">
+        <span>QC ก่อนส่ง</span><span>งานเนียนธรรมชาติ</span><span>รองรับต่างจังหวัด</span><span>Thai / English</span>
       </div>
     </section>
 
-    <section class="intro section-shell compact">
-      <p class="section-kicker">For Thai & International Customers</p>
-      <h2>เว็บเดียวจบสำหรับดูผลงาน เปรียบเทียบสินค้า และเริ่มต้นจองคิว</h2>
-      <p>ออกแบบให้แก้ไขง่ายผ่าน <strong>content.json</strong> และเปลี่ยนรูปใน GitHub ได้ทันที เหมาะสำหรับต่อยอด SEO, Booking, Blog และ Dashboard ในเวอร์ชันต่อไป</p>
+    <section class="intro container">
+      <div>
+        <p class="eyebrow gold">1DD STUDIO DIFFERENCE</p>
+        <h2>ระบบวิกผมชายที่ไม่ได้ขายแค่สินค้า แต่ช่วยออกแบบลุคใหม่ให้ลูกค้า</h2>
+      </div>
+      <p>เราเน้นการคุยสเปกก่อนจอง สี ทรง ฐาน ความหนาแน่น และการใช้งานจริง เพื่อให้ลูกค้าได้งานที่ใกล้เคียงความต้องการมากที่สุด</p>
     </section>
 
-    <section class="section-shell" id="products">
-      <div class="section-head">
-        <p class="section-kicker">Product Menu</p>
+    <section class="benefits container" id="benefits"></section>
+
+    <section class="products container" id="products">
+      <div class="section-title">
+        <p class="eyebrow gold">PRODUCT MENU</p>
         <h2>เมนูวิกผมชาย 1DD STUDIO</h2>
-        <p>เลือกตามระดับคุณภาพ งบประมาณ และความต้องการความเนียนเป็นธรรมชาติ</p>
+        <p>ใช้รูปสินค้าตัวสะอาด ไม่มีบาร์โค้ด/QR พร้อมราคาโปรโมชันเดือนนี้</p>
       </div>
       <div class="product-grid" id="productGrid"></div>
+      <p class="note">* หากไม่ติดตั้งที่ร้าน ลดราคา 3,000 บาทต่อตัว / สีพิเศษอาจมีค่าใช้จ่ายเพิ่ม</p>
     </section>
 
-    <section class="section-shell split" id="before-after">
-      <div class="section-head left">
-        <p class="section-kicker">Before / After</p>
-        <h2>ผลงานเปลี่ยนลุคที่ลูกค้าดูได้ง่าย</h2>
-        <p>ใช้รูปแนวตั้งบาลานซ์กัน เพื่อให้สไลด์ดูพรีเมี่ยมและน่าเชื่อถือทั้งมือถือและเดสก์ท็อป</p>
-      </div>
-      <div class="ba-slider card-glow" id="beforeAfterSlider"></div>
-    </section>
-
-    <section class="section-shell" id="process">
-      <div class="section-head">
-        <p class="section-kicker">Service Flow</p>
-        <h2>ขั้นตอนบริการ</h2>
-      </div>
-      <div class="steps" id="stepsGrid"></div>
-    </section>
-
-    <section class="section-shell" id="reviews">
-      <div class="section-head">
-        <p class="section-kicker">Customer Voice</p>
-        <h2>รีวิวจากลูกค้า</h2>
-      </div>
-      <div class="review-slider card-glow" id="reviewSlider"></div>
-    </section>
-
-    <section class="booking section-shell" id="booking">
-      <div class="booking-card card-glow">
-        <div>
-          <p class="section-kicker">Booking</p>
-          <h2 data-content="booking.title"></h2>
-          <p data-content="booking.subtitle"></p>
-          <p class="booking-note" data-content="booking.note"></p>
+    <section class="before-after section-dark" id="before-after">
+      <div class="container">
+        <div class="section-title center">
+          <p class="eyebrow gold">REAL TRANSFORMATION</p>
+          <h2>Before / After แบบกล่องเดียว</h2>
+          <p>จัดรูปให้บาลานซ์ในกรอบเดียว เลื่อนดูเคสได้ทั้งมือถือและคอม</p>
         </div>
-        <form class="booking-form" name="booking" onsubmit="return handleBooking(event)">
-          <label>ชื่อ <input name="name" required placeholder="ชื่อของคุณ" /></label>
-          <label>เบอร์โทร <input name="phone" required placeholder="089xxxxxxx" /></label>
-          <label>วันที่ต้องการจอง <input name="date" type="date" /></label>
-          <label>รายละเอียด <textarea name="detail" rows="4" placeholder="ปัญหาผม / งบประมาณ / รุ่นที่สนใจ"></textarea></label>
-          <button class="btn btn-primary" type="submit">ส่งข้อมูลจองคิว</button>
-          <p class="form-status" id="formStatus" role="status"></p>
+        <div class="ba-card" id="baCard">
+          <button class="circle-btn" id="baPrev" aria-label="ก่อนหน้า">‹</button>
+          <div class="ba-pair">
+            <figure><img id="baBefore" src="assets/images/ba-1.jpg" alt="Before"><figcaption>BEFORE</figcaption></figure>
+            <figure><img id="baAfter" src="assets/images/ba-2.jpg" alt="After"><figcaption>AFTER</figcaption></figure>
+          </div>
+          <div class="ba-copy">
+            <h3 id="baTitle">Before / After Case 01</h3>
+            <p id="baText">ภาพเปรียบเทียบหลังปรับลุคด้วยระบบวิกผมชาย</p>
+          </div>
+          <button class="circle-btn" id="baNext" aria-label="ถัดไป">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="process container" id="process">
+      <div class="section-title">
+        <p class="eyebrow gold">BOOKING PROCESS</p>
+        <h2>ขั้นตอนจองคิว</h2>
+      </div>
+      <div class="steps" id="steps"></div>
+    </section>
+
+    <section class="reviews container" id="reviews">
+      <div class="section-title center">
+        <p class="eyebrow gold">CUSTOMER REVIEWS</p>
+        <h2>รีวิวและผลลัพธ์จากลูกค้า</h2>
+      </div>
+      <div class="review-shell">
+        <button class="circle-btn" id="reviewPrev" aria-label="รีวิวก่อนหน้า">‹</button>
+        <article class="review-card" id="reviewCard"></article>
+        <button class="circle-btn" id="reviewNext" aria-label="รีวิวถัดไป">›</button>
+      </div>
+    </section>
+
+    <section class="booking section-dark" id="booking">
+      <div class="container booking-grid">
+        <div>
+          <p class="eyebrow gold">RESERVE YOUR SLOT</p>
+          <h2>จองคิว / ปรึกษาสเปกก่อนตัดสินใจ</h2>
+          <p>กดปุ่มติดต่อด้านล่าง หรือกรอกข้อมูลแล้วส่งผ่านแอปอีเมล/ข้อความของคุณได้ทันที</p>
+          <div class="contact-cards">
+            <a href="tel:0895490884">โทร 0895490884</a>
+            <a id="lineLink" href="#" target="_blank" rel="noopener">LINE: @1ddstudio</a>
+            <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <form class="booking-form" id="bookingForm">
+          <label>ชื่อ <input name="name" required placeholder="ชื่อลูกค้า"></label>
+          <label>เบอร์โทร / LINE <input name="contact" required placeholder="เบอร์โทรหรือ LINE"></label>
+          <label>บริการที่สนใจ
+            <select name="service">
+              <option>ปรึกษาวิกผมชาย</option>
+              <option>จองคิวติดตั้งวิก</option>
+              <option>ตัดผม / ปรับทรง</option>
+              <option>ลูกค้าต่างจังหวัด</option>
+            </select>
+          </label>
+          <label>วันที่ต้องการ <input name="date" type="date"></label>
+          <label>รายละเอียดเพิ่มเติม <textarea name="message" rows="4" placeholder="เช่น สีผม ทรงที่อยากได้ งบประมาณ หรือปัญหาผมบาง"></textarea></label>
+          <button class="btn btn-gold" type="submit">ส่งข้อมูลจองคิว</button>
+          <p class="form-note">ระบบจะเปิดอีเมลพร้อมข้อความที่กรอกไว้ หากต้องการให้ส่งเข้า LINE โดยตรง ให้กดปุ่ม LINE ด้านบน</p>
         </form>
       </div>
     </section>
+
+    <section class="faq container" id="faq">
+      <div class="section-title center">
+        <p class="eyebrow gold">FAQ</p>
+        <h2>คำถามที่พบบ่อย</h2>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>1DD STUDIO</strong> — Premium Men’s Hair System & Barber Studio</p>
-    <p>Surat Thani • Tel: <a href="tel:0895490884">0895490884</a></p>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><strong>1DD STUDIO</strong><p>Men's Hair System & Barber Studio<br>Surat Thani, Thailand</p></div>
+      <div><a href="#products">สินค้า</a><a href="#before-after">Before/After</a><a href="#booking">จองคิว</a></div>
+      <div><a href="tel:0895490884">0895490884</a><a href="#top">กลับด้านบน ↑</a></div>
+    </div>
   </footer>
 
+  <script type="application/ld+json" id="schemaJson"></script>
   <script src="script.js"></script>
 </body>
 </html>
