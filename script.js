@@ -64,13 +64,47 @@ function renderFaq(){
   $('#faqList').innerHTML=data.faq.map((f,i)=>`<details class="faq-item" ${i===0?'open':''}><summary>${f.q}</summary><p>${f.a}</p></details>`).join('');
 }
 function setupBooking(){
-  const line=(data.site.line||'@1ddstudio').replace('@','');
-  $('#lineLink').href=`https://line.me/R/ti/p/${encodeURIComponent(data.site.line)}`;
+  const lineId=(data.site.line||'mozzjro').replace('@','');
+  $('#lineLink').textContent=`LINE: ${lineId}`;
+  $('#lineLink').href=`https://line.me/ti/p/${encodeURIComponent(lineId)}`;
   $('#waLink').href=`https://wa.me/${data.site.whatsapp}?text=${encodeURIComponent('สวัสดีครับ สนใจจองคิว/ปรึกษาวิกผมชาย 1DD STUDIO')}`;
-  $('#bookingForm').addEventListener('submit',e=>{
-    e.preventDefault(); const fd=new FormData(e.currentTarget);
-    const body=[`ชื่อ: ${fd.get('name')}`,`ติดต่อ: ${fd.get('contact')}`,`บริการ: ${fd.get('service')}`,`วันที่ต้องการ: ${fd.get('date')||'-'}`,`รายละเอียด: ${fd.get('message')||'-'}`].join('\n');
-    location.href=`mailto:1ddstudio@gmail.com?subject=${encodeURIComponent('จองคิว 1DD STUDIO')}&body=${encodeURIComponent(body)}`;
+  $('#bookingForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const form=e.currentTarget;
+    const fd=new FormData(form);
+    const payload={
+      timestamp:new Date().toISOString(),
+      name:fd.get('name')||'',
+      contact:fd.get('contact')||'',
+      service:fd.get('service')||'',
+      date:fd.get('date')||'',
+      message:fd.get('message')||'',
+      page:location.href,
+      source:'1DD STUDIO Website'
+    };
+    const status=$('#formStatus');
+    status.textContent='กำลังส่งข้อมูล...';
+    const webAppUrl=data.googleSheets?.webAppUrl||'';
+    const isReady=data.googleSheets?.enable && webAppUrl.startsWith('http');
+    if(isReady){
+      try{
+        await fetch(webAppUrl,{
+          method:'POST',
+          mode:'no-cors',
+          headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+          body:new URLSearchParams(payload)
+        });
+        status.textContent='ส่งข้อมูลแล้ว ทีมงานจะติดต่อกลับเร็วที่สุด';
+        form.reset();
+        return;
+      }catch(err){
+        console.error(err);
+        status.textContent='ส่งเข้า Google Sheets ไม่สำเร็จ กำลังเปิดอีเมลสำรอง';
+      }
+    }
+    const body=[`ชื่อ: ${payload.name}`,`ติดต่อ: ${payload.contact}`,`บริการ: ${payload.service}`,`วันที่ต้องการ: ${payload.date||'-'}`,`รายละเอียด: ${payload.message||'-'}`].join('\n');
+    const fallbackEmail=(data.site.email && data.site.email.includes('@')) ? data.site.email : '1ddstudio@gmail.com';
+    location.href=`mailto:${fallbackEmail}?subject=${encodeURIComponent('จองคิว 1DD STUDIO')}&body=${encodeURIComponent(body)}`;
   });
 }
 function setupNav(){

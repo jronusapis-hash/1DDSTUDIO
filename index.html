@@ -37,7 +37,7 @@
       <div class="hero-content container">
         <p class="eyebrow" id="heroEyebrow">Premium Men's Hair System</p>
         <h1 id="heroTitle">เปลี่ยนผมบาง ให้กลับมาดูมั่นใจอีกครั้ง</h1>
-        <p class="lead" id="heroSubtitle">วิกผมชายเกรดพรีเมียม ติดตั้งเนียนธรรมชาติ ตรวจ QC ก่อนส่ง รองรับลูกค้าทั่วประเทศ</p>
+        <p class="lead" id="heroSubtitle">วิกผมชายเกรดพรีเมียม ติดตั้งเนียนธรรมชาติ รองรับลูกค้าทั่วประเทศ</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#booking">จองคิว / ปรึกษาฟรี</a>
           <a class="btn btn-outline" href="tel:0895490884">โทรทันที</a>
@@ -45,7 +45,7 @@
         <div class="hero-dots" id="heroDots" aria-label="Hero navigation"></div>
       </div>
       <div class="trust-bar container">
-        <span>QC ก่อนส่ง</span><span>งานเนียนธรรมชาติ</span><span>รองรับต่างจังหวัด</span><span>Thai / English</span>
+        <span>งานเนียนธรรมชาติ</span><span>ยืนยันสเปกก่อนจอง</span><span>รองรับต่างจังหวัด</span><span>Thai / English</span>
       </div>
     </section>
 
@@ -63,10 +63,8 @@
       <div class="section-title">
         <p class="eyebrow gold">PRODUCT MENU</p>
         <h2>เมนูวิกผมชาย 1DD STUDIO</h2>
-        <p>ใช้รูปสินค้าตัวสะอาด ไม่มีบาร์โค้ด/QR พร้อมราคาโปรโมชันเดือนนี้</p>
       </div>
       <div class="product-grid" id="productGrid"></div>
-      <p class="note">* หากไม่ติดตั้งที่ร้าน ลดราคา 3,000 บาทต่อตัว / สีพิเศษอาจมีค่าใช้จ่ายเพิ่ม</p>
     </section>
 
     <section class="before-after section-dark" id="before-after">
@@ -74,7 +72,6 @@
         <div class="section-title center">
           <p class="eyebrow gold">REAL TRANSFORMATION</p>
           <h2>Before / After แบบกล่องเดียว</h2>
-          <p>จัดรูปให้บาลานซ์ในกรอบเดียว เลื่อนดูเคสได้ทั้งมือถือและคอม</p>
         </div>
         <div class="ba-card" id="baCard">
           <button class="circle-btn" id="baPrev" aria-label="ก่อนหน้า">‹</button>
@@ -116,10 +113,10 @@
         <div>
           <p class="eyebrow gold">RESERVE YOUR SLOT</p>
           <h2>จองคิว / ปรึกษาสเปกก่อนตัดสินใจ</h2>
-          <p>กดปุ่มติดต่อด้านล่าง หรือกรอกข้อมูลแล้วส่งผ่านแอปอีเมล/ข้อความของคุณได้ทันที</p>
+          <p>กดปุ่มติดต่อด้านล่าง หรือกรอกข้อมูลแล้วระบบจะส่งเข้า Google Sheets และแจ้งเตือนทางอีเมลสำหรับติดตามลูกค้า</p>
           <div class="contact-cards">
             <a href="tel:0895490884">โทร 0895490884</a>
-            <a id="lineLink" href="#" target="_blank" rel="noopener">LINE: @1ddstudio</a>
+            <a id="lineLink" href="#" target="_blank" rel="noopener">LINE: mozzjro</a>
             <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
@@ -137,7 +134,8 @@
           <label>วันที่ต้องการ <input name="date" type="date"></label>
           <label>รายละเอียดเพิ่มเติม <textarea name="message" rows="4" placeholder="เช่น สีผม ทรงที่อยากได้ งบประมาณ หรือปัญหาผมบาง"></textarea></label>
           <button class="btn btn-gold" type="submit">ส่งข้อมูลจองคิว</button>
-          <p class="form-note">ระบบจะเปิดอีเมลพร้อมข้อความที่กรอกไว้ หากต้องการให้ส่งเข้า LINE โดยตรง ให้กดปุ่ม LINE ด้านบน</p>
+          <p class="form-status" id="formStatus" role="status"></p>
+          <p class="form-note">เมื่อเชื่อม Google Sheets แล้ว ข้อมูลจองคิวจะถูกบันทึกและส่งแจ้งเตือนทางอีเมลอัตโนมัติ หากยังไม่ได้ตั้งค่า ระบบจะเปิดอีเมลสำรอง</p>
         </form>
       </div>
     </section>
