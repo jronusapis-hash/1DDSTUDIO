@@ -32,7 +32,7 @@ function renderBenefits(){
   $('#benefits').innerHTML=data.benefits.map(b=>`<article class="benefit-card"><h3>${b.title}</h3><p>${b.text}</p></article>`).join('');
 }
 function renderProducts(){
-  $('#productGrid').innerHTML=data.products.map(p=>`<article class="product-card"><div class="product-img-wrap"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="product-body"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p><div class="price"><del>${p.price} บาท</del><strong>${p.discount}</strong><span>บาท</span></div><ul class="features">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul></div></article>`).join('');
+  $('#productGrid').innerHTML=data.products.map(p=>`<article class="product-card"><div class="product-img-wrap"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="product-body"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p><div class="price">${p.discount ? `<del>${p.price} บาท</del><strong>${p.discount}</strong><span>บาท</span>` : `<strong>${p.price}</strong><span>บาท</span>`}</div><ul class="features">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul></div></article>`).join('');
 }
 
 let baIndex=0;
@@ -79,7 +79,7 @@ function setupNav(){
   nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open'); btn.setAttribute('aria-expanded','false');}});
 }
 function renderSchema(){
-  const schema={"@context":"https://schema.org","@type":"HairSalon","name":data.site.name,"telephone":data.site.phone,"address":{"@type":"PostalAddress","addressLocality":"Surat Thani","addressCountry":"TH"},"url":location.origin,"image":`${location.origin}/assets/images/hero-1.jpg`,"priceRange":"฿฿"};
+  const schema={"@context":"https://schema.org","@type":"HairSalon","name":data.site.name,"telephone":data.site.phone,"address":{"@type":"PostalAddress","addressLocality":"Surat Thani","addressCountry":"TH"},"url":location.origin,"image":`${location.origin}/hero-1.jpg`,"priceRange":"฿฿"};
   $('#schemaJson').textContent=JSON.stringify(schema);
 }
 loadContent();

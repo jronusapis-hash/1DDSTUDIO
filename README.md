@@ -1,27 +1,13 @@
-# 1DD STUDIO V3 Premium Full
+# 1DD STUDIO V3 Fixed Root Images
 
-เว็บไซต์ V3 สำหรับ 1DD STUDIO พร้อมใช้งานกับ GitHub + Cloudflare Pages
+เวอร์ชันนี้แก้ปัญหารูปไม่ขึ้นจาก path `assets/images/...` แล้ว โดยให้เว็บเรียกรูปจากโฟลเดอร์หลักของ GitHub ตรงกับไฟล์เดิมที่มีอยู่ใน repo เช่น `premium-clean.jpg`, `standard-clean.jpg`, `ba-1.jpg`
 
-## โครงสร้างไฟล์
-- `index.html` หน้าเว็บหลัก
-- `styles.css` ธีมพรีเมียมดำ/ทอง Responsive
-- `script.js` ระบบ Slider, Product, Before/After, Reviews, Booking
-- `content.json` ไฟล์แก้ไขข้อความ ราคา รูป และข้อมูลต่าง ๆ
-- `assets/images/` โฟลเดอร์รูปทั้งหมด
+## แก้ไขแล้ว
+- รูปสินค้า / Before After / Reviews / Hero ใช้ path รูททั้งหมด
+- HS1 = `premium-clean.jpg`
+- HS1E = `standard-clean.jpg`
+- ราคากลับเป็นราคาปกติ: 18,000 / 15,000 / 8,000 บาท
+- ไม่มีราคาโปรโมชัน 16,000 / 13,500 / 6,500
 
-## จุดที่แก้ตามที่ตกลง
-- HS1 ใช้ `assets/images/premium-clean.jpg` ไม่มีบาร์โค้ด
-- HS1E ใช้ `assets/images/standard-clean.jpg` ไม่มีบาร์โค้ด
-- Before/After เป็นกล่องเดียว มีลูกศรเลื่อนซ้ายขวา และรูปบาลานซ์
-- ใช้ path รูปแบบเดียวกันทั้งหมดผ่าน `assets/images/`
-- รองรับ Cloudflare Pages โดยไม่ต้องมี Build command
-
-## การ Deploy
-1. แตกไฟล์ ZIP
-2. อัปโหลดไฟล์ทั้งหมดขึ้น GitHub repo `1DDSTUDIO`
-3. Commit changes
-4. Cloudflare Pages จะ Deploy อัตโนมัติ
-
-## การแก้ไขง่าย
-แก้ข้อมูลสินค้า ราคา ข้อความ และรูปใน `content.json`
-หากเปลี่ยนรูป ให้ใช้ชื่อไฟล์เดิมใน `assets/images/` เพื่อไม่ต้องแก้โค้ด
+## วิธีอัปโหลด
+ให้อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ทับไฟล์เดิมใน GitHub repository `1DDSTUDIO` แล้ว Commit changes
