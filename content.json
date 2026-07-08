@@ -10,7 +10,9 @@
     "tiktok": "https://www.tiktok.com/",
     "map": "https://maps.google.com/?q=1DD%20STUDIO%20Surat%20Thani",
     "email": "PASTE_YOUR_EMAIL_HERE",
-    "mapEmbed": "https://www.google.com/maps?q=1DD%20STUDIO%20Surat%20Thani&output=embed"
+    "mapEmbed": "https://www.google.com/maps?q=1DD%20STUDIO%20Surat%20Thani&output=embed",
+    "lineAddUrl": "https://line.me/ti/p/~mozzjro",
+    "lineQr": "line-qr-mozzjro.png"
   },
   "seo": {
     "title": "1DD STUDIO | วิกผมชายพรีเมียม สุราษฎร์ธานี",
@@ -153,13 +155,22 @@
     }
   ],
   "googleSheets": {
-    "webAppUrl": "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE",
-    "enable": true,
-    "notifyEmail": "PASTE_YOUR_EMAIL_HERE"
+    "webAppUrl": "",
+    "enable": false,
+    "notifyEmail": "PASTE_YOUR_EMAIL_HERE",
+    "note": "ปิดฟอร์มหน้าเว็บแบบ Apps Script แล้ว ใช้ Google Form เป็นหลักเพื่อให้ข้อมูลเข้า Google Sheets โดยตรง"
   },
   "googleForm": {
-    "formUrl": "PASTE_YOUR_GOOGLE_FORM_URL_HERE",
-    "embedUrl": "PASTE_YOUR_GOOGLE_FORM_EMBED_URL_HERE",
-    "enableEmbed": false
+    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSce8kuEVS71DIXofTxoNVIUFrQdBnMeKs-BjU22LhHy4LBAEw/viewform?usp=publish-editor",
+    "embedUrl": "https://docs.google.com/forms/d/e/1FAIpQLSce8kuEVS71DIXofTxoNVIUFrQdBnMeKs-BjU22LhHy4LBAEw/viewform?embedded=true",
+    "sheetUrl": "https://docs.google.com/spreadsheets/d/1bsVqRAy9t0qmtRVSsjFxK9MB5JMWJxx6eWq6QdUgw-A/edit?resourcekey=&gid=1465032530#gid=1465032530",
+    "enableEmbed": true,
+    "note": "V4.6: ใช้ Google Form เป็นตัวรับจองคิวหลัก เพื่อให้ข้อมูลเข้า Google Sheets ที่เชื่อมกับฟอร์มโดยตรง"
+  },
+  "lineNotification": {
+    "enable": false,
+    "channelAccessToken": "PASTE_LINE_MESSAGING_API_CHANNEL_ACCESS_TOKEN_HERE",
+    "to": "PASTE_LINE_USER_ID_OR_GROUP_ID_HERE",
+    "note": "เปิด true หลังตั้งค่า LINE Messaging API แล้วเท่านั้น"
   }
 }

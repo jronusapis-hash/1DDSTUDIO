@@ -64,19 +64,36 @@ function renderFaq(){
   $('#faqList').innerHTML=data.faq.map((f,i)=>`<details class="faq-item" ${i===0?'open':''}><summary>${f.q}</summary><p>${f.a}</p></details>`).join('');
 }
 function setupBooking(){
-  const lineId=(data.site.line||'mozzjro').replace('@','');
-  $('#lineLink').textContent=`LINE: ${lineId}`;
-  $('#lineLink').href=`https://line.me/ti/p/${encodeURIComponent(lineId)}`;
+  const rawLineId=(data.site.line||'mozzjro').replace('@','').replace('~','');
+  const lineAddUrl=data.site.lineAddUrl || `https://line.me/ti/p/~${encodeURIComponent(rawLineId)}`;
+  $('#lineLink').textContent=`เพิ่ม LINE: ${rawLineId}`;
+  $('#lineLink').href=lineAddUrl;
+  const qr=$('#lineQr');
+  if(qr && data.site.lineQr){ qr.src=data.site.lineQr; qr.alt=`LINE QR Code ${rawLineId}`; }
   $('#waLink').href=`https://wa.me/${data.site.whatsapp}?text=${encodeURIComponent('สวัสดีครับ สนใจจองคิว/ปรึกษาวิกผมชาย 1DD STUDIO')}`;
   const gf=$('#googleFormLink');
   const formUrl=data.googleForm?.formUrl||'';
   if(formUrl.startsWith('http')){
     gf.href=formUrl;
-    gf.textContent='จองคิวผ่าน Google Form';
+    gf.textContent='เปิด Google Form จองคิว';
   }else{
     gf.href='#bookingForm';
     gf.textContent='จองคิวผ่านฟอร์มหน้าเว็บ';
   }
+
+  const embedWrap=document.getElementById('googleFormEmbedWrap');
+  const localForm=document.getElementById('bookingForm');
+  const embedUrl=data.googleForm?.embedUrl||'';
+  const useEmbed=Boolean(data.googleForm?.enableEmbed && embedUrl.startsWith('http'));
+  if(embedWrap && useEmbed){
+    embedWrap.hidden=false;
+    embedWrap.innerHTML=`<iframe class="google-form-frame" src="${embedUrl}" title="1DD STUDIO Booking Google Form" loading="lazy">กำลังโหลด Google Form...</iframe>`;
+    if(localForm){ localForm.hidden=true; }
+  }else if(embedWrap){
+    embedWrap.hidden=true;
+    if(localForm){ localForm.hidden=false; }
+  }
+
   $('#bookingForm').addEventListener('submit',async e=>{
     e.preventDefault();
     const form=e.currentTarget;
@@ -103,7 +120,7 @@ function setupBooking(){
           headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
           body:new URLSearchParams(payload)
         });
-        status.textContent='ส่งข้อมูลแล้ว ทีมงานจะติดต่อกลับเร็วที่สุด';
+        status.textContent='ส่งข้อมูลแล้ว ระบบจะบันทึกเข้า Google Sheets และแจ้งเตือนร้าน';
         form.reset();
         return;
       }catch(err){

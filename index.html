@@ -114,14 +114,16 @@
         <div>
           <p class="eyebrow gold">RESERVE YOUR SLOT</p>
           <h2>จองคิว / ปรึกษาสเปกก่อนตัดสินใจ</h2>
-          <p>กดปุ่มติดต่อด้านล่าง หรือกรอกข้อมูลแล้วระบบจะส่งเข้า Google Sheets และแจ้งเตือนทางอีเมลสำหรับติดตามลูกค้า</p>
+          <p>กดจองคิวผ่าน Google Form ด้านล่าง ข้อมูลจะบันทึกเข้า Google Sheets ที่เชื่อมไว้โดยตรง</p>
           <div class="contact-cards">
             <a class="gold-card" id="googleFormLink" href="#" target="_blank" rel="noopener">จองคิวผ่าน Google Form</a>
             <a href="tel:0895490884">โทร 0895490884</a>
-            <a id="lineLink" href="#" target="_blank" rel="noopener">LINE: mozzjro</a>
+            <a id="lineLink" href="#" target="_blank" rel="noopener">เพิ่ม LINE: mozzjro</a>
+            <div class="line-qr-card"><img id="lineQr" src="line-qr-mozzjro.png" alt="LINE QR Code mozzjro"><span>สแกน QR Code เพื่อเพิ่ม LINE</span></div>
             <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
+        <div class="google-form-embed" id="googleFormEmbedWrap" hidden></div>
         <form class="booking-form" id="bookingForm">
           <label>ชื่อ <input name="name" required placeholder="ชื่อลูกค้า"></label>
           <label>เบอร์โทร / LINE <input name="contact" required placeholder="เบอร์โทรหรือ LINE"></label>
@@ -137,7 +139,7 @@
           <label>รายละเอียดเพิ่มเติม <textarea name="message" rows="4" placeholder="เช่น สีผม ทรงที่อยากได้ งบประมาณ หรือปัญหาผมบาง"></textarea></label>
           <button class="btn btn-gold" type="submit">ส่งข้อมูลจองคิว</button>
           <p class="form-status" id="formStatus" role="status"></p>
-          <p class="form-note">ฟอร์มนี้ส่งเข้า Google Sheets ผ่าน Apps Script ได้ หรือกดปุ่ม Google Form เพื่อบันทึกเข้าชีตที่เชื่อมกับฟอร์มโดยตรง</p>
+          <p class="form-note">ระบบหลักใช้ Google Form เพื่อบันทึกข้อมูลเข้า Google Sheets โดยตรง หากฟอร์มไม่แสดง ให้กดปุ่ม “จองคิวผ่าน Google Form”</p>
         </form>
       </div>
     </section>
