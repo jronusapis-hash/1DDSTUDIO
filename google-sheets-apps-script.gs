@@ -1,97 +1,63 @@
 /**
- * 1DD STUDIO Booking → Google Sheets
- * วิธีใช้:
- * 1) เปิด Google Sheets ไฟล์ที่ต้องการรับแจ้งเตือน
- * 2) Extensions > Apps Script
- * 3) วางโค้ดนี้ทั้งหมด
- * 4) Deploy > New deployment > Web app
- * 5) Execute as: Me
- * 6) Who has access: Anyone
- * 7) แก้ CONFIG.notifyEmail เป็นอีเมลที่ต้องการรับแจ้งเตือน
- * 8) Copy Web app URL ไปใส่ใน content.json ช่อง googleSheets.webAppUrl
+ * 1DD STUDIO Booking Notification Script
+ * ใช้ได้ 2 แบบ:
+ * 1) รับข้อมูลจากฟอร์มหน้าเว็บผ่าน Web App แล้วบันทึกลง Google Sheet + ส่งอีเมล
+ * 2) ใช้กับ Google Form ที่เชื่อมกับ Google Sheet แล้วตั้ง Trigger: onFormSubmit
  */
 
-const CONFIG = {
-  sheetName: 'Bookings',
-  notifyEmail: 'PASTE_YOUR_EMAIL_HERE' // ใส่อีเมลที่ต้องการรับแจ้งเตือน เช่น 'you@gmail.com'
-};
+const NOTIFY_EMAIL = 'PASTE_YOUR_EMAIL_HERE';
+const SHEET_NAME = 'Bookings';
 
 function doPost(e) {
-  const lock = LockService.getScriptLock();
-  lock.waitLock(10000);
-
-  try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = getOrCreateSheet_(ss, CONFIG.sheetName);
-
-    const data = e.parameter || {};
-    const row = [
-      new Date(),
-      data.name || '',
-      data.contact || '',
-      data.service || '',
-      data.date || '',
-      data.message || '',
-      data.page || '',
-      data.source || ''
-    ];
-
-    sheet.appendRow(row);
-
-    if (CONFIG.notifyEmail) {
-      MailApp.sendEmail({
-        to: CONFIG.notifyEmail,
-        subject: 'มีลูกค้าจองคิวจากเว็บ 1DD STUDIO',
-        body:
-          'มีข้อมูลจองคิวใหม่\n\n' +
-          'ชื่อ: ' + row[1] + '\n' +
-          'ติดต่อ: ' + row[2] + '\n' +
-          'บริการ: ' + row[3] + '\n' +
-          'วันที่ต้องการ: ' + row[4] + '\n' +
-          'รายละเอียด: ' + row[5] + '\n' +
-          'หน้าเว็บ: ' + row[6]
-      });
-    }
-
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: true }))
-      .setMimeType(ContentService.MimeType.JSON);
-
-  } catch (err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
-      .setMimeType(ContentService.MimeType.JSON);
-  } finally {
-    lock.releaseLock();
-  }
-}
-
-function doGet() {
+  const sheet = getBookingSheet_();
+  const data = e && e.parameter ? e.parameter : {};
+  const row = [
+    new Date(),
+    data.name || '',
+    data.contact || '',
+    data.service || '',
+    data.date || '',
+    data.message || '',
+    data.page || '',
+    data.source || '1DD STUDIO Website'
+  ];
+  sheet.appendRow(row);
+  sendBookingEmail_(row);
   return ContentService
-    .createTextOutput('1DD STUDIO Booking Web App is running')
-    .setMimeType(ContentService.MimeType.TEXT);
+    .createTextOutput(JSON.stringify({ ok: true }))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
-function getOrCreateSheet_(ss, name) {
-  let sheet = ss.getSheetByName(name);
+function onFormSubmit(e) {
+  const values = e && e.values ? e.values : [];
+  const subject = 'มีลูกค้าจองคิวผ่าน Google Form - 1DD STUDIO';
+  const body = 'มีข้อมูลใหม่เข้ามาใน Google Form / Google Sheet:\n\n' + values.join('\n');
+  MailApp.sendEmail(NOTIFY_EMAIL, subject, body);
+}
+
+function getBookingSheet_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
-    sheet = ss.insertSheet(name);
+    sheet = ss.insertSheet(SHEET_NAME);
+    sheet.appendRow(['Timestamp','Name','Contact','Service','Date','Message','Page','Source']);
   }
-
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow([
-      'Timestamp',
-      'Name',
-      'Contact',
-      'Service',
-      'Preferred Date',
-      'Message',
-      'Page',
-      'Source'
-    ]);
-    sheet.getRange(1, 1, 1, 8).setFontWeight('bold');
-    sheet.setFrozenRows(1);
-  }
-
   return sheet;
+}
+
+function sendBookingEmail_(row) {
+  const subject = 'มีลูกค้าจองคิวจากเว็บไซต์ - 1DD STUDIO';
+  const body = [
+    'มีลูกค้าส่งข้อมูลจองคิวจากเว็บไซต์',
+    '',
+    'เวลา: ' + row[0],
+    'ชื่อ: ' + row[1],
+    'ติดต่อ: ' + row[2],
+    'บริการ: ' + row[3],
+    'วันที่ต้องการ: ' + row[4],
+    'รายละเอียด: ' + row[5],
+    'หน้าเว็บ: ' + row[6],
+    'แหล่งที่มา: ' + row[7]
+  ].join('\n');
+  MailApp.sendEmail(NOTIFY_EMAIL, subject, body);
 }

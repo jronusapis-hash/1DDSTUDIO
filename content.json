@@ -9,7 +9,8 @@
     "facebook": "https://www.facebook.com/",
     "tiktok": "https://www.tiktok.com/",
     "map": "https://maps.google.com/?q=1DD%20STUDIO%20Surat%20Thani",
-    "email": "PASTE_YOUR_EMAIL_HERE"
+    "email": "PASTE_YOUR_EMAIL_HERE",
+    "mapEmbed": "https://www.google.com/maps?q=1DD%20STUDIO%20Surat%20Thani&output=embed"
   },
   "seo": {
     "title": "1DD STUDIO | วิกผมชายพรีเมียม สุราษฎร์ธานี",
@@ -153,6 +154,12 @@
   ],
   "googleSheets": {
     "webAppUrl": "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE",
-    "enable": true
+    "enable": true,
+    "notifyEmail": "PASTE_YOUR_EMAIL_HERE"
+  },
+  "googleForm": {
+    "formUrl": "PASTE_YOUR_GOOGLE_FORM_URL_HERE",
+    "embedUrl": "PASTE_YOUR_GOOGLE_FORM_EMBED_URL_HERE",
+    "enableEmbed": false
   }
 }

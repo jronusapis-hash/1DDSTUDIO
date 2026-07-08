@@ -6,7 +6,7 @@ const img=(src,alt)=>{const i=new Image(); i.src=src; i.alt=alt||''; i.loading='
 async function loadContent(){
   try{const r=await fetch('content.json',{cache:'no-store'}); data=await r.json();}
   catch(e){console.error('Cannot load content.json',e); return;}
-  applySeo(); renderHero(); renderBenefits(); renderProducts(); renderBeforeAfter(); renderSteps(); renderReviews(); renderFaq(); setupBooking(); setupNav(); renderSchema();
+  applySeo(); renderHero(); renderBenefits(); renderProducts(); renderBeforeAfter(); renderSteps(); renderReviews(); renderFaq(); setupBooking(); setupMap(); setupNav(); renderSchema();
 }
 
 function applySeo(){
@@ -68,6 +68,15 @@ function setupBooking(){
   $('#lineLink').textContent=`LINE: ${lineId}`;
   $('#lineLink').href=`https://line.me/ti/p/${encodeURIComponent(lineId)}`;
   $('#waLink').href=`https://wa.me/${data.site.whatsapp}?text=${encodeURIComponent('สวัสดีครับ สนใจจองคิว/ปรึกษาวิกผมชาย 1DD STUDIO')}`;
+  const gf=$('#googleFormLink');
+  const formUrl=data.googleForm?.formUrl||'';
+  if(formUrl.startsWith('http')){
+    gf.href=formUrl;
+    gf.textContent='จองคิวผ่าน Google Form';
+  }else{
+    gf.href='#bookingForm';
+    gf.textContent='จองคิวผ่านฟอร์มหน้าเว็บ';
+  }
   $('#bookingForm').addEventListener('submit',async e=>{
     e.preventDefault();
     const form=e.currentTarget;
@@ -107,6 +116,17 @@ function setupBooking(){
     location.href=`mailto:${fallbackEmail}?subject=${encodeURIComponent('จองคิว 1DD STUDIO')}&body=${encodeURIComponent(body)}`;
   });
 }
+
+function setupMap(){
+  const frame=$('#mapFrame');
+  const link=$('#mapOpenLink');
+  if(!frame || !link) return;
+  const embed=data.site?.mapEmbed || 'https://www.google.com/maps?q=1DD%20STUDIO%20Surat%20Thani&output=embed';
+  const mapUrl=data.site?.map || 'https://maps.google.com/?q=1DD%20STUDIO%20Surat%20Thani';
+  frame.src=embed;
+  link.href=mapUrl;
+}
+
 function setupNav(){
   const btn=$('.nav-toggle'), nav=$('.nav');
   btn.addEventListener('click',()=>{const open=nav.classList.toggle('open'); btn.setAttribute('aria-expanded',String(open));});
