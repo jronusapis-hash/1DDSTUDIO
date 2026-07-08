@@ -1,10 +1,23 @@
-# 1DD STUDIO V3 Stable Correct
+# 1DD STUDIO Digital Platform — V3 Starter
 
-ฐาน V2 เดิมทั้งหมด ปรับเฉพาะ:
-- Before/After เป็นสไลด์ทีละเคส ขนาดเล็กลงและบาลานซ์
-- รูป BA ปรับเป็น 1152x1536 px
-- ลบ 500+ เคสที่ดูแล
-- เปลี่ยนสินค้า Standard/HS1 และ Premium/HS1E ไปใช้รูปไม่มี QR: standard-clean.jpg, premium-clean.jpg
-- ไม่รื้อแพทเทิร์น V2 เดิม
+ชุดไฟล์นี้ทำตาม Project Bible และ Master Prompt:
+- GitHub + Netlify workflow
+- HTML/CSS/JS frontend
+- Editable `content.json`
+- Premium black/gold theme
+- Responsive desktop/mobile
+- Hero slider, Reviews slider, Before/After slider
 
-วิธีอัปโหลด: แตก ZIP > GitHub 1DDSTUDIO > + > Upload files > ลากไฟล์ทั้งหมด > Commit changes > รอ Netlify 30–60 วินาที
+## วิธีใช้งาน
+1. อัปโหลดไฟล์ทั้งหมดไปที่ GitHub repository
+2. ใส่รูปจริงทับในโฟลเดอร์ `assets/images/` ตามชื่อไฟล์นี้:
+   - hero-1.jpg, hero-2.jpg, hero-3.jpg
+   - product-hs1.jpg, product-hs1e.jpg, product-standard.jpg
+   - before-1.jpg, after-1.jpg, before-2.jpg, after-2.jpg, before-3.jpg, after-3.jpg
+3. แก้ข้อความ ราคา เบอร์โทร หรือสินค้าใน `content.json`
+4. Commit changes
+5. รอ Netlify deploy
+6. Hard refresh browser
+
+## หมายเหตุ
+ระบบจองคิวตอนนี้เป็น Frontend starter ที่ส่งผ่าน SMS link ก่อน สามารถต่อ Google Form, Line OA, หรือระบบ Booking จริงใน V5 ได้
