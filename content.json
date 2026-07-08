@@ -40,7 +40,7 @@
     {
       "name": "HS1 Premium",
       "price": "18,000",
-      "image": "hs1-premium.jpg",
+      "image": "hs1-premium-v4-balanced.png",
       "badge": "Premium",
       "description": "รุ่นพรีเมียม เนียนธรรมชาติ เหมาะกับลูกค้าที่ต้องการงานดูแพงและใช้งานจริงได้มั่นใจ",
       "features": [
@@ -53,7 +53,7 @@
     {
       "name": "HS1E Essential Plus",
       "price": "15,000",
-      "image": "hs1e-essential.jpg",
+      "image": "hs1e-essential-v4-balanced.png",
       "badge": "Best Value",
       "description": "รุ่นเอสเซนเชียล คุ้มค่า ดูเป็นธรรมชาติ ใช้งานง่าย เหมาะกับลูกค้าที่อยากเริ่มต้นแบบคุณภาพดี",
       "features": [
