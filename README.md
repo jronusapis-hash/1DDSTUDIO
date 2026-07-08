@@ -1,14 +1,10 @@
-# 1DD STUDIO V3 QR FIX
+# 1DD STUDIO V3 Stable Correct
 
-เวอร์ชันนี้ใช้ V2 เป็นฐานเดิม และแก้เฉพาะรูปสินค้า 2–3 โดยลบ QR Code ออกจากรูปแบบแนบเนียน
+ฐาน V2 เดิมทั้งหมด ปรับเฉพาะ:
+- Before/After เป็นสไลด์ทีละเคส ขนาดเล็กลงและบาลานซ์
+- รูป BA ปรับเป็น 1152x1536 px
+- ลบ 500+ เคสที่ดูแล
+- เปลี่ยนสินค้า Standard/HS1 และ Premium/HS1E ไปใช้รูปไม่มี QR: standard-clean.jpg, premium-clean.jpg
+- ไม่รื้อแพทเทิร์น V2 เดิม
 
-ไฟล์สำคัญ:
-- index.html
-- styles.css
-- script.js
-- content.json
-- essential.jpg
-- standard.jpg
-- premium.jpg
-
-วิธีอัปโหลด: GitHub > 1DDSTUDIO > + > Upload files > ลากไฟล์ทั้งหมด > Commit changes
+วิธีอัปโหลด: แตก ZIP > GitHub 1DDSTUDIO > + > Upload files > ลากไฟล์ทั้งหมด > Commit changes > รอ Netlify 30–60 วินาที

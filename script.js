@@ -17,14 +17,29 @@ async function loadContent(){
   document.getElementById('contactInfo').innerHTML = `${brand.location}<br>เปิดบริการ ${brand.hours}<br>โทร ${brand.phone} • LINE: ${brand.lineId}`;
   document.getElementById('mapFrame').src = brand.mapUrl;
 
-  document.getElementById('baGrid').innerHTML = data.beforeAfter.map(item=>`
-    <article class="ba-card reveal">
-      <div class="ba-images">
-        <div class="ba-img" data-label="ก่อนทำ" style="background-image:url('${item.before}')"></div>
-        <div class="ba-img" data-label="หลังทำ" style="background-image:url('${item.after}')"></div>
+  let baIndex = 0;
+  function renderBeforeAfter(){
+    const item = data.beforeAfter[baIndex];
+    document.getElementById('baGrid').innerHTML = `
+      <div class="ba-slider-v3 reveal">
+        <button class="ba-nav-btn" id="baPrev" aria-label="ก่อนหน้า">‹</button>
+        <article class="ba-card ba-card-v3">
+          <div class="ba-images ba-images-v3">
+            <div class="ba-img ba-img-v3" data-label="ก่อนทำ" style="background-image:url('${item.before}')"></div>
+            <div class="ba-img ba-img-v3" data-label="หลังทำ" style="background-image:url('${item.after}')"></div>
+          </div>
+          <div class="ba-info"><h3>${item.title}</h3><p>${item.note}</p></div>
+        </article>
+        <button class="ba-nav-btn" id="baNext" aria-label="ถัดไป">›</button>
       </div>
-      <div class="ba-info"><h3>${item.title}</h3><p>${item.note}</p></div>
-    </article>`).join('');
+      <div class="ba-dots-v3">
+        ${data.beforeAfter.map((_,i)=>`<button class="${i===baIndex?'active':''}" data-ba="${i}" aria-label="เคส ${i+1}"></button>`).join('')}
+      </div>`;
+    document.getElementById('baPrev').onclick = () => { baIndex = (baIndex - 1 + data.beforeAfter.length) % data.beforeAfter.length; renderBeforeAfter(); };
+    document.getElementById('baNext').onclick = () => { baIndex = (baIndex + 1) % data.beforeAfter.length; renderBeforeAfter(); };
+    document.querySelectorAll('[data-ba]').forEach(btn=>btn.onclick = () => { baIndex = Number(btn.dataset.ba); renderBeforeAfter(); });
+  }
+  renderBeforeAfter();
 
   document.getElementById('proofStrip').innerHTML = data.proof.map(p=>`<div class="proof-item"><b>${p.value}</b><span>${p.label}</span></div>`).join('');
 
