@@ -2,36 +2,43 @@
 <html lang="th">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>1DD STUDIO | วิกผมชายพรีเมียม สุราษฎร์ธานี</title>
-  <meta name="description" content="1DD STUDIO บริการวิกผมชาย ติดตั้งวิกผม แก้ผมบางและศีรษะล้าน งานเนียนธรรมชาติ รองรับลูกค้าต่างจังหวัดและต่างชาติ" />
+  <meta name="description" content="1DD STUDIO วิกผมชาย ผมแท้ 100% ติดตั้งเนียนธรรมชาติ เปลี่ยนลุคใน 2 ชั่วโมง รองรับลูกค้าต่างจังหวัดและต่างชาติ" />
   <meta name="theme-color" content="#080604" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta property="og:title" content="1DD STUDIO | Premium Men's Hair System" />
   <meta property="og:description" content="วิกผมชายพรีเมียม งานเนียนธรรมชาติ พร้อมบริการติดตั้งและให้คำปรึกษา" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="hero-1.jpg" />
+  <link rel="icon" href="logo-1dd-studio.jpg" />
+  <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="grain"></div>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <div class="grain" aria-hidden="true"></div>
+
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="1DD STUDIO Home">
       <span class="brand-mark brand-logo-wrap"><img src="logo-1dd-studio.jpg" alt="1DD STUDIO logo" class="brand-logo"></span>
       <span><strong>1DD STUDIO</strong><small>Hair System & Barber</small></span>
     </a>
     <button class="nav-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
-    <nav class="nav">
-      <a href="#products">สินค้า</a>
+    <nav class="nav" aria-label="เมนูหลัก">
+      <a href="#products" data-th="สินค้า" data-en="Products">สินค้า</a>
+      <a href="#comparison" data-th="เปรียบเทียบ" data-en="Compare">เปรียบเทียบ</a>
       <a href="#before-after">Before/After</a>
-      <a href="#reviews">รีวิว</a>
-      <a href="#booking">จองคิว</a>
-      <a href="#location">แผนที่</a>
+      <a href="#reviews" data-th="รีวิว" data-en="Reviews">รีวิว</a>
+      <a href="#booking" data-th="จองคิว" data-en="Booking">จองคิว</a>
+      <a href="#location" data-th="แผนที่" data-en="Map">แผนที่</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
       <a class="nav-cta" href="tel:0895490884">โทร 0895490884</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero section-dark" aria-label="Hero slider">
       <div class="hero-bg" id="heroBg"></div>
       <div class="hero-overlay"></div>
@@ -40,27 +47,35 @@
         <h1 id="heroTitle">เปลี่ยนผมบาง ให้กลับมาดูมั่นใจอีกครั้ง</h1>
         <p class="lead" id="heroSubtitle">วิกผมชายเกรดพรีเมียม ติดตั้งเนียนธรรมชาติ รองรับลูกค้าทั่วประเทศ</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href="#booking">จองคิว / ปรึกษาฟรี</a>
-          <a class="btn btn-outline" href="tel:0895490884">โทรทันที</a>
+          <a class="btn btn-gold" href="#booking" data-th="จองคิว / ปรึกษาฟรี" data-en="Book / Free consultation">จองคิว / ปรึกษาฟรี</a>
+          <a class="btn btn-outline" href="#before-after" data-th="ดูผลงานจริง" data-en="View real results">ดูผลงานจริง</a>
         </div>
+        <div class="hero-proof"><span>★★★★★</span><b data-th="รีวิวจากลูกค้าจริง" data-en="Real customer results">รีวิวจากลูกค้าจริง</b></div>
         <div class="hero-dots" id="heroDots" aria-label="Hero navigation"></div>
       </div>
       <div class="trust-bar container" aria-label="จุดเด่นของ 1DD STUDIO">
-        <span><b>✨</b><em>งานเนียนธรรมชาติ</em></span>
-        <span><b>💯</b><em>ผมแท้ 100%</em></span>
-        <span><b>⚡</b><em>มั่นใจใน 2 ชั่วโมง</em></span>
-        <span><b>🧑‍🦱</b><em>เปลี่ยนลุคให้ดูเด็กลง</em></span>
-        <span><b>🚚</b><em>รองรับลูกค้าต่างจังหวัด</em></span>
+        <span><b>✨</b><em data-th="งานเนียนธรรมชาติ" data-en="Natural & seamless">งานเนียนธรรมชาติ</em></span>
+        <span><b>💯</b><em data-th="ผมแท้ 100%" data-en="100% real human hair">ผมแท้ 100%</em></span>
+        <span><b>⚡</b><em data-th="มั่นใจใน 2 ชั่วโมง" data-en="Confidence in 2 hours">มั่นใจใน 2 ชั่วโมง</em></span>
+        <span><b>🧑‍🦱</b><em data-th="เปลี่ยนลุคให้ดูเด็กลง" data-en="Look younger">เปลี่ยนลุคให้ดูเด็กลง</em></span>
+        <span><b>🚚</b><em data-th="รองรับลูกค้าต่างจังหวัด" data-en="Nationwide service">รองรับลูกค้าต่างจังหวัด</em></span>
         <span><b>🌏</b><em>Thai / English</em></span>
       </div>
+    </section>
+
+    <section class="stats container" aria-label="จุดเด่นสรุป">
+      <div><strong>3</strong><span data-th="ระดับสินค้าให้เลือก" data-en="Product tiers">ระดับสินค้าให้เลือก</span></div>
+      <div><strong>2h</strong><span data-th="เวลาเปลี่ยนลุคโดยประมาณ" data-en="Approx. transformation">เวลาเปลี่ยนลุคโดยประมาณ</span></div>
+      <div><strong>100%</strong><span data-th="ผมแท้" data-en="Human hair">ผมแท้</span></div>
+      <div><strong>TH/EN</strong><span data-th="บริการสองภาษา" data-en="Bilingual support">บริการสองภาษา</span></div>
     </section>
 
     <section class="intro container">
       <div>
         <p class="eyebrow gold">1DD STUDIO DIFFERENCE</p>
-        <h2>ระบบวิกผมชายที่ไม่ได้ขายแค่สินค้า แต่ช่วยออกแบบลุคใหม่ให้ลูกค้า</h2>
+        <h2 data-th="เราไม่ได้ขายแค่วิก แต่ช่วยออกแบบลุคที่เหมาะกับคุณ" data-en="More than a hair system — a look designed for you">เราไม่ได้ขายแค่วิก แต่ช่วยออกแบบลุคที่เหมาะกับคุณ</h2>
       </div>
-      <p>เราเน้นการคุยสเปกก่อนจอง สี ทรง ฐาน ความหนาแน่น และการใช้งานจริง เพื่อให้ลูกค้าได้งานที่ใกล้เคียงความต้องการมากที่สุด</p>
+      <p data-th="เลือกสี ทรง ฐาน ความหนาแน่น และวิธีดูแลให้ตรงกับรูปหน้า ไลฟ์สไตล์ และงบประมาณ พร้อมยืนยันสเปกก่อนจอง" data-en="We match color, style, base, density and care routine to your face, lifestyle and budget, with specification confirmation before booking.">เลือกสี ทรง ฐาน ความหนาแน่น และวิธีดูแลให้ตรงกับรูปหน้า ไลฟ์สไตล์ และงบประมาณ พร้อมยืนยันสเปกก่อนจอง</p>
     </section>
 
     <section class="benefits container" id="benefits"></section>
@@ -68,119 +83,110 @@
     <section class="products container" id="products">
       <div class="section-title">
         <p class="eyebrow gold">PRODUCT MENU</p>
-        <h2>เมนูวิกผมชาย 1DD STUDIO</h2>
+        <h2 data-th="เลือกแพ็กเกจที่เหมาะกับคุณ" data-en="Choose the right package">เลือกแพ็กเกจที่เหมาะกับคุณ</h2>
+        <p data-th="ราคาแสดงรวมติดตั้งที่ร้านตามรายละเอียดของแต่ละรุ่น" data-en="Prices are shown according to each package details.">ราคาแสดงรวมติดตั้งที่ร้านตามรายละเอียดของแต่ละรุ่น</p>
       </div>
       <div class="product-grid" id="productGrid"></div>
     </section>
 
-    <section class="before-after section-dark" id="before-after">
+    <section class="comparison section-dark" id="comparison">
+      <div class="container">
+        <div class="section-title center">
+          <p class="eyebrow gold">QUICK COMPARISON</p>
+          <h2 data-th="เปรียบเทียบ 3 รุ่นในหน้าเดียว" data-en="Compare all 3 models">เปรียบเทียบ 3 รุ่นในหน้าเดียว</h2>
+        </div>
+        <div class="comparison-wrap"><table class="comparison-table" id="comparisonTable"></table></div>
+      </div>
+    </section>
+
+    <section class="before-after" id="before-after">
       <div class="container">
         <div class="section-title center">
           <p class="eyebrow gold">REAL TRANSFORMATION</p>
           <h2>Before / After</h2>
+          <p data-th="ลากแถบตรงกลางเพื่อดูความแตกต่าง" data-en="Drag the center handle to compare">ลากแถบตรงกลางเพื่อดูความแตกต่าง</p>
         </div>
-        <div class="ba-card" id="baCard">
-          <button class="circle-btn" id="baPrev" aria-label="ก่อนหน้า">‹</button>
-          <div class="ba-pair">
-            <figure><img id="baBefore" src="ba-1.jpg" alt="Before"><figcaption>BEFORE</figcaption></figure>
-            <figure><img id="baAfter" src="ba-2.jpg" alt="After"><figcaption>AFTER</figcaption></figure>
-          </div>
-          <div class="ba-copy">
-            <h3 id="baTitle">Before / After Case 01</h3>
-            <p id="baText">ภาพเปรียบเทียบหลังปรับลุคด้วยระบบวิกผมชาย</p>
-          </div>
-          <button class="circle-btn" id="baNext" aria-label="ถัดไป">›</button>
+        <div class="ba-compare" id="baCompare">
+          <img id="baAfter" src="ba-2.jpg" alt="After result" class="ba-base">
+          <div class="ba-before-layer" id="baBeforeLayer"><img id="baBefore" src="ba-1.jpg" alt="Before result"></div>
+          <input id="baRange" type="range" min="0" max="100" value="50" aria-label="เลื่อนเพื่อเปรียบเทียบ Before และ After">
+          <div class="ba-handle" id="baHandle" aria-hidden="true"><span>↔</span></div>
+          <span class="ba-label before">BEFORE</span><span class="ba-label after">AFTER</span>
         </div>
+        <div class="ba-meta"><button class="circle-btn" id="baPrev" aria-label="ก่อนหน้า">‹</button><div><h3 id="baTitle"></h3><p id="baText"></p></div><button class="circle-btn" id="baNext" aria-label="ถัดไป">›</button></div>
       </div>
     </section>
 
     <section class="process container" id="process">
       <div class="section-title">
         <p class="eyebrow gold">BOOKING PROCESS</p>
-        <h2>ขั้นตอนจองคิว</h2>
+        <h2 data-th="4 ขั้นตอน ก่อนเปลี่ยนลุค" data-en="4 steps to your new look">4 ขั้นตอน ก่อนเปลี่ยนลุค</h2>
       </div>
       <div class="steps" id="steps"></div>
     </section>
 
-    <section class="reviews container" id="reviews">
-      <div class="section-title center">
-        <p class="eyebrow gold">CUSTOMER REVIEWS</p>
-        <h2>รีวิวและผลลัพธ์จากลูกค้า</h2>
+    <section class="reviews section-dark" id="reviews">
+      <div class="container">
+        <div class="section-title center">
+          <p class="eyebrow gold">CUSTOMER REVIEWS</p>
+          <h2 data-th="รีวิวและผลลัพธ์จากลูกค้าจริง" data-en="Real customer results">รีวิวและผลลัพธ์จากลูกค้าจริง</h2>
+        </div>
+        <div class="review-shell">
+          <button class="circle-btn" id="reviewPrev" aria-label="รีวิวก่อนหน้า">‹</button>
+          <article class="review-card" id="reviewCard"></article>
+          <button class="circle-btn" id="reviewNext" aria-label="รีวิวถัดไป">›</button>
+        </div>
+        <div class="review-dots" id="reviewDots"></div>
       </div>
-      <div class="review-shell">
-        <button class="circle-btn" id="reviewPrev" aria-label="รีวิวก่อนหน้า">‹</button>
-        <article class="review-card" id="reviewCard"></article>
-        <button class="circle-btn" id="reviewNext" aria-label="รีวิวถัดไป">›</button>
-      </div>
+    </section>
+
+    <section class="services container" id="services">
+      <div class="section-title center"><p class="eyebrow gold">AFTERCARE</p><h2 data-th="ดูแลต่อเนื่องหลังติดตั้ง" data-en="Aftercare services">ดูแลต่อเนื่องหลังติดตั้ง</h2></div>
+      <div class="service-grid" id="serviceGrid"></div>
     </section>
 
     <section class="booking section-dark" id="booking">
       <div class="container booking-grid">
         <div>
           <p class="eyebrow gold">RESERVE YOUR SLOT</p>
-          <h2>จองคิว / ปรึกษาสเปกก่อนตัดสินใจ</h2>
-          <p>กดจองคิวผ่าน Google Form ด้านล่าง ข้อมูลจะบันทึกเข้า Google Sheets ที่เชื่อมไว้โดยตรง</p>
+          <h2 data-th="จองคิว / ปรึกษาสเปกก่อนตัดสินใจ" data-en="Book / Discuss specifications first">จองคิว / ปรึกษาสเปกก่อนตัดสินใจ</h2>
+          <p data-th="กรอก Google Form แล้วข้อมูลจะบันทึกเข้า Google Sheets ที่เชื่อมไว้โดยตรง" data-en="Submit the Google Form and the response is saved directly to the connected Google Sheet.">กรอก Google Form แล้วข้อมูลจะบันทึกเข้า Google Sheets ที่เชื่อมไว้โดยตรง</p>
           <div class="contact-cards">
             <a class="gold-card" id="googleFormLink" href="#" target="_blank" rel="noopener">จองคิวผ่าน Google Form</a>
             <a href="tel:0895490884">โทร 0895490884</a>
             <a id="lineLink" href="#" target="_blank" rel="noopener">เพิ่ม LINE: mozzjro</a>
-            <div class="line-qr-card"><img id="lineQr" src="line-qr-mozzjro.png" alt="LINE QR Code mozzjro"><span>สแกน QR Code เพื่อเพิ่ม LINE</span></div>
+            <div class="line-qr-card"><img id="lineQr" src="line-qr-mozzjro.png" alt="LINE QR Code mozzjro"><span data-th="สแกน QR Code เพื่อเพิ่ม LINE" data-en="Scan to add LINE">สแกน QR Code เพื่อเพิ่ม LINE</span></div>
             <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
         <div class="google-form-embed" id="googleFormEmbedWrap" hidden></div>
-        <form class="booking-form" id="bookingForm">
-          <label>ชื่อ <input name="name" required placeholder="ชื่อลูกค้า"></label>
-          <label>เบอร์โทร / LINE <input name="contact" required placeholder="เบอร์โทรหรือ LINE"></label>
-          <label>บริการที่สนใจ
-            <select name="service">
-              <option>ปรึกษาวิกผมชาย</option>
-              <option>จองคิวติดตั้งวิก</option>
-              <option>ตัดผม / ปรับทรง</option>
-              <option>ลูกค้าต่างจังหวัด</option>
-            </select>
-          </label>
-          <label>วันที่ต้องการ <input name="date" type="date"></label>
-          <label>รายละเอียดเพิ่มเติม <textarea name="message" rows="4" placeholder="เช่น สีผม ทรงที่อยากได้ งบประมาณ หรือปัญหาผมบาง"></textarea></label>
-          <button class="btn btn-gold" type="submit">ส่งข้อมูลจองคิว</button>
-          <p class="form-status" id="formStatus" role="status"></p>
-          <p class="form-note">ระบบหลักใช้ Google Form เพื่อบันทึกข้อมูลเข้า Google Sheets โดยตรง หากฟอร์มไม่แสดง ให้กดปุ่ม “จองคิวผ่าน Google Form”</p>
-        </form>
       </div>
     </section>
-
 
     <section class="location container" id="location">
       <div class="section-title center">
         <p class="eyebrow gold">VISIT US</p>
-        <h2>แผนที่ร้าน 1DD STUDIO</h2>
-        <p>กดดูเส้นทางบน Google Maps หรือเปิดแผนที่ด้านล่างเพื่อวางแผนเดินทางมาที่ร้าน</p>
+        <h2 data-th="แผนที่ร้าน 1DD STUDIO" data-en="Visit 1DD STUDIO">แผนที่ร้าน 1DD STUDIO</h2>
       </div>
       <div class="map-card">
         <iframe id="mapFrame" title="1DD STUDIO Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="map-actions">
-          <a class="btn btn-gold" id="mapOpenLink" href="#" target="_blank" rel="noopener">เปิดใน Google Maps</a>
-          <a class="btn btn-outline" href="tel:0895490884">โทรสอบถามเส้นทาง</a>
-        </div>
+        <div class="map-actions"><a class="btn btn-gold" id="mapOpenLink" href="#" target="_blank" rel="noopener">เปิดใน Google Maps</a><a class="btn btn-outline" href="tel:0895490884">โทรสอบถามเส้นทาง</a></div>
       </div>
     </section>
 
-    <section class="faq container" id="faq">
-      <div class="section-title center">
-        <p class="eyebrow gold">FAQ</p>
-        <h2>คำถามที่พบบ่อย</h2>
+    <section class="faq section-dark" id="faq">
+      <div class="container">
+        <div class="section-title center"><p class="eyebrow gold">FAQ</p><h2 data-th="คำถามที่ลูกค้าถามบ่อย" data-en="Frequently asked questions">คำถามที่ลูกค้าถามบ่อย</h2></div>
+        <div class="faq-list" id="faqList"></div>
       </div>
-      <div class="faq-list" id="faqList"></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><strong>1DD STUDIO</strong><p>Men's Hair System & Barber Studio<br>Surat Thani, Thailand</p></div>
-      <div><a href="#products">สินค้า</a><a href="#before-after">Before/After</a><a href="#booking">จองคิว</a><a href="#location">แผนที่</a></div>
-      <div><a href="tel:0895490884">0895490884</a><a href="#top">กลับด้านบน ↑</a></div>
-    </div>
-  </footer>
+  <footer class="footer"><div class="container footer-grid"><div><strong>1DD STUDIO</strong><p>Men's Hair System & Barber Studio<br>Surat Thani, Thailand</p></div><div><a href="#products">สินค้า</a><a href="#before-after">Before/After</a><a href="#booking">จองคิว</a><a href="#location">แผนที่</a></div><div><a href="tel:0895490884">0895490884</a><a href="#top">กลับด้านบน ↑</a></div></div></footer>
+
+  <div class="floating-actions" aria-label="ติดต่อด่วน"><a href="tel:0895490884" aria-label="โทรหาร้าน">☎</a><a id="floatingLine" href="#" target="_blank" rel="noopener" aria-label="เพิ่ม LINE">LINE</a><button id="chatOpen" type="button" aria-label="เปิดผู้ช่วยตอบคำถาม">💬</button></div>
+  <aside class="chat-panel" id="chatPanel" aria-hidden="true"><header><div><strong>1DD Assistant</strong><small>ตอบคำถามเบื้องต้น</small></div><button id="chatClose" aria-label="ปิด">×</button></header><div class="chat-body" id="chatBody"><div class="bot-msg">สวัสดีครับ สนใจสอบถามเรื่องราคา รุ่นสินค้า การจองคิว หรือการดูแลได้เลยครับ</div></div><div class="quick-questions" id="quickQuestions"></div><form id="chatForm"><input id="chatInput" placeholder="พิมพ์คำถาม..." autocomplete="off"><button>ส่ง</button></form></aside>
+  <div class="mobile-cta"><a href="tel:0895490884">โทร</a><a id="mobileLine" href="#" target="_blank" rel="noopener">LINE</a><a href="#booking">จองคิว</a></div>
 
   <script type="application/ld+json" id="schemaJson"></script>
   <script src="script.js"></script>

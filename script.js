@@ -1,156 +1,33 @@
 let data={};
-const $=(s)=>document.querySelector(s);
-const el=(tag,cls)=>{const n=document.createElement(tag); if(cls)n.className=cls; return n;};
-const img=(src,alt)=>{const i=new Image(); i.src=src; i.alt=alt||''; i.loading='lazy'; return i;};
+let lang=localStorage.getItem('1dd-lang')||'th';
+const $=(s,p=document)=>p.querySelector(s), $$=(s,p=document)=>[...p.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 
 async function loadContent(){
-  try{const r=await fetch('content.json',{cache:'no-store'}); data=await r.json();}
-  catch(e){console.error('Cannot load content.json',e); return;}
-  applySeo(); renderHero(); renderBenefits(); renderProducts(); renderBeforeAfter(); renderSteps(); renderReviews(); renderFaq(); setupBooking(); setupMap(); setupNav(); renderSchema();
+  try{const r=await fetch('content.json',{cache:'no-store'});data=await r.json();}
+  catch(e){console.error(e);return;}
+  applySeo(); setupLanguage(); renderHero(); renderBenefits(); renderProducts(); renderComparison(); renderBA(); renderSteps(); renderReviews(); renderServices(); renderFaq(); setupBooking(); setupMap(); setupNav(); setupChat(); renderSchema(); setupPwa();
 }
-
-function applySeo(){
-  if(data.seo?.title) document.title=data.seo.title;
-  const desc=document.querySelector('meta[name="description"]'); if(desc&&data.seo?.description) desc.content=data.seo.description;
+function t(obj,key){if(typeof obj==='string') return obj; return obj?.[lang]||obj?.th||obj?.en||key||''}
+function applySeo(){document.title=data.seo?.title||document.title;const d=document.querySelector('meta[name=description]');if(d)d.content=data.seo?.description||d.content}
+function setupLanguage(){
+  const btn=$('#langToggle');btn.textContent=lang==='th'?'EN':'TH';
+  const apply=()=>{$$('[data-th]').forEach(el=>{el.textContent=el.dataset[lang]||el.dataset.th});document.documentElement.lang=lang;btn.textContent=lang==='th'?'EN':'TH';};apply();
+  btn.onclick=()=>{lang=lang==='th'?'en':'th';localStorage.setItem('1dd-lang',lang);apply();renderHero(true);renderProducts();renderComparison();renderBenefits();renderSteps();renderReviews();renderServices();renderFaq();};
 }
-
-let heroIndex=0, heroTimer;
-function renderHero(){
-  const dots=$('#heroDots'); dots.innerHTML='';
-  data.hero.forEach((_,i)=>{const b=el('button'); b.type='button'; b.addEventListener('click',()=>setHero(i,true)); dots.appendChild(b);});
-  setHero(0); heroTimer=setInterval(()=>setHero((heroIndex+1)%data.hero.length),5200);
-}
-function setHero(i,manual=false){
-  heroIndex=i; const h=data.hero[i];
-  $('#heroBg').style.backgroundImage=`url('${h.image}')`;
-  $('#heroEyebrow').textContent=h.eyebrow; $('#heroTitle').textContent=h.title; $('#heroSubtitle').textContent=h.subtitle;
-  [...$('#heroDots').children].forEach((d,idx)=>d.classList.toggle('active',idx===i));
-  if(manual){clearInterval(heroTimer); heroTimer=setInterval(()=>setHero((heroIndex+1)%data.hero.length),5200);}
-}
-
-function renderBenefits(){
-  $('#benefits').innerHTML=data.benefits.map(b=>`<article class="benefit-card"><h3>${b.title}</h3><p>${b.text}</p></article>`).join('');
-}
-function renderProducts(){
-  $('#productGrid').innerHTML=data.products.map(p=>`<article class="product-card"><div class="product-img-wrap"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="product-body"><span class="badge">${p.badge}</span><h3>${p.name}</h3><p>${p.description}</p><div class="price">${p.discount ? `<del>${p.price} บาท</del><strong>${p.discount}</strong><span>บาท</span>` : `<strong>${p.price}</strong><span>บาท</span>`}</div><ul class="features">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul></div></article>`).join('');
-}
-
-let baIndex=0;
-function renderBeforeAfter(){
-  $('#baPrev').addEventListener('click',()=>setBa((baIndex-1+data.beforeAfter.length)%data.beforeAfter.length));
-  $('#baNext').addEventListener('click',()=>setBa((baIndex+1)%data.beforeAfter.length));
-  setBa(0);
-}
-function setBa(i){
-  baIndex=i; const b=data.beforeAfter[i];
-  $('#baBefore').src=b.before; $('#baAfter').src=b.after; $('#baTitle').textContent=b.title; $('#baText').textContent=b.text;
-}
-function renderSteps(){
-  $('#steps').innerHTML=data.process.map(s=>`<div class="step"><strong>${s}</strong></div>`).join('');
-}
-
-let reviewIndex=0, reviewTimer;
-function renderReviews(){
-  $('#reviewPrev').addEventListener('click',()=>setReview((reviewIndex-1+data.reviews.length)%data.reviews.length,true));
-  $('#reviewNext').addEventListener('click',()=>setReview((reviewIndex+1)%data.reviews.length,true));
-  setReview(0); reviewTimer=setInterval(()=>setReview((reviewIndex+1)%data.reviews.length),4500);
-}
-function setReview(i,manual=false){
-  reviewIndex=i; const r=data.reviews[i];
-  $('#reviewCard').innerHTML=`<img src="${r.image}" alt="${r.name}" loading="lazy"><div class="review-copy"><h3>${r.name}</h3><p>“${r.text}”</p></div>`;
-  if(manual){clearInterval(reviewTimer); reviewTimer=setInterval(()=>setReview((reviewIndex+1)%data.reviews.length),4500);}
-}
-function renderFaq(){
-  $('#faqList').innerHTML=data.faq.map((f,i)=>`<details class="faq-item" ${i===0?'open':''}><summary>${f.q}</summary><p>${f.a}</p></details>`).join('');
-}
-function setupBooking(){
-  const rawLineId=(data.site.line||'mozzjro').replace('@','').replace('~','');
-  const lineAddUrl=data.site.lineAddUrl || `https://line.me/ti/p/~${encodeURIComponent(rawLineId)}`;
-  $('#lineLink').textContent=`เพิ่ม LINE: ${rawLineId}`;
-  $('#lineLink').href=lineAddUrl;
-  const qr=$('#lineQr');
-  if(qr && data.site.lineQr){ qr.src=data.site.lineQr; qr.alt=`LINE QR Code ${rawLineId}`; }
-  $('#waLink').href=`https://wa.me/${data.site.whatsapp}?text=${encodeURIComponent('สวัสดีครับ สนใจจองคิว/ปรึกษาวิกผมชาย 1DD STUDIO')}`;
-  const gf=$('#googleFormLink');
-  const formUrl=data.googleForm?.formUrl||'';
-  if(formUrl.startsWith('http')){
-    gf.href=formUrl;
-    gf.textContent='เปิด Google Form จองคิว';
-  }else{
-    gf.href='#bookingForm';
-    gf.textContent='จองคิวผ่านฟอร์มหน้าเว็บ';
-  }
-
-  const embedWrap=document.getElementById('googleFormEmbedWrap');
-  const localForm=document.getElementById('bookingForm');
-  const embedUrl=data.googleForm?.embedUrl||'';
-  const useEmbed=Boolean(data.googleForm?.enableEmbed && embedUrl.startsWith('http'));
-  if(embedWrap && useEmbed){
-    embedWrap.hidden=false;
-    embedWrap.innerHTML=`<iframe class="google-form-frame" src="${embedUrl}" title="1DD STUDIO Booking Google Form" loading="lazy">กำลังโหลด Google Form...</iframe>`;
-    if(localForm){ localForm.hidden=true; }
-  }else if(embedWrap){
-    embedWrap.hidden=true;
-    if(localForm){ localForm.hidden=false; }
-  }
-
-  $('#bookingForm').addEventListener('submit',async e=>{
-    e.preventDefault();
-    const form=e.currentTarget;
-    const fd=new FormData(form);
-    const payload={
-      timestamp:new Date().toISOString(),
-      name:fd.get('name')||'',
-      contact:fd.get('contact')||'',
-      service:fd.get('service')||'',
-      date:fd.get('date')||'',
-      message:fd.get('message')||'',
-      page:location.href,
-      source:'1DD STUDIO Website'
-    };
-    const status=$('#formStatus');
-    status.textContent='กำลังส่งข้อมูล...';
-    const webAppUrl=data.googleSheets?.webAppUrl||'';
-    const isReady=data.googleSheets?.enable && webAppUrl.startsWith('http');
-    if(isReady){
-      try{
-        await fetch(webAppUrl,{
-          method:'POST',
-          mode:'no-cors',
-          headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
-          body:new URLSearchParams(payload)
-        });
-        status.textContent='ส่งข้อมูลแล้ว ระบบจะบันทึกเข้า Google Sheets และแจ้งเตือนร้าน';
-        form.reset();
-        return;
-      }catch(err){
-        console.error(err);
-        status.textContent='ส่งเข้า Google Sheets ไม่สำเร็จ กำลังเปิดอีเมลสำรอง';
-      }
-    }
-    const body=[`ชื่อ: ${payload.name}`,`ติดต่อ: ${payload.contact}`,`บริการ: ${payload.service}`,`วันที่ต้องการ: ${payload.date||'-'}`,`รายละเอียด: ${payload.message||'-'}`].join('\n');
-    const fallbackEmail=(data.site.email && data.site.email.includes('@')) ? data.site.email : '1ddstudio@gmail.com';
-    location.href=`mailto:${fallbackEmail}?subject=${encodeURIComponent('จองคิว 1DD STUDIO')}&body=${encodeURIComponent(body)}`;
-  });
-}
-
-function setupMap(){
-  const frame=$('#mapFrame');
-  const link=$('#mapOpenLink');
-  if(!frame || !link) return;
-  const embed=data.site?.mapEmbed || 'https://www.google.com/maps?q=1DD%20STUDIO%20Surat%20Thani&output=embed';
-  const mapUrl=data.site?.map || 'https://maps.google.com/?q=1DD%20STUDIO%20Surat%20Thani';
-  frame.src=embed;
-  link.href=mapUrl;
-}
-
-function setupNav(){
-  const btn=$('.nav-toggle'), nav=$('.nav');
-  btn.addEventListener('click',()=>{const open=nav.classList.toggle('open'); btn.setAttribute('aria-expanded',String(open));});
-  nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open'); btn.setAttribute('aria-expanded','false');}});
-}
-function renderSchema(){
-  const schema={"@context":"https://schema.org","@type":"HairSalon","name":data.site.name,"telephone":data.site.phone,"address":{"@type":"PostalAddress","addressLocality":"Surat Thani","addressCountry":"TH"},"url":location.origin,"image":`${location.origin}/hero-1.jpg`,"priceRange":"฿฿"};
-  $('#schemaJson').textContent=JSON.stringify(schema);
-}
+function renderHero(keep=false){let i=0,timer;const slides=data.hero||[];const bg=$('#heroBg'),dots=$('#heroDots');dots.innerHTML='';slides.forEach((_,n)=>{const b=document.createElement('button');b.ariaLabel=`Slide ${n+1}`;b.onclick=()=>show(n);dots.append(b)});function show(n){i=(n+slides.length)%slides.length;const s=slides[i];bg.style.backgroundImage=`url('${s.image}')`;$('#heroEyebrow').textContent=t(s.eyebrow);$('#heroTitle').textContent=t(s.title);$('#heroSubtitle').textContent=t(s.subtitle);[...dots.children].forEach((d,x)=>d.classList.toggle('active',x===i));clearInterval(timer);timer=setInterval(()=>show(i+1),6500)}show(0)}
+function renderBenefits(){$('#benefits').innerHTML=(data.benefits||[]).map((b,i)=>`<article class="benefit-card"><span class="eyebrow gold">0${i+1}</span><h3>${esc(t(b.title))}</h3><p>${esc(t(b.text))}</p></article>`).join('')}
+function renderProducts(){$('#productGrid').innerHTML=(data.products||[]).map((p,i)=>`<article class="product-card"><div class="product-media"><span class="product-badge">${esc(p.badge)}</span><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy"></div><div class="product-body"><p class="eyebrow gold">${esc(p.badge)}</p><h3>${esc(p.name)}</h3><p>${esc(t(p.description))}</p><div class="product-price">${esc(p.price)} บาท</div><ul class="product-features">${(p.features||[]).map(x=>`<li>${esc(t(x))}</li>`).join('')}</ul><a class="btn btn-outline" href="#booking">${lang==='th'?'สนใจรุ่นนี้':'Ask about this model'}</a></div></article>`).join('')}
+function renderComparison(){const rows=data.comparison?.rows||[];const products=data.products||[];$('#comparisonTable').innerHTML=`<thead><tr><th>${lang==='th'?'หัวข้อ':'Feature'}</th>${products.map(p=>`<th>${esc(p.name)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(t(r.label))}</td>${r.values.map(v=>`<td>${esc(t(v))}</td>`).join('')}</tr>`).join('')}</tbody>`}
+let baIndex=0;function renderBA(){const arr=data.beforeAfter||[];const range=$('#baRange'),layer=$('#baBeforeLayer'),handle=$('#baHandle');function pos(v){layer.style.width=v+'%';handle.style.left=v+'%'}range.oninput=e=>pos(e.target.value);function show(n){baIndex=(n+arr.length)%arr.length;const x=arr[baIndex];$('#baBefore').src=x.before;$('#baAfter').src=x.after;$('#baTitle').textContent=t(x.title);$('#baText').textContent=t(x.text);range.value=50;pos(50)}$('#baPrev').onclick=()=>show(baIndex-1);$('#baNext').onclick=()=>show(baIndex+1);show(0)}
+function renderSteps(){$('#steps').innerHTML=(data.process||[]).map((x,i)=>`<article class="step"><strong>${i+1}</strong><p>${esc(t(x))}</p></article>`).join('')}
+let reviewIndex=0,reviewTimer;function renderReviews(){const arr=data.reviews||[],card=$('#reviewCard'),dots=$('#reviewDots');dots.innerHTML=arr.map((_,i)=>`<button aria-label="Review ${i+1}"></button>`).join('');[...dots.children].forEach((b,i)=>b.onclick=()=>show(i));function show(n){reviewIndex=(n+arr.length)%arr.length;const r=arr[reviewIndex];card.innerHTML=`<span class="premium-ribbon">PREMIUM</span><img src="${esc(r.image)}" alt="${esc(r.name)}" loading="lazy"><div class="review-copy"><div class="stars">★★★★★</div><h3>${esc(r.name)}</h3><blockquote>“${esc(t(r.text))}”</blockquote><a class="btn btn-gold" href="#booking">${lang==='th'?'จองคิวเลย':'Book now'}</a></div>`;[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===reviewIndex));clearInterval(reviewTimer);reviewTimer=setInterval(()=>show(reviewIndex+1),6000)}$('#reviewPrev').onclick=()=>show(reviewIndex-1);$('#reviewNext').onclick=()=>show(reviewIndex+1);show(0)}
+function renderServices(){$('#serviceGrid').innerHTML=(data.services||[]).map(s=>`<article class="service-card"><div class="eyebrow gold">${esc(s.icon||'✦')}</div><h3>${esc(t(s.title))}</h3><p>${esc(t(s.text))}</p></article>`).join('')}
+function renderFaq(){$('#faqList').innerHTML=(data.faq||[]).map((x,i)=>`<article class="faq-item"><button aria-expanded="false"><span>${esc(t(x.q))}</span><b>+</b></button><div class="faq-answer">${esc(t(x.a))}</div></article>`).join('');$$('.faq-item button').forEach(b=>b.onclick=()=>{const item=b.parentElement,open=item.classList.toggle('open');b.setAttribute('aria-expanded',open);b.querySelector('b').textContent=open?'−':'+'})}
+function setupBooking(){const f=data.googleForm||{},link=$('#googleFormLink'),wrap=$('#googleFormEmbedWrap');link.href=f.formUrl||'#';const use=f.enableEmbed&&String(f.embedUrl).startsWith('http');if(use){wrap.hidden=false;wrap.innerHTML=`<iframe class="google-form-frame" src="${esc(f.embedUrl)}" title="1DD STUDIO Booking Google Form" loading="lazy"></iframe>`}const line=data.site.lineAddUrl||`https://line.me/ti/p/~${data.site.line}`;['lineLink','floatingLine','mobileLine'].forEach(id=>{const el=$('#'+id);if(el)el.href=line});$('#lineQr').src=data.site.lineQr||'line-qr-mozzjro.png';$('#waLink').href=`https://wa.me/${data.site.whatsapp||''}`}
+function setupMap(){const frame=$('#mapFrame'),link=$('#mapOpenLink');frame.src=data.site.mapEmbed||'';link.href=data.site.map||'#'}
+function setupNav(){const btn=$('.nav-toggle'),nav=$('.nav');btn.onclick=()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)};nav.onclick=e=>{if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}}}
+function setupChat(){const panel=$('#chatPanel'),body=$('#chatBody'),form=$('#chatForm'),input=$('#chatInput'),qs=$('#quickQuestions');const quick=lang==='th'?['ราคาเท่าไหร่','ใช้เวลากี่ชั่วโมง','ต่างจังหวัดได้ไหม','ดูแลยังไง']:['What are the prices?','How long does it take?','Do you serve other provinces?','How do I care for it?'];qs.innerHTML=quick.map(q=>`<button type="button">${q}</button>`).join('');const answer=q=>{const s=q.toLowerCase();if(/ราคา|price/.test(s))return lang==='th'?'มี 3 รุ่น: 8,000 / 15,000 / 18,000 บาท ดูรายละเอียดในส่วนสินค้าได้เลยครับ':'There are 3 packages: 8,000 / 15,000 / 18,000 THB.';if(/ชั่วโมง|เวลา|long|time/.test(s))return lang==='th'?'ขั้นตอนติดตั้งและปรับทรงใช้เวลาประมาณ 2 ชั่วโมง ขึ้นกับงานของแต่ละคนครับ':'Installation and styling take about 2 hours depending on the case.';if(/ต่างจังหวัด|province|nationwide/.test(s))return lang==='th'?'รองรับลูกค้าต่างจังหวัด สามารถส่งรูปและคุยสเปกออนไลน์ก่อนจองได้ครับ':'Yes. Out-of-province customers can send photos and discuss specifications online.';if(/ดูแล|care|ล้าง/.test(s))return lang==='th'?'หลังติดตั้งร้านจะแนะนำวิธีล้าง จัดทรง และนัดดูแลตามสภาพการใช้งานครับ':'We provide washing, styling and maintenance guidance after installation.';if(/จอง|book/.test(s))return lang==='th'?'กดปุ่มจองคิวด้านล่างเพื่อกรอก Google Form ได้เลยครับ':'Use the booking button below to submit the Google Form.';return lang==='th'?'สอบถามรายละเอียดเฉพาะเคสได้ทาง LINE: mozzjro หรือโทร 0895490884 ครับ':'For a case-specific answer, contact LINE: mozzjro or call 0895490884.'};function send(q){if(!q.trim())return;body.insertAdjacentHTML('beforeend',`<div class="user-msg">${esc(q)}</div>`);setTimeout(()=>{body.insertAdjacentHTML('beforeend',`<div class="bot-msg">${esc(answer(q))}</div>`);body.scrollTop=body.scrollHeight},250);body.scrollTop=body.scrollHeight}$('#chatOpen').onclick=()=>{panel.classList.add('open');panel.setAttribute('aria-hidden','false')};$('#chatClose').onclick=()=>{panel.classList.remove('open');panel.setAttribute('aria-hidden','true')};qs.onclick=e=>{if(e.target.tagName==='BUTTON')send(e.target.textContent)};form.onsubmit=e=>{e.preventDefault();send(input.value);input.value=''}}
+function renderSchema(){const s={"@context":"https://schema.org","@type":"HairSalon","name":data.site.name,"telephone":data.site.phone,"address":{"@type":"PostalAddress","addressLocality":"Surat Thani","addressCountry":"TH"},"url":location.origin,"image":`${location.origin}/hero-1.jpg`,"priceRange":"฿฿","sameAs":[data.site.facebook,data.site.tiktok]};$('#schemaJson').textContent=JSON.stringify(s)}
+function setupPwa(){if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('service-worker.js').catch(()=>{}))}
 loadContent();
