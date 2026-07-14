@@ -1,22 +1,23 @@
-# 1DD STUDIO V4.8 Hero Feature Bar Update
+# 1DD STUDIO — Version 5
 
-แก้เฉพาะส่วน Hero Feature Bar เท่านั้น
-
-## สิ่งที่แก้
-- เพิ่มข้อความใหม่เป็น 6 แถบ
-- จัด Desktop เป็น 3 ช่องบน + 3 ช่องล่างในแถบเดียว
-- จัดระยะห่าง ไอคอน ตัวหนังสือ ให้เท่ากันและกึ่งกลาง
-- Mobile responsive ให้เรียงลงสวย อ่านง่าย
-- ไม่แตะส่วนอื่นของเว็บ
-
-## ข้อความใหม่
-1. งานเนียนธรรมชาติ
-2. ผมแท้ 100%
-3. มั่นใจใน 2 ชั่วโมง
-4. เปลี่ยนลุคให้ดูเด็กลง
-5. รองรับลูกค้าต่างจังหวัด
-6. Thai / English
+อัปเดตเฉพาะส่วนที่ร้องขอ:
+- เพิ่มรูปรีวิวชุดใหม่ 7 รูป
+- เพิ่มป้ายคาดมุม “พรีเมี่ยม” ที่การ์ดราคา 18,000 บาท
+- คงระบบ Google Form, LINE QR Code และ Google Maps
+- รองรับมือถือและคอมพิวเตอร์
 
 ## วิธีอัปโหลด GitHub
-แตก ZIP แล้วอัปโหลดไฟล์ทั้งหมดทับของเดิมใน GitHub
-Add file → Upload files → ลากไฟล์ทั้งหมด → Commit changes
+1. แตกไฟล์ ZIP
+2. เข้า Repository `jronusapis-hash/1DDSTUDIO`
+3. กด `Add file` → `Upload files`
+4. ลากไฟล์ทั้งหมด “ภายในโฟลเดอร์” V5 ไปวาง (ไม่ลากโฟลเดอร์ครอบ)
+5. ใส่ข้อความ Commit: `Update website to V5 - reviews and premium ribbon`
+6. กด `Commit changes`
+7. รอ Cloudflare Pages ประมาณ 1–3 นาที
+8. เปิด `https://1ddstudio.pages.dev` แล้ว Hard Refresh: Mac `Command + Shift + R`
+
+## ไฟล์ที่แก้หลัก
+- `index.html`
+- `styles.css`
+- `script.js`
+- `review-v5-01.jpg` ถึง `review-v5-07.jpg`

@@ -1,188 +1,82 @@
 <!doctype html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>1DD STUDIO | วิกผมชายพรีเมียม สุราษฎร์ธานี</title>
-  <meta name="description" content="1DD STUDIO บริการวิกผมชาย ติดตั้งวิกผม แก้ผมบางและศีรษะล้าน งานเนียนธรรมชาติ รองรับลูกค้าต่างจังหวัดและต่างชาติ" />
-  <meta name="theme-color" content="#080604" />
-  <meta property="og:title" content="1DD STUDIO | Premium Men's Hair System" />
-  <meta property="og:description" content="วิกผมชายพรีเมียม งานเนียนธรรมชาติ พร้อมบริการติดตั้งและให้คำปรึกษา" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="hero-1.jpg" />
-  <link rel="preload" href="styles.css" as="style" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="วิกผมชายพรีเมียม ติดตั้งเนียนธรรมชาติ ผมแท้ 100% บริการลูกค้าทั่วประเทศ Thai / English">
+  <meta name="theme-color" content="#070707">
+  <meta property="og:title" content="1DD STUDIO | Men's Hair System">
+  <meta property="og:description" content="งานเนียนธรรมชาติ เปลี่ยนลุคให้ดูเด็กลง พร้อมบริการจองคิวออนไลน์">
+  <meta property="og:image" content="hero-1.jpg">
+  <link rel="icon" href="logo-1dd-studio.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="grain"></div>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="1DD STUDIO Home">
-      <span class="brand-mark brand-logo-wrap"><img src="logo-1dd-studio.jpg" alt="1DD STUDIO logo" class="brand-logo"></span>
-      <span><strong>1DD STUDIO</strong><small>Hair System & Barber</small></span>
-    </a>
-    <button class="nav-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
-    <nav class="nav">
-      <a href="#products">สินค้า</a>
-      <a href="#before-after">Before/After</a>
-      <a href="#reviews">รีวิว</a>
-      <a href="#booking">จองคิว</a>
-      <a href="#location">แผนที่</a>
-      <a class="nav-cta" href="tel:0895490884">โทร 0895490884</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero section-dark" aria-label="Hero slider">
-      <div class="hero-bg" id="heroBg"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content container">
-        <p class="eyebrow" id="heroEyebrow">Premium Men's Hair System</p>
-        <h1 id="heroTitle">เปลี่ยนผมบาง ให้กลับมาดูมั่นใจอีกครั้ง</h1>
-        <p class="lead" id="heroSubtitle">วิกผมชายเกรดพรีเมียม ติดตั้งเนียนธรรมชาติ รองรับลูกค้าทั่วประเทศ</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#booking">จองคิว / ปรึกษาฟรี</a>
-          <a class="btn btn-outline" href="tel:0895490884">โทรทันที</a>
-        </div>
-        <div class="hero-dots" id="heroDots" aria-label="Hero navigation"></div>
-      </div>
-      <div class="trust-bar container" aria-label="จุดเด่นของ 1DD STUDIO">
-        <span><b>✨</b><em>งานเนียนธรรมชาติ</em></span>
-        <span><b>💯</b><em>ผมแท้ 100%</em></span>
-        <span><b>⚡</b><em>มั่นใจใน 2 ชั่วโมง</em></span>
-        <span><b>🧑‍🦱</b><em>เปลี่ยนลุคให้ดูเด็กลง</em></span>
-        <span><b>🚚</b><em>รองรับลูกค้าต่างจังหวัด</em></span>
-        <span><b>🌏</b><em>Thai / English</em></span>
-      </div>
-    </section>
-
-    <section class="intro container">
-      <div>
-        <p class="eyebrow gold">1DD STUDIO DIFFERENCE</p>
-        <h2>ระบบวิกผมชายที่ไม่ได้ขายแค่สินค้า แต่ช่วยออกแบบลุคใหม่ให้ลูกค้า</h2>
-      </div>
-      <p>เราเน้นการคุยสเปกก่อนจอง สี ทรง ฐาน ความหนาแน่น และการใช้งานจริง เพื่อให้ลูกค้าได้งานที่ใกล้เคียงความต้องการมากที่สุด</p>
-    </section>
-
-    <section class="benefits container" id="benefits"></section>
-
-    <section class="products container" id="products">
-      <div class="section-title">
-        <p class="eyebrow gold">PRODUCT MENU</p>
-        <h2>เมนูวิกผมชาย 1DD STUDIO</h2>
-      </div>
-      <div class="product-grid" id="productGrid"></div>
-    </section>
-
-    <section class="before-after section-dark" id="before-after">
-      <div class="container">
-        <div class="section-title center">
-          <p class="eyebrow gold">REAL TRANSFORMATION</p>
-          <h2>Before / After</h2>
-        </div>
-        <div class="ba-card" id="baCard">
-          <button class="circle-btn" id="baPrev" aria-label="ก่อนหน้า">‹</button>
-          <div class="ba-pair">
-            <figure><img id="baBefore" src="ba-1.jpg" alt="Before"><figcaption>BEFORE</figcaption></figure>
-            <figure><img id="baAfter" src="ba-2.jpg" alt="After"><figcaption>AFTER</figcaption></figure>
-          </div>
-          <div class="ba-copy">
-            <h3 id="baTitle">Before / After Case 01</h3>
-            <p id="baText">ภาพเปรียบเทียบหลังปรับลุคด้วยระบบวิกผมชาย</p>
-          </div>
-          <button class="circle-btn" id="baNext" aria-label="ถัดไป">›</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="process container" id="process">
-      <div class="section-title">
-        <p class="eyebrow gold">BOOKING PROCESS</p>
-        <h2>ขั้นตอนจองคิว</h2>
-      </div>
-      <div class="steps" id="steps"></div>
-    </section>
-
-    <section class="reviews container" id="reviews">
-      <div class="section-title center">
-        <p class="eyebrow gold">CUSTOMER REVIEWS</p>
-        <h2>รีวิวและผลลัพธ์จากลูกค้า</h2>
-      </div>
-      <div class="review-shell">
-        <button class="circle-btn" id="reviewPrev" aria-label="รีวิวก่อนหน้า">‹</button>
-        <article class="review-card" id="reviewCard"></article>
-        <button class="circle-btn" id="reviewNext" aria-label="รีวิวถัดไป">›</button>
-      </div>
-    </section>
-
-    <section class="booking section-dark" id="booking">
-      <div class="container booking-grid">
-        <div>
-          <p class="eyebrow gold">RESERVE YOUR SLOT</p>
-          <h2>จองคิว / ปรึกษาสเปกก่อนตัดสินใจ</h2>
-          <p>กดจองคิวผ่าน Google Form ด้านล่าง ข้อมูลจะบันทึกเข้า Google Sheets ที่เชื่อมไว้โดยตรง</p>
-          <div class="contact-cards">
-            <a class="gold-card" id="googleFormLink" href="#" target="_blank" rel="noopener">จองคิวผ่าน Google Form</a>
-            <a href="tel:0895490884">โทร 0895490884</a>
-            <a id="lineLink" href="#" target="_blank" rel="noopener">เพิ่ม LINE: mozzjro</a>
-            <div class="line-qr-card"><img id="lineQr" src="line-qr-mozzjro.png" alt="LINE QR Code mozzjro"><span>สแกน QR Code เพื่อเพิ่ม LINE</span></div>
-            <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-        </div>
-        <div class="google-form-embed" id="googleFormEmbedWrap" hidden></div>
-        <form class="booking-form" id="bookingForm">
-          <label>ชื่อ <input name="name" required placeholder="ชื่อลูกค้า"></label>
-          <label>เบอร์โทร / LINE <input name="contact" required placeholder="เบอร์โทรหรือ LINE"></label>
-          <label>บริการที่สนใจ
-            <select name="service">
-              <option>ปรึกษาวิกผมชาย</option>
-              <option>จองคิวติดตั้งวิก</option>
-              <option>ตัดผม / ปรับทรง</option>
-              <option>ลูกค้าต่างจังหวัด</option>
-            </select>
-          </label>
-          <label>วันที่ต้องการ <input name="date" type="date"></label>
-          <label>รายละเอียดเพิ่มเติม <textarea name="message" rows="4" placeholder="เช่น สีผม ทรงที่อยากได้ งบประมาณ หรือปัญหาผมบาง"></textarea></label>
-          <button class="btn btn-gold" type="submit">ส่งข้อมูลจองคิว</button>
-          <p class="form-status" id="formStatus" role="status"></p>
-          <p class="form-note">ระบบหลักใช้ Google Form เพื่อบันทึกข้อมูลเข้า Google Sheets โดยตรง หากฟอร์มไม่แสดง ให้กดปุ่ม “จองคิวผ่าน Google Form”</p>
-        </form>
-      </div>
-    </section>
-
-
-    <section class="location container" id="location">
-      <div class="section-title center">
-        <p class="eyebrow gold">VISIT US</p>
-        <h2>แผนที่ร้าน 1DD STUDIO</h2>
-        <p>กดดูเส้นทางบน Google Maps หรือเปิดแผนที่ด้านล่างเพื่อวางแผนเดินทางมาที่ร้าน</p>
-      </div>
-      <div class="map-card">
-        <iframe id="mapFrame" title="1DD STUDIO Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="map-actions">
-          <a class="btn btn-gold" id="mapOpenLink" href="#" target="_blank" rel="noopener">เปิดใน Google Maps</a>
-          <a class="btn btn-outline" href="tel:0895490884">โทรสอบถามเส้นทาง</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq container" id="faq">
-      <div class="section-title center">
-        <p class="eyebrow gold">FAQ</p>
-        <h2>คำถามที่พบบ่อย</h2>
-      </div>
-      <div class="faq-list" id="faqList"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><strong>1DD STUDIO</strong><p>Men's Hair System & Barber Studio<br>Surat Thani, Thailand</p></div>
-      <div><a href="#products">สินค้า</a><a href="#before-after">Before/After</a><a href="#booking">จองคิว</a><a href="#location">แผนที่</a></div>
-      <div><a href="tel:0895490884">0895490884</a><a href="#top">กลับด้านบน ↑</a></div>
+<header class="site-header">
+  <a class="brand" href="#top"><img src="logo-1dd-studio.jpg" alt="1DD STUDIO"><span><b>1DD STUDIO</b><small>Hair System & Barber</small></span></a>
+  <button class="nav-toggle" aria-label="เปิดเมนู">☰</button>
+  <nav class="nav">
+    <a href="#products">สินค้า</a><a href="#before-after">Before/After</a><a href="#reviews">รีวิว</a><a href="#booking">จองคิว</a><a href="#location">แผนที่</a><a class="nav-cta" href="tel:0895490884">โทร 0895490884</a>
+  </nav>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="eyebrow">PREMIUM MEN'S HAIR SYSTEM</p>
+    <h1>เปลี่ยนผมบาง ให้กลับมาดูมั่นใจอีกครั้ง</h1>
+    <p class="lead">งานเนียนธรรมชาติ ผมแท้ 100% พร้อมบริการลูกค้าทั่วประเทศ</p>
+    <div class="hero-actions"><a class="btn btn-gold" href="#booking">จองคิว / ปรึกษาฟรี</a><a class="btn btn-outline" href="tel:0895490884">โทรทันที</a></div>
+    <div class="trust-grid">
+      <span>✨<em>งานเนียนธรรมชาติ</em></span><span>💯<em>ผมแท้ 100%</em></span><span>⚡<em>มั่นใจใน 2 ชั่วโมง</em></span>
+      <span>🧑‍🦱<em>เปลี่ยนลุคให้ดูเด็กลง</em></span><span>🚚<em>รองรับลูกค้าต่างจังหวัด</em></span><span>🌏<em>Thai / English</em></span>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script type="application/ld+json" id="schemaJson"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+<section class="container section" id="products">
+  <div class="section-title"><p class="eyebrow gold">PRODUCT MENU</p><h2>เมนูวิกผมชาย 1DD STUDIO</h2></div>
+  <div class="product-grid">
+    <article class="product-card premium-card">
+      <div class="premium-ribbon">พรีเมี่ยม</div>
+      <div class="product-image"><img src="hs1-premium-v4-spec-clean.jpg" alt="HS1 Premium"></div>
+      <div class="product-body"><span class="tag">PREMIUM</span><h3>HS1 Premium</h3><p>รุ่นพรีเมียม เนียนธรรมชาติ เหมาะกับลูกค้าที่ต้องการงานคุณภาพสูงและใช้งานจริงได้มั่นใจ</p><strong>18,000 บาท</strong></div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="hs1e-essential-v4-spec-clean.jpg" alt="HS1E Essential Plus"></div>
+      <div class="product-body"><span class="tag">BEST VALUE</span><h3>HS1E Essential Plus</h3><p>รุ่นคุ้มค่า ดูเป็นธรรมชาติ ใช้งานง่าย เหมาะกับลูกค้าที่ต้องการเริ่มต้นแบบคุณภาพดี</p><strong>15,000 บาท</strong></div>
+    </article>
+    <article class="product-card">
+      <div class="product-image"><img src="standard-8000.jpg" alt="Standard Custom"></div>
+      <div class="product-body"><span class="tag">STARTER</span><h3>Standard Custom</h3><p>รุ่นเริ่มต้นสำหรับลูกค้าที่ต้องการทดลองใช้งาน หรือแก้ปัญหาผมบางในงบประหยัด</p><strong>8,000 บาท</strong></div>
+    </article>
+  </div>
+</section>
+
+<section class="section section-dark" id="before-after">
+  <div class="container"><div class="section-title center"><p class="eyebrow gold">REAL TRANSFORMATION</p><h2>Before / After</h2></div>
+    <div class="ba-card"><button class="circle-btn" data-ba="prev">‹</button><div class="ba-pair"><figure><img id="baBefore" src="ba-1.jpg" alt="Before"><figcaption>BEFORE</figcaption></figure><figure><img id="baAfter" src="ba-2.jpg" alt="After"><figcaption>AFTER</figcaption></figure></div><div class="ba-copy"><h3 id="baTitle">Before / After Case 01</h3><p>ผลงานจริงจากลูกค้า 1DD STUDIO</p></div><button class="circle-btn" data-ba="next">›</button></div>
+  </div>
+</section>
+
+<section class="container section" id="reviews">
+  <div class="section-title center"><p class="eyebrow gold">CUSTOMER REVIEWS</p><h2>รีวิวและผลลัพธ์จากลูกค้า</h2><p>เพิ่มผลงานจริงชุดใหม่ใน Version 5</p></div>
+  <div class="review-grid">
+    <figure class="review-item"><img src="review-v5-01.jpg" alt="รีวิวลูกค้า 1"></figure>
+    <figure class="review-item"><img src="review-v5-02.jpg" alt="รีวิวลูกค้า 2"></figure>
+    <figure class="review-item"><img src="review-v5-03.jpg" alt="รีวิวลูกค้า 3"></figure>
+    <figure class="review-item"><img src="review-v5-04.jpg" alt="รีวิวลูกค้า 4"></figure>
+    <figure class="review-item"><img src="review-v5-05.jpg" alt="รีวิวลูกค้า 5"></figure>
+    <figure class="review-item"><img src="review-v5-06.jpg" alt="รีวิวลูกค้า 6"></figure>
+    <figure class="review-item"><img src="review-v5-07.jpg" alt="รีวิวลูกค้า 7"></figure>
+  </div>
+</section>
+
+<section class="section section-dark" id="booking"><div class="container booking-grid"><div><p class="eyebrow gold">RESERVE YOUR SLOT</p><h2>จองคิว / ปรึกษาสเปกก่อนตัดสินใจ</h2><p>กดจองคิวผ่าน Google Form ข้อมูลจะบันทึกเข้า Google Sheets โดยตรง</p><div class="contact-cards"><a class="btn btn-gold" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSce8kuEVS71DIXofTxoNVIUFrQdBnMeKs-BjU22LhHy4LBAEw/viewform?usp=publish-editor">จองคิวผ่าน Google Form</a><a href="tel:0895490884">โทร 0895490884</a><a href="https://line.me/ti/p/~mozzjro" target="_blank" rel="noopener">เพิ่ม LINE: mozzjro</a><div class="line-qr-card"><img src="line-qr-mozzjro.png" alt="LINE QR Code"><span>สแกนเพิ่ม LINE</span></div></div></div><iframe class="form-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSce8kuEVS71DIXofTxoNVIUFrQdBnMeKs-BjU22LhHy4LBAEw/viewform?embedded=true" title="Google Form booking" loading="lazy"></iframe></div></section>
+
+<section class="container section" id="location"><div class="section-title center"><p class="eyebrow gold">VISIT US</p><h2>แผนที่ร้าน 1DD STUDIO</h2></div><div class="map-card"><iframe src="https://www.google.com/maps?q=1DD%20STUDIO%20Surat%20Thani&output=embed" title="Google Maps" loading="lazy"></iframe><a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=1DD+STUDIO+Surat+Thani">เปิดใน Google Maps</a></div></section>
+</main>
+<footer class="footer"><div class="container footer-grid"><div><b>1DD STUDIO</b><p>Men's Hair System & Barber Studio<br>Surat Thani, Thailand</p></div><div><a href="#products">สินค้า</a><a href="#reviews">รีวิว</a><a href="#booking">จองคิว</a></div><div><a href="tel:0895490884">0895490884</a><a href="https://line.me/ti/p/~mozzjro">LINE: mozzjro</a></div></div><p class="copyright">© 2026 1DD STUDIO — Version 5</p></footer>
+<script src="script.js"></script>
+</body></html>
