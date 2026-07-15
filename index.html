@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- 1DD STUDIO V8.0 — Before/After 900x1100 full-photo slider -->
+<!-- 1DD STUDIO V9.0 — paired Before/After case slider -->
 <html lang="th">
 <head>
   <meta charset="utf-8" />
@@ -92,30 +92,51 @@
       </div>
     </section>
 
-    <section class="before-after" id="before-after">
+    <section class="before-after before-after-v9" id="before-after">
       <div class="container">
         <div class="section-title center">
-          <p class="eyebrow gold">REAL TRANSFORMATION</p>
-          <h2>Before / After</h2>
-          <p data-th="เลื่อนดูภาพผลงานจริงแบบเต็มภาพ" data-en="Browse full-size real transformation photos">เลื่อนดูภาพผลงานจริงแบบเต็มภาพ</p>
+          <p class="eyebrow gold">REAL CLIENT TRANSFORMATIONS</p>
+          <h2 data-th="ผลงานจริงจากลูกค้า" data-en="Real Client Transformations">ผลงานจริงจากลูกค้า</h2>
+          <p data-th="เลื่อนดูทีละเคส เปรียบเทียบก่อนทำและหลังทำได้ชัดเจน" data-en="Browse one case at a time and compare the full before and after photos.">เลื่อนดูทีละเคส เปรียบเทียบก่อนทำและหลังทำได้ชัดเจน</p>
         </div>
-        <div class="ba-slider-shell">
-          <button class="circle-btn" id="baPrev" aria-label="ภาพก่อนหน้า">‹</button>
-          <article class="ba-slide-card">
-            <div class="ba-slide-media">
-              <img id="baSlideImage" src="ba-v7-01.jpg" alt="Before / After result">
-              <span class="ba-slide-badge" id="baSlideBadge">01 / 08</span>
+
+        <div class="ba-pair-slider">
+          <button class="circle-btn ba-pair-arrow" id="baPrev" aria-label="เคสก่อนหน้า">‹</button>
+
+          <article class="ba-pair-card" id="baPairCard">
+            <div class="ba-pair-grid">
+              <figure class="ba-pair-panel">
+                <figcaption class="ba-pair-label before">BEFORE <span>ก่อนทำ</span></figcaption>
+                <div class="ba-pair-media">
+                  <img id="baBeforeImage" src="before-v9-01.jpg" alt="Before case 1">
+                </div>
+              </figure>
+
+              <figure class="ba-pair-panel">
+                <figcaption class="ba-pair-label after">AFTER <span>หลังทำ</span></figcaption>
+                <div class="ba-pair-media">
+                  <img id="baAfterImage" src="after-v9-01.jpg" alt="After case 1">
+                </div>
+              </figure>
             </div>
-            <div class="ba-slide-copy">
-              <h3 id="baTitle"></h3>
-              <p id="baText"></p>
+
+            <div class="ba-pair-copy">
+              <div>
+                <p class="eyebrow gold" id="baSlideBadge">CASE 01 / 09</p>
+                <h3 id="baTitle">ผลงานจริง เคสที่ 1</h3>
+                <p id="baText">ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO</p>
+              </div>
+              <a class="btn btn-gold" href="#booking" data-th="จองคิวปรึกษา" data-en="Book a consultation">จองคิวปรึกษา</a>
             </div>
           </article>
-          <button class="circle-btn" id="baNext" aria-label="ภาพถัดไป">›</button>
+
+          <button class="circle-btn ba-pair-arrow" id="baNext" aria-label="เคสถัดไป">›</button>
         </div>
-        <div class="ba-dots" id="baDots" aria-label="เลือกภาพ Before / After"></div>
+
+        <div class="ba-dots" id="baDots" aria-label="เลือกเคส Before / After"></div>
       </div>
     </section>
+
 
     <section class="process container" id="process">
       <div class="section-title">

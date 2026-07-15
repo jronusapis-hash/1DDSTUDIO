@@ -216,91 +216,111 @@
   ],
   "beforeAfter": [
     {
-      "image": "ba-v7-01.jpg",
+      "before": "before-v9-01.jpg",
+      "after": "after-v9-01.jpg",
       "title": {
-        "th": "ผลงาน Before / After 01",
-        "en": "Before / After Result 01"
+        "th": "ผลงานจริง เคสที่ 1",
+        "en": "Real Client Case 1"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     },
     {
-      "image": "ba-v7-02.jpg",
+      "before": "before-v9-02.jpg",
+      "after": "after-v9-02.jpg",
       "title": {
-        "th": "ผลงาน Before / After 02",
-        "en": "Before / After Result 02"
+        "th": "ผลงานจริง เคสที่ 2",
+        "en": "Real Client Case 2"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     },
     {
-      "image": "ba-v7-03.jpg",
+      "before": "before-v9-03.jpg",
+      "after": "after-v9-03.jpg",
       "title": {
-        "th": "ผลงาน Before / After 03",
-        "en": "Before / After Result 03"
+        "th": "ผลงานจริง เคสที่ 3",
+        "en": "Real Client Case 3"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     },
     {
-      "image": "ba-v7-04.jpg",
+      "before": "before-v9-04.jpg",
+      "after": "after-v9-04.jpg",
       "title": {
-        "th": "ผลงาน Before / After 04",
-        "en": "Before / After Result 04"
+        "th": "ผลงานจริง เคสที่ 4",
+        "en": "Real Client Case 4"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     },
     {
-      "image": "ba-v7-05.jpg",
+      "before": "before-v9-05.jpg",
+      "after": "after-v9-05.jpg",
       "title": {
-        "th": "ผลงาน Before / After 05",
-        "en": "Before / After Result 05"
+        "th": "ผลงานจริง เคสที่ 5",
+        "en": "Real Client Case 5"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     },
     {
-      "image": "ba-v7-06.jpg",
+      "before": "before-v9-06.jpg",
+      "after": "after-v9-06.jpg",
       "title": {
-        "th": "ผลงาน Before / After 06",
-        "en": "Before / After Result 06"
+        "th": "ผลงานจริง เคสที่ 6",
+        "en": "Real Client Case 6"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     },
     {
-      "image": "ba-v7-07.jpg",
+      "before": "before-v9-07.jpg",
+      "after": "after-v9-07.jpg",
       "title": {
-        "th": "ผลงาน Before / After 07",
-        "en": "Before / After Result 07"
+        "th": "ผลงานจริง เคสที่ 7",
+        "en": "Real Client Case 7"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     },
     {
-      "image": "ba-v7-08.jpg",
+      "before": "before-v9-08.jpg",
+      "after": "after-v9-08.jpg",
       "title": {
-        "th": "ผลงาน Before / After 08",
-        "en": "Before / After Result 08"
+        "th": "ผลงานจริง เคสที่ 8",
+        "en": "Real Client Case 8"
       },
       "text": {
-        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
-        "en": "Real client result by 1DD STUDIO"
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
+      }
+    },
+    {
+      "before": "before-v9-09.jpg",
+      "after": "after-v9-09.jpg",
+      "title": {
+        "th": "ผลงานจริง เคสที่ 9",
+        "en": "Real Client Case 9"
+      },
+      "text": {
+        "th": "ภาพก่อนทำและหลังทำจากลูกค้าจริง 1DD STUDIO",
+        "en": "Real before and after result by 1DD STUDIO"
       }
     }
   ],
@@ -671,9 +691,10 @@
       }
     }
   ],
-  "version": "8.0",
+  "version": "9.0",
   "_meta": {
-    "version": "8.0",
-    "update": "Before/After full-photo slider 900x1100"
+    "version": "9.0",
+    "update": "Separate Before/After paired slider, 9 cases",
+    "notes": "Before left, After right on desktop; stacked on mobile. Case 4 After face blurred."
   }
 }

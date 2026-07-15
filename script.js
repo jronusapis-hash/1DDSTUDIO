@@ -21,26 +21,44 @@ function renderProducts(){$('#productGrid').innerHTML=(data.products||[]).map((p
 function renderComparison(){const rows=data.comparison?.rows||[];const products=data.products||[];$('#comparisonTable').innerHTML=`<thead><tr><th>${lang==='th'?'หัวข้อ':'Feature'}</th>${products.map(p=>`<th>${esc(p.name)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(t(r.label))}</td>${r.values.map(v=>`<td>${esc(t(v))}</td>`).join('')}</tr>`).join('')}</tbody>`}
 let baIndex=0;let baTimer;function renderBA(){
   const slides=data.beforeAfter||[];
-  const image=$('#baSlideImage'),badge=$('#baSlideBadge'),dots=$('#baDots');
-  if(!slides.length||!image)return;
+  const beforeImage=$('#baBeforeImage'),afterImage=$('#baAfterImage');
+  const badge=$('#baSlideBadge'),dots=$('#baDots'),card=$('#baPairCard');
+  if(!slides.length||!beforeImage||!afterImage)return;
+
   const show=n=>{
     baIndex=(n+slides.length)%slides.length;
     const x=slides[baIndex];
-    image.src=x.image;
-    image.alt=t(x.title)||`Before / After ${baIndex+1}`;
-    badge.textContent=`${String(baIndex+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+    beforeImage.src=x.before;
+    afterImage.src=x.after;
+    beforeImage.alt=`Before — ${t(x.title)}`;
+    afterImage.alt=`After — ${t(x.title)}`;
+    badge.textContent=`CASE ${String(baIndex+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
     $('#baTitle').textContent=t(x.title);
     $('#baText').textContent=t(x.text);
-    dots.innerHTML=slides.map((_,i)=>`<button class="${i===baIndex?'active':''}" aria-label="ภาพที่ ${i+1}"></button>`).join('');
+    dots.innerHTML=slides.map((_,i)=>`<button class="${i===baIndex?'active':''}" aria-label="เคสที่ ${i+1}"></button>`).join('');
     [...dots.children].forEach((dot,i)=>dot.onclick=()=>{show(i);restart()});
+    card.classList.remove('ba-pair-enter');
+    void card.offsetWidth;
+    card.classList.add('ba-pair-enter');
   };
-  const restart=()=>{clearInterval(baTimer);baTimer=setInterval(()=>show(baIndex+1),5000)};
+
+  const restart=()=>{
+    clearInterval(baTimer);
+    baTimer=setInterval(()=>show(baIndex+1),7000);
+  };
+
   $('#baPrev').onclick=()=>{show(baIndex-1);restart()};
   $('#baNext').onclick=()=>{show(baIndex+1);restart()};
+
   let touchX=0;
-  image.parentElement.ontouchstart=e=>touchX=e.changedTouches[0].clientX;
-  image.parentElement.ontouchend=e=>{const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>45){show(baIndex+(dx<0?1:-1));restart()}};
-  show(0);restart();
+  card.ontouchstart=e=>touchX=e.changedTouches[0].clientX;
+  card.ontouchend=e=>{
+    const dx=e.changedTouches[0].clientX-touchX;
+    if(Math.abs(dx)>45){show(baIndex+(dx<0?1:-1));restart()}
+  };
+
+  show(0);
+  restart();
 }
 function renderSteps(){$('#steps').innerHTML=(data.process||[]).map((x,i)=>`<article class="step"><strong>${i+1}</strong><p>${esc(t(x))}</p></article>`).join('')}
 let reviewIndex=0,reviewTimer;function renderReviews(){const arr=data.reviews||[],card=$('#reviewCard'),dots=$('#reviewDots');dots.innerHTML=arr.map((_,i)=>`<button aria-label="Review ${i+1}"></button>`).join('');[...dots.children].forEach((b,i)=>b.onclick=()=>show(i));function show(n){reviewIndex=(n+arr.length)%arr.length;const r=arr[reviewIndex];card.innerHTML=`<span class="premium-ribbon">PREMIUM</span><img src="${esc(r.image)}" alt="${esc(r.name)}" loading="lazy"><div class="review-copy"><div class="stars">★★★★★</div><h3>${esc(r.name)}</h3><blockquote>“${esc(t(r.text))}”</blockquote><a class="btn btn-gold" href="#booking">${lang==='th'?'จองคิวเลย':'Book now'}</a></div>`;[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===reviewIndex));clearInterval(reviewTimer);reviewTimer=setInterval(()=>show(reviewIndex+1),6000)}$('#reviewPrev').onclick=()=>show(reviewIndex-1);$('#reviewNext').onclick=()=>show(reviewIndex+1);show(0)}
