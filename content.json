@@ -73,25 +73,33 @@
       "image": "hs1-premium-v4-spec-clean.jpg",
       "badge": "Premium",
       "description": {
-        "th": "รุ่นพรีเมียม เนียนธรรมชาติ เหมาะกับลูกค้าที่ต้องการงานดูแพงและใช้งานจริงได้มั่นใจ",
-        "en": "Premium natural-looking system for customers who want the highest finish and confidence."
+        "th": "บางที่สุด ดูเป็นธรรมชาติสูงสุด",
+        "en": "Our thinnest option for the most natural-looking result."
       },
       "features": [
         {
-          "th": "งานเส้นผมดูธรรมชาติ",
-          "en": "Natural hair appearance"
+          "th": "ขนาด 8 × 10 นิ้ว",
+          "en": "Size 8 × 10 inches"
         },
         {
-          "th": "ฐานบาง ใส่สบาย",
-          "en": "Thin and comfortable base"
+          "th": "ฐาน PU หนา 0.08 มม.",
+          "en": "0.08 mm PU base"
         },
         {
-          "th": "เหมาะกับงานติดตั้งระดับพรีเมียม",
-          "en": "Premium installation"
+          "th": "ผมแท้ 100% Indian Human Hair",
+          "en": "100% Indian human hair"
         },
         {
-          "th": "รวมติดตั้งที่ร้าน",
-          "en": "Installation at the studio included"
+          "th": "ความหนาแน่น 100%",
+          "en": "100% density"
+        },
+        {
+          "th": "บางเบา แนบสนิท เป็นธรรมชาติ",
+          "en": "Lightweight, close-fitting and natural"
+        },
+        {
+          "th": "อายุการใช้งานประมาณ 4–7 เดือน",
+          "en": "Approx. lifespan: 4–7 months"
         }
       ]
     },
@@ -101,25 +109,33 @@
       "image": "hs1e-essential-v4-spec-clean.jpg",
       "badge": "Best Value",
       "description": {
-        "th": "รุ่นเอสเซนเชียล คุ้มค่า ดูเป็นธรรมชาติ ใช้งานง่าย เหมาะกับลูกค้าที่อยากเริ่มต้นแบบคุณภาพดี",
-        "en": "Best-value essential model with a natural look and easy everyday use."
+        "th": "ความทนทาน คุ้มค่า ใช้งานทุกวันได้สบาย",
+        "en": "Durable, great value and comfortable for everyday wear."
       },
       "features": [
         {
-          "th": "บาลานซ์ราคาและคุณภาพ",
-          "en": "Balanced price and quality"
+          "th": "ขนาด 8 × 10 นิ้ว",
+          "en": "Size 8 × 10 inches"
         },
         {
-          "th": "ดูแลไม่ยาก",
-          "en": "Easy maintenance"
+          "th": "ฐาน PU หนา 0.12 มม.",
+          "en": "0.12 mm PU base"
         },
         {
-          "th": "เหมาะกับใช้งานประจำวัน",
-          "en": "Suitable for daily use"
+          "th": "ผมแท้ 100%",
+          "en": "100% human hair"
         },
         {
-          "th": "รวมติดตั้งที่ร้าน",
-          "en": "Installation at the studio included"
+          "th": "ความหนาแน่น 120%",
+          "en": "120% density"
+        },
+        {
+          "th": "เหมาะกับบริเวณผมบางกว้าง",
+          "en": "Suitable for wider thinning areas"
+        },
+        {
+          "th": "อายุการใช้งานประมาณ 5–8 เดือน (ขึ้นอยู่กับการดูแล)",
+          "en": "Approx. lifespan: 5–8 months, depending on care"
         }
       ]
     },
@@ -129,21 +145,25 @@
       "image": "standard-8000.jpg",
       "badge": "Starter",
       "description": {
-        "th": "รุ่นเริ่มต้นสำหรับลูกค้าที่ต้องการทดลองใช้งาน หรืออยากแก้ปัญหาผมบางในงบประหยัด",
-        "en": "Entry model for customers who want to try a hair system at an accessible price."
+        "th": "เหมาะสำหรับผู้เริ่มต้น คุ้มค่า คุ้มราคา",
+        "en": "Ideal for first-time users with excellent value for money."
       },
       "features": [
         {
-          "th": "ราคาเริ่มต้นเข้าถึงง่าย",
-          "en": "Accessible starting price"
+          "th": "ขนาด 6 × 8 นิ้ว",
+          "en": "Size 6 × 8 inches"
         },
         {
-          "th": "ปรับทรงให้เข้ากับลูกค้า",
-          "en": "Custom styling"
+          "th": "ฐาน PU หนา 0.12–0.14 มม.",
+          "en": "0.12–0.14 mm PU base"
         },
         {
-          "th": "เหมาะกับลูกค้าใหม่",
-          "en": "Suitable for first-time users"
+          "th": "ความหนาแน่นปานกลาง",
+          "en": "Medium density"
+        },
+        {
+          "th": "อายุการใช้งานประมาณ 3–6 เดือน",
+          "en": "Approx. lifespan: 3–6 months"
         }
       ]
     }
@@ -151,12 +171,12 @@
   "benefits": [
     {
       "title": {
-        "th": "ตรวจความเรียบร้อยก่อนส่ง",
-        "en": "Quality checked"
+        "th": "ตรวจสอบเซตทรงก่อนออกจากร้าน",
+        "en": "Final styling check before leaving"
       },
       "text": {
-        "th": "ตรวจสภาพสินค้าและความเรียบร้อยก่อนส่งมอบทุกครั้ง",
-        "en": "Product condition and finish are checked before delivery."
+        "th": "ตรวจสอบและเซตทรงให้เรียบร้อยก่อนออกจากร้าน ให้ดูหล่อและมั่นใจทุกครั้ง",
+        "en": "We check and finish the styling before you leave, so you look sharp and feel confident every time."
       }
     },
     {
