@@ -216,27 +216,91 @@
   ],
   "beforeAfter": [
     {
-      "before": "ba-1.jpg",
-      "after": "ba-2.jpg",
+      "image": "ba-v7-01.jpg",
       "title": {
-        "th": "Before / After Case 01",
-        "en": "Before / After Case 01"
+        "th": "ผลงาน Before / After 01",
+        "en": "Before / After Result 01"
       },
       "text": {
-        "th": "ภาพเปรียบเทียบหลังปรับลุคด้วยระบบวิกผมชาย",
-        "en": "Real transformation with a men’s hair system tailored to the client."
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
       }
     },
     {
-      "before": "ba-3.jpg",
-      "after": "ba-4.jpg",
+      "image": "ba-v7-02.jpg",
       "title": {
-        "th": "Before / After Case 02",
-        "en": "Before / After Case 02"
+        "th": "ผลงาน Before / After 02",
+        "en": "Before / After Result 02"
       },
       "text": {
-        "th": "จัดทรงและบาลานซ์ให้เหมาะกับโครงหน้า",
-        "en": "Real transformation with a men’s hair system tailored to the client."
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
+      }
+    },
+    {
+      "image": "ba-v7-03.jpg",
+      "title": {
+        "th": "ผลงาน Before / After 03",
+        "en": "Before / After Result 03"
+      },
+      "text": {
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
+      }
+    },
+    {
+      "image": "ba-v7-04.jpg",
+      "title": {
+        "th": "ผลงาน Before / After 04",
+        "en": "Before / After Result 04"
+      },
+      "text": {
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
+      }
+    },
+    {
+      "image": "ba-v7-05.jpg",
+      "title": {
+        "th": "ผลงาน Before / After 05",
+        "en": "Before / After Result 05"
+      },
+      "text": {
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
+      }
+    },
+    {
+      "image": "ba-v7-06.jpg",
+      "title": {
+        "th": "ผลงาน Before / After 06",
+        "en": "Before / After Result 06"
+      },
+      "text": {
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
+      }
+    },
+    {
+      "image": "ba-v7-07.jpg",
+      "title": {
+        "th": "ผลงาน Before / After 07",
+        "en": "Before / After Result 07"
+      },
+      "text": {
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
+      }
+    },
+    {
+      "image": "ba-v7-08.jpg",
+      "title": {
+        "th": "ผลงาน Before / After 08",
+        "en": "Before / After Result 08"
+      },
+      "text": {
+        "th": "ผลงานจริงจากลูกค้า 1DD STUDIO",
+        "en": "Real client result by 1DD STUDIO"
       }
     }
   ],
@@ -607,5 +671,5 @@
       }
     }
   ],
-  "version": "6.0 Ultimate"
+  "version": "7.0"
 }

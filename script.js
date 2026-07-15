@@ -19,30 +19,28 @@ function renderHero(keep=false){let i=0,timer;const slides=data.hero||[];const b
 function renderBenefits(){$('#benefits').innerHTML=(data.benefits||[]).map((b,i)=>`<article class="benefit-card"><span class="eyebrow gold">0${i+1}</span><h3>${esc(t(b.title))}</h3><p>${esc(t(b.text))}</p></article>`).join('')}
 function renderProducts(){$('#productGrid').innerHTML=(data.products||[]).map((p,i)=>`<article class="product-card"><div class="product-media"><span class="product-badge">${esc(p.badge)}</span><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy"></div><div class="product-body"><p class="eyebrow gold">${esc(p.badge)}</p><h3>${esc(p.name)}</h3><p>${esc(t(p.description))}</p><div class="product-price">${esc(p.price)} บาท</div><ul class="product-features">${(p.features||[]).map(x=>`<li>${esc(t(x))}</li>`).join('')}</ul><a class="btn btn-outline" href="#booking">${lang==='th'?'สนใจรุ่นนี้':'Ask about this model'}</a></div></article>`).join('')}
 function renderComparison(){const rows=data.comparison?.rows||[];const products=data.products||[];$('#comparisonTable').innerHTML=`<thead><tr><th>${lang==='th'?'หัวข้อ':'Feature'}</th>${products.map(p=>`<th>${esc(p.name)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(t(r.label))}</td>${r.values.map(v=>`<td>${esc(t(v))}</td>`).join('')}</tr>`).join('')}</tbody>`}
-let baIndex=0;function renderBA(){
-  const pairs=data.beforeAfter||[];
-  const slides=[];
-  pairs.forEach((item,pairIndex)=>{
-    slides.push({image:item.before,badge:'BEFORE',title:item.title,text:item.text,pairIndex});
-    slides.push({image:item.after,badge:'AFTER',title:item.title,text:item.text,pairIndex});
-  });
+let baIndex=0;let baTimer;function renderBA(){
+  const slides=data.beforeAfter||[];
   const image=$('#baSlideImage'),badge=$('#baSlideBadge'),dots=$('#baDots');
-  function show(n){
-    if(!slides.length)return;
+  if(!slides.length||!image)return;
+  const show=n=>{
     baIndex=(n+slides.length)%slides.length;
     const x=slides[baIndex];
     image.src=x.image;
-    image.alt=`${x.badge} - ${t(x.title)}`;
-    badge.textContent=x.badge;
-    badge.classList.toggle('after',x.badge==='AFTER');
+    image.alt=t(x.title)||`Before / After ${baIndex+1}`;
+    badge.textContent=`${String(baIndex+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
     $('#baTitle').textContent=t(x.title);
     $('#baText').textContent=t(x.text);
     dots.innerHTML=slides.map((_,i)=>`<button class="${i===baIndex?'active':''}" aria-label="ภาพที่ ${i+1}"></button>`).join('');
-  }
-  $('#baPrev').onclick=()=>show(baIndex-1);
-  $('#baNext').onclick=()=>show(baIndex+1);
-  dots.onclick=e=>{if(e.target.tagName==='BUTTON')show([...dots.children].indexOf(e.target))};
-  show(0);
+    [...dots.children].forEach((dot,i)=>dot.onclick=()=>{show(i);restart()});
+  };
+  const restart=()=>{clearInterval(baTimer);baTimer=setInterval(()=>show(baIndex+1),5000)};
+  $('#baPrev').onclick=()=>{show(baIndex-1);restart()};
+  $('#baNext').onclick=()=>{show(baIndex+1);restart()};
+  let touchX=0;
+  image.parentElement.ontouchstart=e=>touchX=e.changedTouches[0].clientX;
+  image.parentElement.ontouchend=e=>{const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>45){show(baIndex+(dx<0?1:-1));restart()}};
+  show(0);restart();
 }
 function renderSteps(){$('#steps').innerHTML=(data.process||[]).map((x,i)=>`<article class="step"><strong>${i+1}</strong><p>${esc(t(x))}</p></article>`).join('')}
 let reviewIndex=0,reviewTimer;function renderReviews(){const arr=data.reviews||[],card=$('#reviewCard'),dots=$('#reviewDots');dots.innerHTML=arr.map((_,i)=>`<button aria-label="Review ${i+1}"></button>`).join('');[...dots.children].forEach((b,i)=>b.onclick=()=>show(i));function show(n){reviewIndex=(n+arr.length)%arr.length;const r=arr[reviewIndex];card.innerHTML=`<span class="premium-ribbon">PREMIUM</span><img src="${esc(r.image)}" alt="${esc(r.name)}" loading="lazy"><div class="review-copy"><div class="stars">★★★★★</div><h3>${esc(r.name)}</h3><blockquote>“${esc(t(r.text))}”</blockquote><a class="btn btn-gold" href="#booking">${lang==='th'?'จองคิวเลย':'Book now'}</a></div>`;[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===reviewIndex));clearInterval(reviewTimer);reviewTimer=setInterval(()=>show(reviewIndex+1),6000)}$('#reviewPrev').onclick=()=>show(reviewIndex-1);$('#reviewNext').onclick=()=>show(reviewIndex+1);show(0)}

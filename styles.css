@@ -14,3 +14,18 @@
 .ba-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
 .ba-dots button{width:9px;height:9px;border-radius:50%;border:0;background:#ffffff40;cursor:pointer}.ba-dots button.active{background:var(--gold2)}
 @media(max-width:600px){.ba-slider-shell{grid-template-columns:1fr;position:relative}.ba-slider-shell>.circle-btn{position:absolute;top:42%;z-index:6}.ba-slider-shell>#baPrev{left:8px}.ba-slider-shell>#baNext{right:8px}.ba-slide-media{height:min(640px,138vw);min-height:420px}.ba-slide-copy{padding:16px 18px 20px}}
+
+
+/* V7 Before / After — one full image per slide, matching customer review width */
+.ba-slider-shell{grid-template-columns:auto minmax(0,900px) auto;gap:18px}
+.ba-slide-card{width:100%;max-width:900px;margin:auto}
+.ba-slide-media{height:500px;min-height:0;background:#0b0906}
+.ba-slide-media img{width:100%;height:100%;object-fit:contain;object-position:center;background:#0b0906}
+.ba-slide-badge{left:auto;right:18px;background:rgba(0,0,0,.78);color:var(--gold2)}
+.ba-slide-copy{padding:20px 24px 24px}
+@media(max-width:600px){
+  .ba-slider-shell{grid-template-columns:1fr;position:relative}
+  .ba-slide-media{height:430px;min-height:0}
+  .ba-slider-shell>.circle-btn{top:38%}
+  .ba-slide-copy{padding:16px 18px 20px}
+}
