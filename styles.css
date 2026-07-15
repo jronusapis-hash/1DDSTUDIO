@@ -29,3 +29,61 @@
   .ba-slider-shell>.circle-btn{top:38%}
   .ba-slide-copy{padding:16px 18px 20px}
 }
+
+/* =========================================================
+   V8.0 — BEFORE / AFTER FULL-PHOTO SHOWCASE
+   Desktop frame: 900 × 1100 px
+   Shows every portrait image in full without top/bottom crop.
+   ========================================================= */
+.before-after .ba-slider-shell{
+  grid-template-columns:auto minmax(0,900px) auto;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+}
+.before-after .ba-slide-card{
+  width:100%;
+  max-width:900px;
+  margin-inline:auto;
+}
+.before-after .ba-slide-media{
+  width:100%;
+  height:auto;
+  aspect-ratio:900 / 1100;
+  min-height:0;
+  max-height:1100px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:#0b0906;
+}
+.before-after .ba-slide-media img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center center;
+  background:#0b0906;
+}
+@media(max-width:600px){
+  .before-after .ba-slider-shell{
+    grid-template-columns:1fr;
+    position:relative;
+    gap:12px;
+  }
+  .before-after .ba-slide-card{
+    max-width:100%;
+  }
+  .before-after .ba-slide-media{
+    width:100%;
+    height:auto;
+    aspect-ratio:900 / 1100;
+    min-height:0;
+    max-height:none;
+  }
+  .before-after .ba-slider-shell>.circle-btn{
+    top:44%;
+  }
+}

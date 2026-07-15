@@ -671,5 +671,9 @@
       }
     }
   ],
-  "version": "7.0"
+  "version": "8.0",
+  "_meta": {
+    "version": "8.0",
+    "update": "Before/After full-photo slider 900x1100"
+  }
 }
