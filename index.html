@@ -96,16 +96,23 @@
         <div class="section-title center">
           <p class="eyebrow gold">REAL TRANSFORMATION</p>
           <h2>Before / After</h2>
-          <p data-th="ลากแถบตรงกลางเพื่อดูความแตกต่าง" data-en="Drag the center handle to compare">ลากแถบตรงกลางเพื่อดูความแตกต่าง</p>
+          <p data-th="เลื่อนดูภาพผลงานจริงแบบเต็มภาพ" data-en="Browse full-size real transformation photos">เลื่อนดูภาพผลงานจริงแบบเต็มภาพ</p>
         </div>
-        <div class="ba-compare" id="baCompare">
-          <img id="baAfter" src="ba-2.jpg" alt="After result" class="ba-base">
-          <div class="ba-before-layer" id="baBeforeLayer"><img id="baBefore" src="ba-1.jpg" alt="Before result"></div>
-          <input id="baRange" type="range" min="0" max="100" value="50" aria-label="เลื่อนเพื่อเปรียบเทียบ Before และ After">
-          <div class="ba-handle" id="baHandle" aria-hidden="true"><span>↔</span></div>
-          <span class="ba-label before">BEFORE</span><span class="ba-label after">AFTER</span>
+        <div class="ba-slider-shell">
+          <button class="circle-btn" id="baPrev" aria-label="ภาพก่อนหน้า">‹</button>
+          <article class="ba-slide-card">
+            <div class="ba-slide-media">
+              <img id="baSlideImage" src="ba-1.jpg" alt="Before / After result">
+              <span class="ba-slide-badge" id="baSlideBadge">BEFORE</span>
+            </div>
+            <div class="ba-slide-copy">
+              <h3 id="baTitle"></h3>
+              <p id="baText"></p>
+            </div>
+          </article>
+          <button class="circle-btn" id="baNext" aria-label="ภาพถัดไป">›</button>
         </div>
-        <div class="ba-meta"><button class="circle-btn" id="baPrev" aria-label="ก่อนหน้า">‹</button><div><h3 id="baTitle"></h3><p id="baText"></p></div><button class="circle-btn" id="baNext" aria-label="ถัดไป">›</button></div>
+        <div class="ba-dots" id="baDots" aria-label="เลือกภาพ Before / After"></div>
       </div>
     </section>
 
