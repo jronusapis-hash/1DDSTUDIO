@@ -1,15 +1,19 @@
-# 1DD STUDIO V9.0 GEO — Before / After Paired Slider
+# 1DD STUDIO V10 — Motion Upgrade
 
-อัปเกรดจากไฟล์ Master `1DDSTUDIO_V9_BEFORE_AFTER_PAIRS_UPLOAD_READY.zip` โดยรักษา V9.0 และการจับคู่ภาพทั้ง 9 เคสไว้ครบ เพิ่มเฉพาะโครงสร้าง GEO เนื้อหาบริการ วิธีดูแล ข้อมูลติดต่อ และ Structured Data
+อัปเกรดจาก Master `1DDSTUDIO_V9_BEFORE_AFTER_PAIRS_UPLOAD_READY` โดยรักษาข้อมูลและระบบเดิมทั้งหมด
 
-## เปิดใช้งาน AI Chatbot
+- Hero แบบมีแสงเคลื่อนไหว ป้ายสถานะ และแถบข้อความเลื่อน
+- Scroll progress และ Blur Fade เมื่อเลื่อนหน้า
+- Benefit cards แบบ Bento และ hover interaction
+- Border Beam สำหรับแพ็กเกจพรีเมียม
+- Before/After ครบ 9 เคส พร้อมเลือกวางคู่หรือลากเปรียบเทียบ
+- รองรับมือถือ คีย์บอร์ด และโหมดลดการเคลื่อนไหว
 
-เว็บมีโหมดตอบพื้นฐานโดยไม่ต้องตั้งค่า หากต้องการเปิด AI จริง ให้เพิ่ม Environment Variable ใน Cloudflare Pages:
+ต้นแบบอ้างอิง: 21st.dev, MotionSite.ai และ Magic UI
 
-- `OPENAI_API_KEY` = API key ของบัญชี OpenAI Platform
-- `OPENAI_MODEL` = ชื่อโมเดลที่ต้องการใช้ (ไม่ใส่ก็ใช้ `gpt-5-mini`)
+---
 
-ห้ามเขียน API key ลงใน `script.js`, `content.json` หรือไฟล์ที่อัปโหลดขึ้น GitHub
+# V9.0 — Before / After Paired Slider
 
 ## อัปเดตในเวอร์ชันนี้
 

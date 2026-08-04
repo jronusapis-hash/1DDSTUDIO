@@ -13,8 +13,6 @@
     "mapEmbed": "https://www.google.com/maps?q=1DD%20STUDIO%20Surat%20Thani&output=embed",
     "lineAddUrl": "https://line.me/ti/p/~mozzjro",
     "lineQr": "line-qr-mozzjro.png"
-    ,"hours": "ทุกวัน 10:00–22:00 น."
-    ,"serviceArea": {"th":"สุราษฎร์ธานีและลูกค้าทั่วประเทศไทย","en":"Surat Thani and customers throughout Thailand"}
   },
   "seo": {
     "title": "1DD STUDIO | วิกผมชายพรีเมียม สุราษฎร์ธานี",
@@ -70,7 +68,7 @@
   ],
   "products": [
     {
-      "name": "Premium",
+      "name": "HS1 Premium",
       "price": "18,000",
       "image": "hs1-premium-v4-spec-clean.jpg",
       "badge": "Premium",
@@ -106,7 +104,7 @@
       ]
     },
     {
-      "name": "Standard",
+      "name": "HS1E Essential Plus",
       "price": "15,000",
       "image": "hs1e-essential-v4-spec-clean.jpg",
       "badge": "Best Value",
@@ -647,21 +645,6 @@
       }
     ]
   },
-  "mainServices": [
-    {"title":{"th":"ปรึกษาและวิเคราะห์ปัญหาผมบาง","en":"Hair loss consultation"},"enLabel":{"th":"CONSULTATION","en":"CONSULTATION"},"text":{"th":"ประเมินบริเวณผมบาง รูปหน้า ไลฟ์สไตล์ และงบประมาณ เพื่อแนะนำ Hair System ที่เหมาะกับแต่ละคน","en":"We assess thinning areas, face shape, lifestyle and budget to recommend a suitable hair system."}},
-    {"title":{"th":"ออกแบบวิกผมชายเฉพาะบุคคล","en":"Custom men's hair system"},"enLabel":{"th":"CUSTOM DESIGN","en":"CUSTOM DESIGN"},"text":{"th":"เลือกขนาดฐาน สีผม ความหนาแน่น แนวผม และทรงให้กลมกลืนกับผมจริง","en":"Base size, color, density, hairline and style are selected to blend with your natural hair."}},
-    {"title":{"th":"ติดตั้ง ตัดแต่ง และเซ็ตทรง","en":"Installation, haircut and styling"},"enLabel":{"th":"INSTALLATION","en":"INSTALLATION"},"text":{"th":"ติดตั้งอย่างละเอียด ตัดเชื่อมกับผมเดิม และเซ็ตทรงให้พร้อมใช้ชีวิตประจำวัน","en":"Professional installation, blending haircut and styling for daily life."}},
-    {"title":{"th":"ทำความสะอาดและติดซ้ำ","en":"Cleaning and rebonding"},"enLabel":{"th":"MAINTENANCE","en":"MAINTENANCE"},"text":{"th":"ถอดทำความสะอาดหนังศีรษะและตัววิก เปลี่ยนกาว และติดตั้งกลับตามรอบ","en":"Scalp and system cleaning, adhesive replacement and scheduled rebonding."}},
-    {"title":{"th":"ซ่อมบำรุงวิกผม","en":"Hair-system repair"},"enLabel":{"th":"REPAIR","en":"REPAIR"},"text":{"th":"ตรวจสภาพฐาน แนวผม และจุดที่ต้องซ่อม เพื่อช่วยยืดอายุการใช้งาน","en":"Assessment and repair of the base, hairline and worn areas to extend usable life."}},
-    {"title":{"th":"บริการลูกค้าต่างจังหวัด","en":"Out-of-province service"},"enLabel":{"th":"TRAVEL SUPPORT","en":"TRAVEL SUPPORT"},"text":{"th":"ปรึกษาก่อนเดินทาง วางแผนสินค้าและวันนัด เพื่อให้ใช้เวลาเข้ารับบริการอย่างเหมาะสม","en":"Pre-travel consultation and appointment planning for customers outside Surat Thani."}}
-  ],
-  "careGuide": [
-    {"title":{"th":"หวีอย่างเบามือ","en":"Brush gently"},"text":{"th":"ใช้หวีซี่ห่าง เริ่มจากปลายผมแล้วค่อยไล่ขึ้น หลีกเลี่ยงการดึงแรงบริเวณโคน","en":"Use a wide-tooth comb, start at the ends and avoid pulling at the roots."}},
-    {"title":{"th":"ใช้ผลิตภัณฑ์ที่เหมาะสม","en":"Use suitable products"},"text":{"th":"หลีกเลี่ยงแชมพูรุนแรงและผลิตภัณฑ์แอลกอฮอล์สูงที่อาจทำให้ผมแห้งหรือกระทบกาว","en":"Avoid harsh shampoo and high-alcohol products that may dry the hair or affect adhesive."}},
-    {"title":{"th":"ลดความร้อนโดยตรง","en":"Limit direct heat"},"text":{"th":"ใช้ไดร์ความร้อนต่ำและเว้นระยะ หลีกเลี่ยงการจ่อความร้อนที่เส้นผมหรือฐานวิก","en":"Use low heat at a distance and avoid direct heat on the hair or base."}},
-    {"title":{"th":"ดูแลหลังเหงื่อออกหรือโดนน้ำ","en":"Care after sweat or water"},"text":{"th":"ซับเบา ๆ ไม่เกาหรือถูแรง และทำตามระยะเวลาที่ช่างแนะนำหลังติดตั้ง","en":"Pat gently, do not scratch or rub, and follow the post-installation waiting period."}},
-    {"title":{"th":"เข้ารับบริการตามรอบ","en":"Schedule maintenance"},"text":{"th":"นัดทำความสะอาดหนังศีรษะ ตัววิก และติดซ้ำตามรอบที่เหมาะกับสภาพผิวและการใช้งาน","en":"Schedule scalp cleaning, system cleaning and rebonding based on your skin and usage."}}
-  ],
   "services": [
     {
       "icon": "✂",
@@ -708,10 +691,10 @@
       }
     }
   ],
-  "version": "9.0-GEO",
+  "version": "9.0",
   "_meta": {
-    "version": "9.0-GEO",
-    "update": "V9.0 paired Before/After preserved; GEO content, services, care, contact and schema added",
-    "notes": "Original V9 layout and all 9 paired cases preserved."
+    "version": "9.0",
+    "update": "Separate Before/After paired slider, 9 cases",
+    "notes": "Before left, After right on desktop; stacked on mobile. Case 4 After face blurred."
   }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- 1DD STUDIO V9 GEO — V9.0 paired Before/After preserved -->
+<!-- 1DD STUDIO V9.0 — paired Before/After case slider -->
 <html lang="th">
 <head>
   <meta charset="utf-8" />
@@ -12,8 +12,6 @@
   <meta property="og:description" content="วิกผมชายพรีเมียม งานเนียนธรรมชาติ พร้อมบริการติดตั้งและให้คำปรึกษา" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="hero-1.jpg" />
-  <meta property="og:locale" content="th_TH" />
-  <link rel="canonical" href="https://1ddstudio.pages.dev/" />
   <link rel="icon" href="logo-1dd-studio.jpg" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preload" href="styles.css" as="style" />
@@ -21,6 +19,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
@@ -30,13 +29,10 @@
     </a>
     <button class="nav-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
     <nav class="nav" aria-label="เมนูหลัก">
-      <a href="#main-services" data-th="บริการ" data-en="Services">บริการ</a>
       <a href="#products" data-th="สินค้า" data-en="Products">สินค้า</a>
       <a href="#comparison" data-th="เปรียบเทียบ" data-en="Compare">เปรียบเทียบ</a>
       <a href="#before-after">Before/After</a>
       <a href="#reviews" data-th="รีวิว" data-en="Reviews">รีวิว</a>
-      <a href="#care-guide" data-th="วิธีดูแล" data-en="Care">วิธีดูแล</a>
-      <a href="#faq">FAQ</a>
       <a href="#booking" data-th="จองคิว" data-en="Booking">จองคิว</a>
       <a href="#location" data-th="แผนที่" data-en="Map">แผนที่</a>
       <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
@@ -48,8 +44,10 @@
     <section class="hero section-dark" aria-label="Hero slider">
       <div class="hero-bg" id="heroBg"></div>
       <div class="hero-overlay"></div>
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
       <div class="hero-content container">
-        <p class="eyebrow" id="heroEyebrow">Premium Men's Hair System</p>
+        <p class="eyebrow hero-pill" id="heroEyebrow">Premium Men's Hair System</p>
         <h1 id="heroTitle">เปลี่ยนผมบาง ให้กลับมาดูมั่นใจอีกครั้ง</h1>
         <p class="lead" id="heroSubtitle">วิกผมชายเกรดพรีเมียม ติดตั้งเนียนธรรมชาติ รองรับลูกค้าทั่วประเทศ</p>
         <div class="hero-actions">
@@ -59,6 +57,7 @@
         <div class="hero-proof"><span>★★★★★</span><b data-th="รีวิวจากลูกค้าจริง" data-en="Real customer results">รีวิวจากลูกค้าจริง</b></div>
         <div class="hero-dots" id="heroDots" aria-label="Hero navigation"></div>
       </div>
+      <div class="hero-marquee" aria-hidden="true"><div>ผมแท้ 100% <i>✦</i> งานเนียนธรรมชาติ <i>✦</i> ปรึกษาสเปกฟรี <i>✦</i> ลูกค้าทั่วประเทศ <i>✦</i> 1DD STUDIO <i>✦</i> ผมแท้ 100% <i>✦</i> งานเนียนธรรมชาติ <i>✦</i> ปรึกษาสเปกฟรี <i>✦</i></div></div>
     </section>
 
     <section class="stats container" aria-label="จุดเด่นสรุป">
@@ -66,13 +65,6 @@
       <div><strong>2h</strong><span data-th="เวลาเปลี่ยนลุคโดยประมาณ" data-en="Approx. transformation">เวลาเปลี่ยนลุคโดยประมาณ</span></div>
       <div><strong>100%</strong><span data-th="ผมแท้" data-en="Human hair">ผมแท้</span></div>
       <div><strong>TH/EN</strong><span data-th="บริการสองภาษา" data-en="Bilingual support">บริการสองภาษา</span></div>
-    </section>
-
-    <section class="geo-answer container" id="about" aria-labelledby="about-title">
-      <p class="eyebrow gold">ABOUT 1DD STUDIO</p>
-      <h2 id="about-title" data-th="1DD STUDIO ให้บริการอะไร?" data-en="What does 1DD STUDIO do?">1DD STUDIO ให้บริการอะไร?</h2>
-      <p data-th="1DD STUDIO คือร้านตัดผมชายและผู้เชี่ยวชาญด้าน Hair System หรือวิกผมชายในจังหวัดสุราษฎร์ธานี ให้บริการปรึกษาปัญหาผมบาง ออกแบบวิกให้เข้ากับรูปหน้า ติดตั้ง ตัดแต่ง ทำความสะอาด ติดซ้ำ ซ่อมบำรุง และดูแลหลังการติดตั้ง รองรับลูกค้าสุราษฎร์ธานี ต่างจังหวัด และชาวต่างชาติ" data-en="1DD STUDIO is a men's barber and hair-system specialist in Surat Thani, Thailand. We provide consultation for thinning hair, personalized hair-system design, installation, haircut and styling, cleaning, rebonding, repair and ongoing aftercare for local, out-of-province and international clients.">1DD STUDIO คือร้านตัดผมชายและผู้เชี่ยวชาญด้าน Hair System หรือวิกผมชายในจังหวัดสุราษฎร์ธานี ให้บริการปรึกษาปัญหาผมบาง ออกแบบวิกให้เข้ากับรูปหน้า ติดตั้ง ตัดแต่ง ทำความสะอาด ติดซ้ำ ซ่อมบำรุง และดูแลหลังการติดตั้ง รองรับลูกค้าสุราษฎร์ธานี ต่างจังหวัด และชาวต่างชาติ</p>
-      <div class="geo-facts"><span><b>เหมาะสำหรับ</b> ผู้ชายผมบาง ศีรษะล้าน หรือแนวผมร่น</span><span><b>พื้นที่บริการ</b> สุราษฎร์ธานีและลูกค้าทั่วประเทศ</span><span><b>ติดต่อ</b> 0895490884 · LINE mozzjro</span></div>
     </section>
 
     <section class="intro container">
@@ -84,13 +76,6 @@
     </section>
 
     <section class="benefits container" id="benefits"></section>
-
-    <section class="main-services section-dark" id="main-services">
-      <div class="container">
-        <div class="section-title center"><p class="eyebrow gold">OUR SERVICES</p><h2 data-th="บริการวิกผมชายแต่ละประเภท" data-en="Men's hair-system services">บริการวิกผมชายแต่ละประเภท</h2><p data-th="เลือกดูบริการที่ตรงกับสิ่งที่คุณต้องการ ตั้งแต่เริ่มปรึกษาจนถึงดูแลระยะยาว" data-en="Explore services from your first consultation through long-term maintenance.">เลือกดูบริการที่ตรงกับสิ่งที่คุณต้องการ ตั้งแต่เริ่มปรึกษาจนถึงดูแลระยะยาว</p></div>
-        <div class="geo-service-grid" id="mainServiceGrid"></div>
-      </div>
-    </section>
 
     <section class="products container" id="products">
       <div class="section-title">
@@ -117,6 +102,7 @@
           <p class="eyebrow gold">REAL CLIENT TRANSFORMATIONS</p>
           <h2 data-th="ผลงานจริงจากลูกค้า" data-en="Real Client Transformations">ผลงานจริงจากลูกค้า</h2>
           <p data-th="เลื่อนดูทีละเคส เปรียบเทียบก่อนทำและหลังทำได้ชัดเจน" data-en="Browse one case at a time and compare the full before and after photos.">เลื่อนดูทีละเคส เปรียบเทียบก่อนทำและหลังทำได้ชัดเจน</p>
+          <div class="ba-view-toggle" role="group" aria-label="รูปแบบการดู Before After"><button class="active" id="baPairMode" type="button" data-th="วางคู่" data-en="Side by side">วางคู่</button><button id="baCompareMode" type="button" data-th="ลากเปรียบเทียบ" data-en="Drag to compare">ลากเปรียบเทียบ</button></div>
         </div>
 
         <div class="ba-pair-slider">
@@ -137,6 +123,14 @@
                   <img id="baAfterImage" src="after-v9-01.jpg" alt="After case 1">
                 </div>
               </figure>
+            </div>
+
+            <div class="ba-interactive" id="baInteractive" hidden>
+              <img id="baCompareAfter" src="after-v9-01.jpg" alt="After comparison case 1">
+              <div class="ba-compare-before" id="baCompareBeforeLayer"><img id="baCompareBefore" src="before-v9-01.jpg" alt="Before comparison case 1"></div>
+              <span class="ba-compare-tag before">BEFORE</span><span class="ba-compare-tag after">AFTER</span>
+              <div class="ba-drag-line" id="baDragLine"><span>↔</span></div>
+              <input id="baRange" type="range" min="0" max="100" value="50" aria-label="ลากเพื่อเปรียบเทียบภาพก่อนและหลัง">
             </div>
 
             <div class="ba-pair-copy">
@@ -185,13 +179,6 @@
       <div class="service-grid" id="serviceGrid"></div>
     </section>
 
-    <section class="care-guide section-dark" id="care-guide">
-      <div class="container care-grid">
-        <div><p class="eyebrow gold">HAIR SYSTEM CARE</p><h2 data-th="วิธีดูแลวิกผมชายให้ดูดีและใช้งานได้นาน" data-en="How to care for your men's hair system">วิธีดูแลวิกผมชายให้ดูดีและใช้งานได้นาน</h2><p data-th="การดูแลที่เหมาะสมช่วยรักษาทรง ลดการพันกัน และลดความเสียหายของเส้นผมกับฐานวิก" data-en="Proper care helps preserve the style, reduce tangling and protect both the hair and base.">การดูแลที่เหมาะสมช่วยรักษาทรง ลดการพันกัน และลดความเสียหายของเส้นผมกับฐานวิก</p></div>
-        <ol class="care-list" id="careList"></ol>
-      </div>
-    </section>
-
     <section class="booking section-dark" id="booking">
       <div class="container booking-grid">
         <div>
@@ -221,11 +208,6 @@
       </div>
     </section>
 
-    <section class="contact-details container" id="contact" aria-labelledby="contact-title">
-      <div class="section-title"><p class="eyebrow gold">CONTACT</p><h2 id="contact-title" data-th="ข้อมูลติดต่อ 1DD STUDIO" data-en="Contact 1DD STUDIO">ข้อมูลติดต่อ 1DD STUDIO</h2><p data-th="แนะนำให้จองคิวล่วงหน้า เพื่อให้ร้านมีเวลาปรึกษาและออกแบบงานเฉพาะสำหรับคุณ" data-en="Advance booking is recommended so we can reserve enough time for your consultation and personalized service.">แนะนำให้จองคิวล่วงหน้า เพื่อให้ร้านมีเวลาปรึกษาและออกแบบงานเฉพาะสำหรับคุณ</p></div>
-      <div class="contact-detail-grid" id="contactDetailGrid"></div>
-    </section>
-
     <section class="faq section-dark" id="faq">
       <div class="container">
         <div class="section-title center"><p class="eyebrow gold">FAQ</p><h2 data-th="คำถามที่ลูกค้าถามบ่อย" data-en="Frequently asked questions">คำถามที่ลูกค้าถามบ่อย</h2></div>
@@ -237,7 +219,7 @@
   <footer class="footer"><div class="container footer-grid"><div><strong>1DD STUDIO</strong><p>Men's Hair System & Barber Studio<br>Surat Thani, Thailand</p></div><div><a href="#products">สินค้า</a><a href="#before-after">Before/After</a><a href="#booking">จองคิว</a><a href="#location">แผนที่</a></div><div><a href="tel:0895490884">0895490884</a><a href="#top">กลับด้านบน ↑</a></div></div></footer>
 
   <div class="floating-actions" aria-label="ติดต่อด่วน"><a href="tel:0895490884" aria-label="โทรหาร้าน">☎</a><a id="floatingLine" href="#" target="_blank" rel="noopener" aria-label="เพิ่ม LINE">LINE</a><button id="chatOpen" type="button" aria-label="เปิดผู้ช่วยตอบคำถาม">💬</button></div>
-  <aside class="chat-panel" id="chatPanel" aria-hidden="true"><header><div><strong>1DD AI Assistant</strong><small>ตอบจากข้อมูลของ 1DD STUDIO</small></div><button id="chatClose" aria-label="ปิด">×</button></header><div class="chat-body" id="chatBody" aria-live="polite"><div class="bot-msg">สวัสดีครับ สนใจสอบถามเรื่องบริการ ราคา การจองคิว หรือวิธีดูแล Hair System ได้เลยครับ</div></div><div class="quick-questions" id="quickQuestions"></div><form id="chatForm"><input id="chatInput" maxlength="800" placeholder="พิมพ์คำถาม..." autocomplete="off"><button>ส่ง</button></form><p class="chat-disclaimer">AI ให้ข้อมูลเบื้องต้น การประเมินเฉพาะเคสกรุณาติดต่อช่าง</p></aside>
+  <aside class="chat-panel" id="chatPanel" aria-hidden="true"><header><div><strong>1DD Assistant</strong><small>ตอบคำถามเบื้องต้น</small></div><button id="chatClose" aria-label="ปิด">×</button></header><div class="chat-body" id="chatBody"><div class="bot-msg">สวัสดีครับ สนใจสอบถามเรื่องราคา รุ่นสินค้า การจองคิว หรือการดูแลได้เลยครับ</div></div><div class="quick-questions" id="quickQuestions"></div><form id="chatForm"><input id="chatInput" placeholder="พิมพ์คำถาม..." autocomplete="off"><button>ส่ง</button></form></aside>
   <div class="mobile-cta"><a href="tel:0895490884">โทร</a><a id="mobileLine" href="#" target="_blank" rel="noopener">LINE</a><a href="#booking">จองคิว</a></div>
 
   <script type="application/ld+json" id="schemaJson"></script>
